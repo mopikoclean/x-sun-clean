@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>x-sun clean — Професійне прибирання у Познані</title>
+<meta name="description" content="Клінінгова компанія у Познані. Фіксована ціна до початку роботи, власні засоби, оплата після прибирання. Квартири, будинки, офіси. Фактура VAT.">
+<link rel="icon" type="image/svg+xml" href="img/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/home.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+<div class="page">
+
+<!-- ================= НАВІГАЦІЯ ================= -->
+<nav class="nav">
+  <div class="nav-inner pad-x">
+    <a href="#top" class="brand">
+      <svg class="brand-logo" width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 18.5793V23.802H7.19635C8.76041 23.802 10.4448 23.7811 11.6872 24.7312C12.6091 25.4361 12.9053 26.3333 12.9053 26.3333H19.0947C20.5376 23.8536 23.8692 23.8341 26.7382 23.8341H32V18.6434H22.4198L29.2016 12.0429L25.4156 8.3581L18.6996 14.8945V5.66663H13.3333V14.8945L6.61728 8.3581L2.83128 12.0429L9.54733 18.5793H0Z" fill="#FFC300"></path></svg>
+      <span class="brand-name">x-sun clean</span>
+    </a>
+    <div class="nav-links">
+      <a href="#poslugy">Послуги</a>
+      <a href="#vhodyt">Що прибираємо</a>
+      <a href="#tsiny">Ціни</a>
+      <a href="#zona">Де працюємо</a>
+      <a href="#biznes">Для бізнесу</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <div class="lang-wrap">
+        <button type="button" id="langBtn" class="lang-btn magnet" aria-haspopup="true" aria-expanded="false">
+          UA <span class="caret" id="langCaret"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>
+        </button>
+        <div class="lang-menu" id="langMenu" hidden>
+          <button type="button" class="lang-item" data-lang-close>Українська <span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8A100" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span></button>
+          <div class="lang-item soon">Polski <span class="soon-tag">незабаром</span></div>
+          <div class="lang-item soon">English <span class="soon-tag">незабаром</span></div>
+        </div>
+      </div>
+      <a href="#" data-tel class="btn btn-secondary btn-sm magnet"></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header id="top" class="hero">
+  <div class="hero-glow" data-hero-glow></div>
+  <div class="hero-grid pad-x">
+    <div class="hero-copy">
+      <div class="hero-badge" data-reveal>
+        <span class="dot"></span>
+        <span class="co">Клінінгова компанія</span>
+        <span class="sep"></span>
+        <span class="city">Познань</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="mask"><span class="w" data-w>Професійне</span></span>
+        <span class="mask"><span class="w" data-w>прибирання</span></span><br>
+        <span class="mask"><span class="w accent" data-w>у&nbsp;Познані</span></span>
+      </h1>
+      <p class="hero-lead" data-reveal>
+        Фіксована ціна до початку роботи. Власні засоби та інвентар. Оплата після прибирання — карткою або готівкою. Фактура VAT для компаній.
+      </p>
+      <div class="hero-ctas" data-reveal>
+        <a href="zamovlennya.html" class="btn btn-secondary magnet js-calc-order">Розрахувати вартість</a>
+        <a href="#" data-tg target="_blank" rel="noopener" class="btn btn-ghost magnet"><svg width="17" height="17" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2.1381 8.6847C2.1381 8.6847 10.3483 5.31522 13.1958 4.12874C14.2873 3.65419 17.989 2.1355 17.989 2.1355C17.989 2.1355 19.6976 1.47112 19.5552 3.08466C19.5077 3.7491 19.128 6.0745 18.7484 8.58979C18.1789 12.1492 17.5619 16.0407 17.5619 16.0407C17.5619 16.0407 17.467 17.1322 16.6602 17.3221C15.8535 17.5119 14.5246 16.6577 14.2873 16.4678C14.0975 16.3255 10.728 14.1898 9.49408 13.1457C9.16186 12.861 8.78222 12.2916 9.5415 11.6271C11.25 10.061 13.2907 8.11524 14.5246 6.88134C15.0941 6.31181 15.6636 4.983 13.2907 6.59654C9.92121 8.92201 6.59915 11.1051 6.59915 11.1051C6.59915 11.1051 5.8398 11.5796 4.41608 11.1525C2.9923 10.7254 1.33127 10.1559 1.33127 10.1559C1.33127 10.1559 0.192342 9.44405 2.1381 8.6847V8.6847Z"></path></svg>Telegram</a>
+      </div>
+    </div>
+    <div class="calc-card" data-hero-calc>
+      <div class="calc-title">Вартість прибирання</div>
+      <div class="calc-rows">
+        <div class="calc-row">
+          <span class="label">Кімнати</span>
+          <div class="controls">
+            <button type="button" class="step-btn" data-step="rooms" data-dir="-1" aria-label="Менше кімнат">−</button>
+            <span class="counter-value" id="roomsVal">2</span>
+            <button type="button" class="step-btn" data-step="rooms" data-dir="1" aria-label="Більше кімнат">+</button>
+          </div>
+        </div>
+        <div class="calc-row">
+          <span class="label">Санвузли</span>
+          <div class="controls">
+            <button type="button" class="step-btn" data-step="baths" data-dir="-1" aria-label="Менше санвузлів">−</button>
+            <span class="counter-value" id="bathsVal">1</span>
+            <button type="button" class="step-btn" data-step="baths" data-dir="1" aria-label="Більше санвузлів">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="calc-total">
+        <span class="label">Разове прибирання</span>
+        <span class="calc-price" data-price-el><span id="calcPrice">230</span> <span class="zl">zł</span></span>
+      </div>
+      <a href="zamovlennya.html" class="btn btn-primary btn-block magnet js-calc-order">Замовити прибирання</a>
+      <div class="calc-note">Кухня та коридор включені у вартість</div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ПЕРЕВАГИ ================= -->
+<section class="trust">
+  <div class="trust-grid pad-x">
+    <div class="trust-item" data-reveal>
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 5h12a2 2 0 0 1 2 2v12L20 33 7 20 20 5z"></path><circle cx="27" cy="12" r="2" stroke="#E8A100"></circle></svg>
+      <span class="t">Фіксована ціна</span>
+      <span class="d">Погоджуємо до початку — без доплат «на місці»</span>
+    </div>
+    <div class="trust-item" data-reveal>
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 17h10v14a2.5 2.5 0 0 1-2.5 2.5h-5A2.5 2.5 0 0 1 15 31V17z"></path><path d="M17 17v-5h7l4-4"></path><path d="M30 13h.1M33 9h.1M33 17h.1" stroke="#E8A100" stroke-width="3"></path></svg>
+      <span class="t">Власні засоби</span>
+      <span class="d">Приїжджаємо з усім інвентарем та хімією</span>
+    </div>
+    <div class="trust-item" data-reveal>
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="30" height="20" rx="3"></rect><path d="M5 17h30"></path><path d="M11 25h7" stroke="#E8A100"></path></svg>
+      <span class="t">Оплата після</span>
+      <span class="d">Карткою або готівкою — коли робота прийнята</span>
+    </div>
+    <div class="trust-item" data-reveal>
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5h12l7 7v22H11V5z"></path><path d="M23 5v7h7"></path><path d="M16 20h9M16 26h9" stroke="#E8A100"></path></svg>
+      <span class="t">Фактура VAT</span>
+      <span class="d">Для компаній та офісів — усі документи</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ПОСЛУГИ ================= -->
+<section id="poslugy" class="svc-section">
+  <div class="svc-pin">
+    <div class="svc-head pad-x">
+      <h2 class="section-title">Що ми прибираємо</h2>
+    </div>
+    <div class="svc-track">
+      <div class="svc-card">
+        <div class="head">
+          <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 20h10l2.5 7v13H16.5V27L19 20z"></path><path d="M21.5 20v-7h5"></path><path d="M26.5 10h7"></path><path d="M38 6v.1M42 12v.1M37 17v.1" stroke="#E8A100" stroke-width="3"></path></svg>
+          <span class="num">01</span>
+        </div>
+        <h3>Звичайне прибирання</h3>
+        <p>Підтримка чистоти — разово або регулярно, 1–2 рази на тиждень. Пил, підлога, кухня, санвузол, дзеркала, винесення сміття.</p>
+        <div class="foot">
+          <span class="l">1-кімнатна</span>
+          <span class="p">від 185 zł</span>
+        </div>
+      </div>
+      <div class="svc-card dark">
+        <div class="head">
+          <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#FFC53D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8l2.8 8.2L33 19l-8.2 2.8L22 30l-2.8-8.2L11 19l8.2-2.8L22 8z"></path><path d="M36 26l1.6 4.4L42 32l-4.4 1.6L36 38l-1.6-4.4L30 32l4.4-1.6L36 26z"></path></svg>
+          <span class="num">02</span>
+        </div>
+        <h3>Генеральне прибирання</h3>
+        <p>Глибоке прибирання всієї квартири: фасади меблів, плитка, сантехніка, плінтуси, важкодоступні місця.</p>
+        <div class="foot">
+          <span class="l">розрахунок</span>
+          <span class="p">індивідуально</span>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="head">
+          <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="9" width="24" height="9" rx="2"></rect><path d="M32 13.5h8v8H22v5"></path><rect x="19" y="26.5" width="6" height="13" rx="1.5" stroke="#E8A100"></rect></svg>
+          <span class="num">03</span>
+        </div>
+        <h3>Після ремонту</h3>
+        <p>Будівельний пил, залишки фарби, плівки та наліпки, миття вікон після робіт. Повертаємо квартирі житловий вигляд.</p>
+        <div class="foot">
+          <span class="l">за площею</span>
+          <span class="p">від 6 zł/м²</span>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="head">
+          <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="7" width="30" height="34" rx="2.5"></rect><path d="M24 7v34M9 24h30"></path><path d="M14 19l6-6M15 28l9-9" stroke="#E8A100"></path></svg>
+          <span class="num">04</span>
+        </div>
+        <h3>Миття вікон</h3>
+        <p>Скло, рами, підвіконня — зсередини та ззовні, де це безпечно. Окремо або разом із прибиранням.</p>
+        <div class="foot">
+          <span class="l">за вікно</span>
+          <span class="p">від 40 zł</span>
+        </div>
+      </div>
+      <div class="svc-card warm">
+        <div class="head">
+          <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 40V10a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v30"></path><path d="M29 18h7a2 2 0 0 1 2 2v20"></path><path d="M7 40h34"></path><path d="M16 14h3M21 14h3M16 20h3M21 20h3M16 26h3M21 26h3" stroke="#E8A100"></path><path d="M33 24h.1M33 30h.1"></path></svg>
+          <span class="num">05</span>
+        </div>
+        <h3>Офіси та салони</h3>
+        <p>Регулярне обслуговування офісів, салонів і кабінетів. Графік під ваш бізнес, фактура VAT, договір.</p>
+        <div class="foot">
+          <span class="l">за площею</span>
+          <span class="p">від 2 zł/м²</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ЩО ВХОДИТЬ ================= -->
+<section id="vhodyt" class="what-section">
+  <div class="container pad-x">
+    <h2 class="section-title" data-reveal style="margin-bottom:30px">Що входить у прибирання</h2>
+    <div class="what-tabs type-toggle" id="whatTabs" data-reveal></div>
+    <div class="what-grid">
+      <div class="what-stage" id="whatStage"></div>
+      <aside class="what-side" data-reveal>
+        <span class="what-side-title">У базовій ціні</span>
+        <ul class="what-list" id="whatList"></ul>
+        <a href="zamovlennya.html" class="btn btn-primary btn-block magnet">Замовити прибирання <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ЦІНИ ================= -->
+<section id="tsiny" class="prices">
+  <div class="container pad-x">
+    <div class="prices-head" data-reveal>
+      <h2 class="section-title">Що частіше — то дешевше</h2>
+    </div>
+    <div class="pills" data-reveal id="pills">
+      <button type="button" class="pill" data-period="once">Разове</button>
+      <button type="button" class="pill" data-period="week">Раз на тиждень <span class="disc">−20%</span></button>
+      <button type="button" class="pill" data-period="two">Раз на два тижні <span class="disc">−15%</span></button>
+      <button type="button" class="pill" data-period="month">Раз на місяць <span class="disc">−10%</span> <span class="pop">популярно</span></button>
+    </div>
+    <div class="price-grid">
+      <div class="price-card" data-reveal>
+        <span class="name">Однокімнатна</span>
+        <span class="val"><span data-p="184.90">185</span> <span class="zl">zł</span></span>
+        <span class="desc">1 кімната, кухня, коридор та один санвузол — <span data-period-label>разове прибирання</span></span>
+        <a href="zamovlennya.html?rooms=1" class="btn btn-ghost btn-block magnet">Замовити</a>
+      </div>
+      <div class="price-card dark" data-reveal>
+        <span class="name">Двокімнатна</span>
+        <span class="val"><span data-p="229.90">230</span> <span class="zl">zł</span></span>
+        <span class="desc">2 кімнати, кухня, коридор та один санвузол — <span data-period-label>разове прибирання</span></span>
+        <a href="zamovlennya.html?rooms=2" class="btn btn-primary btn-block magnet">Замовити</a>
+      </div>
+      <div class="price-card" data-reveal>
+        <span class="name">Трикімнатна</span>
+        <span class="val"><span data-p="274.90">275</span> <span class="zl">zł</span></span>
+        <span class="desc">3 кімнати, кухня, коридор та один санвузол — <span data-period-label>разове прибирання</span></span>
+        <a href="zamovlennya.html?rooms=3" class="btn btn-ghost btn-block magnet">Замовити</a>
+      </div>
+    </div>
+    <div class="extras-row" data-reveal>
+      <span class="lead">Можна додати до прибирання:</span>
+      <span class="chip static">Духовка · 40 zł</span>
+      <span class="chip static">Холодильник · 40 zł</span>
+      <span class="chip static">Мікрохвильовка · 18 zł</span>
+      <span class="chip static">Балкон · 30 zł</span>
+      <span class="chip static">Прасування · 45 zł</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ДО / ПІСЛЯ ================= -->
+<section class="ba-section">
+  <div class="container pad-x">
+    <h2 class="section-title" data-reveal style="margin-bottom:34px">До та після</h2>
+    <div class="ba-wrap" data-reveal>
+      <div class="ba-layer">
+        <img id="baAfterImg" src="img/ba-after.webp" alt="Після прибирання">
+        <span class="ba-tag after">Після</span>
+      </div>
+      <div class="ba-layer" id="baBefore" style="clip-path:inset(0 50% 0 0)">
+        <img id="baBeforeImg" src="img/ba-before.webp" alt="До прибирання">
+        <span class="ba-tag before">До</span>
+      </div>
+      <div class="ba-divider" id="baDivider" style="left:50%">
+        <span class="handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4"></path><path d="M16 8l4 4-4 4"></path></svg></span>
+      </div>
+      <input type="range" min="5" max="95" value="50" id="baRange" class="ba-range" aria-label="Порівняння до і після">
+      <button type="button" class="ba-nav prev" id="baPrev" aria-label="Попередній приклад"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></button>
+      <button type="button" class="ba-nav next" id="baNext" aria-label="Наступний приклад"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+    </div>
+    <div class="ba-foot" data-reveal>
+      <div class="ba-dots" id="baDots"></div>
+      <p class="ba-hint">Потягніть повзунок, щоб порівняти. Стрілками — інші приклади.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ЯК ЦЕ ПРАЦЮЄ ================= -->
+<section class="steps-section">
+  <div class="container pad-x">
+    <h2 class="section-title" data-reveal>Як це працює</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-head">
+          <span class="step-num">01</span>
+          <span class="step-line"><span class="fill" data-line></span><span class="spark" data-spark></span></span>
+        </div>
+        <div class="step-body">
+          <span class="t">Заявка</span>
+          <p>Телефонуйте або напишіть у Telegram. Скажіть кількість кімнат і санвузлів — цього достатньо.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-head">
+          <span class="step-num">02</span>
+          <span class="step-line"><span class="fill" data-line></span><span class="spark" data-spark></span></span>
+        </div>
+        <div class="step-body">
+          <span class="t">Підтвердження</span>
+          <p>Узгоджуємо дату та час, фіксуємо ціну. Жодних передоплат і прихованих доплат.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-head">
+          <span class="step-num dark">03</span>
+        </div>
+        <div class="step-body">
+          <span class="t">Прибирання</span>
+          <p>Приїжджаємо зі своїм інвентарем. Ви приймаєте роботу — і тільки тоді оплачуєте.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ЗОНА ОБСЛУГОВУВАННЯ ================= -->
+<section id="zona" class="zone-section">
+  <div class="container pad-x">
+    <h2 class="section-title" data-reveal>Уся Познань</h2>
+    <p class="zone-lead" data-reveal>Працюємо в усіх районах міста. Найближчі околиці — за домовленістю.</p>
+    <div class="zone-grid">
+      <div class="zone-map" data-reveal>
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=16.72%2C52.32%2C17.14%2C52.50&amp;layer=mapnik" loading="lazy" title="Карта Познані" scrolling="no"></iframe>
+        <div class="circle"></div>
+        <span class="tag">Зона покриття — Познань</span>
+      </div>
+      <div class="zone-chips" data-reveal>
+        <span class="zone-chip lead-chip">Stare Miasto</span>
+        <span class="zone-chip">Jeżyce</span>
+        <span class="zone-chip">Wilda</span>
+        <span class="zone-chip">Grunwald</span>
+        <span class="zone-chip">Łazarz</span>
+        <span class="zone-chip">Rataje</span>
+        <span class="zone-chip">Winogrady</span>
+        <span class="zone-chip">Piątkowo</span>
+        <span class="zone-chip">Naramowice</span>
+        <span class="zone-chip">Górczyn</span>
+        <span class="zone-chip">Dębiec</span>
+        <span class="zone-chip">Sołacz</span>
+        <span class="zone-chip ask">околиці — запитуйте</span>
+        <a href="zamovlennya.html" class="btn btn-primary magnet zone-cta">Замовити прибирання у Познані <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ДЛЯ БІЗНЕСУ ================= -->
+<section id="biznes" class="biz">
+  <div class="biz-grid pad-x">
+    <div class="biz-copy">
+      <h2 class="biz-title" data-reveal>Офіси, салони, кабінети — під ваш графік</h2>
+      <p class="biz-text" data-reveal>Прибираємо до відкриття або після закриття, щоб не заважати роботі. Постійний виконавець, договір, фактура VAT, безготівковий розрахунок.</p>
+      <div class="biz-ctas" data-reveal>
+        <a href="#" data-tg target="_blank" rel="noopener" class="btn btn-primary magnet">Обговорити умови</a>
+        <a href="#" data-tel class="btn btn-ghost-inv magnet"></a>
+      </div>
+    </div>
+    <div class="biz-rows" data-reveal>
+      <div class="biz-row">
+        <span class="l">Регулярне обслуговування</span>
+        <span class="v">від 2 zł/м²</span>
+      </div>
+      <div class="biz-row">
+        <span class="l">Графік — ранок / вечір / вихідні</span>
+        <span class="v">під вас</span>
+      </div>
+      <div class="biz-row">
+        <span class="l">Договір і фактура VAT</span>
+        <span class="v">так</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ВІДГУКИ ================= -->
+<section id="vidguky" class="reviews-section">
+  <div class="container pad-x">
+    <div class="reviews-head" data-reveal>
+      <h2 class="section-title">Нам довіряють у Познані</h2>
+      <div class="reviews-nav">
+        <button type="button" class="rev-arrow" id="revPrev" aria-label="Попередні відгуки"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></button>
+        <button type="button" class="rev-arrow" id="revNext" aria-label="Наступні відгуки"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+      </div>
+    </div>
+    <div class="reviews-track" id="reviewsTrack">
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg></div>
+        <p class="review-text">Замовляла прибирання перед поверненням орендованої квартири. Приїхали вчасно, попрацювали ретельно — усе сяяло. Орендодавець прийняв без жодних зауважень.</p>
+        <div class="review-author"><span class="n">Олена Ч.</span><span class="a">Jeżyce</span></div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg></div>
+        <p class="review-text">Беремо прибирання раз на два тижні вже пів року. Приїжджає та сама пані, знає, де що лежить. Дуже зручно, що оплата після — карткою.</p>
+        <div class="review-author"><span class="n">Марта і Пйотр</span><span class="a">Rataje</span></div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg></div>
+        <p class="review-text">Після ремонту квартира була в будівельному пилу. За день повернули їй житловий вигляд: вікна, плівки, наліпки — все прибрали. Ціну зафіксували наперед.</p>
+        <div class="review-author"><span class="n">Дмитро В.</span><span class="a">Winogrady</span></div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg></div>
+        <p class="review-text">Обслуговують наш салон краси двічі на тиждень до відкриття. Жодного разу не спізнилися, фактура VAT приходить без нагадувань.</p>
+        <div class="review-author"><span class="n">Соломія К.</span><span class="a">Stare Miasto</span></div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFC53D"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7L12 2z"></path></svg></div>
+        <p class="review-text">Замовив миття вікон і прасування додатково до звичайного прибирання. Написав у Telegram о 21:00 — наступного дня о 10:00 вже приїхали.</p>
+        <div class="review-author"><span class="n">Ігор Т.</span><span class="a">Grunwald</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" class="faq-section">
+  <div class="container pad-x">
+    <h2 class="section-title" data-reveal>Часті запитання</h2>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+<!-- ================= КОНТАКТИ / ФУТЕР ================= -->
+<footer id="kontakty" class="footer">
+  <div class="foot-cta pad-x">
+    <h2 class="foot-title" data-reveal>Готові до <span class="q">чистоти?</span></h2>
+    <p class="foot-text" data-reveal>Напишіть або зателефонуйте — узгодимо час і зафіксуємо ціну за пару хвилин.</p>
+    <div class="foot-btns" data-reveal>
+      <a href="#" data-tel class="btn btn-primary btn-lg magnet"><svg width="15" height="19" viewBox="0 0 18.9375 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.3589 15.8823V18.2495C17.3598 18.4692 17.3148 18.6868 17.2268 18.888C17.1388 19.0894 17.0096 19.2702 16.8477 19.4188C16.6858 19.5673 16.4946 19.6804 16.2864 19.7508C16.0783 19.8212 15.8576 19.8474 15.6387 19.8276C13.2107 19.5637 10.8783 18.734 8.82914 17.4052C6.92266 16.1937 5.30627 14.5773 4.0948 12.6708C2.76126 10.6123 1.93138 8.26859 1.67237 5.82961C1.65266 5.6114 1.67859 5.39149 1.74852 5.18386C1.81845 4.97623 1.93085 4.78544 2.07856 4.62362C2.22627 4.46181 2.40605 4.33253 2.60646 4.244C2.80687 4.15548 3.02352 4.10966 3.24261 4.10945H5.6098C5.99273 4.10568 6.36398 4.24129 6.65433 4.49099C6.94468 4.74069 7.13432 5.08745 7.18792 5.46664C7.28784 6.22419 7.47312 6.96801 7.74027 7.68391C7.84643 7.96633 7.86941 8.27327 7.80647 8.56835C7.74354 8.86343 7.59734 9.13429 7.38518 9.34883L6.38308 10.3509C7.50635 12.3264 9.142 13.962 11.1174 15.0853L12.1195 14.0832C12.3341 13.871 12.605 13.7248 12.9001 13.6619C13.1951 13.599 13.502 13.622 13.7844 13.7281C14.5004 13.9952 15.2442 14.1806 16.0017 14.2805C16.385 14.3345 16.7351 14.5276 16.9854 14.8229C17.2356 15.1183 17.3685 15.4953 17.3589 15.8823Z"></path></svg>Зателефонувати</a>
+      <a href="zamovlennya.html" class="btn btn-ghost-inv btn-lg magnet">Розрахувати ціну</a>
+    </div>
+  </div>
+  <div class="foot-grid pad-x">
+    <div class="foot-brand">
+      <svg class="brand-logo" width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 18.5793V23.802H7.19635C8.76041 23.802 10.4448 23.7811 11.6872 24.7312C12.6091 25.4361 12.9053 26.3333 12.9053 26.3333H19.0947C20.5376 23.8536 23.8692 23.8341 26.7382 23.8341H32V18.6434H22.4198L29.2016 12.0429L25.4156 8.3581L18.6996 14.8945V5.66663H13.3333V14.8945L6.61728 8.3581L2.83128 12.0429L9.54733 18.5793H0Z" fill="#FFC300"></path></svg>
+      <span class="name">x-sun clean</span>
+      <span class="loc">· Poznań, Polska</span>
+    </div>
+    <a href="#" data-email class="foot-email"></a>
+    <span class="foot-lang"><span class="cur">UA</span> · PL · EN — незабаром</span>
+    <span class="foot-copy">© 2026 X-sun Clean</span>
+  </div>
+</footer>
+
+<!-- ================= ПЛАВАЮЧА КНОПКА ================= -->
+<div class="fab" id="fab">
+  <div id="fabItems" hidden>
+    <div class="fab-actions">
+      <a href="#" data-tel-fab class="fab-item tel magnet">
+        <svg width="14" height="18" viewBox="0 0 18.9375 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.3589 15.8823V18.2495C17.3598 18.4692 17.3148 18.6868 17.2268 18.888C17.1388 19.0894 17.0096 19.2702 16.8477 19.4188C16.6858 19.5673 16.4946 19.6804 16.2864 19.7508C16.0783 19.8212 15.8576 19.8474 15.6387 19.8276C13.2107 19.5637 10.8783 18.734 8.82914 17.4052C6.92266 16.1937 5.30627 14.5773 4.0948 12.6708C2.76126 10.6123 1.93138 8.26859 1.67237 5.82961C1.65266 5.6114 1.67859 5.39149 1.74852 5.18386C1.81845 4.97623 1.93085 4.78544 2.07856 4.62362C2.22627 4.46181 2.40605 4.33253 2.60646 4.244C2.80687 4.15548 3.02352 4.10966 3.24261 4.10945H5.6098C5.99273 4.10568 6.36398 4.24129 6.65433 4.49099C6.94468 4.74069 7.13432 5.08745 7.18792 5.46664C7.28784 6.22419 7.47312 6.96801 7.74027 7.68391C7.84643 7.96633 7.86941 8.27327 7.80647 8.56835C7.74354 8.86343 7.59734 9.13429 7.38518 9.34883L6.38308 10.3509C7.50635 12.3264 9.142 13.962 11.1174 15.0853L12.1195 14.0832C12.3341 13.871 12.605 13.7248 12.9001 13.6619C13.1951 13.599 13.502 13.622 13.7844 13.7281C14.5004 13.9952 15.2442 14.1806 16.0017 14.2805C16.385 14.3345 16.7351 14.5276 16.9854 14.8229C17.2356 15.1183 17.3685 15.4953 17.3589 15.8823Z"></path></svg>
+        Зателефонувати
+      </a>
+      <a href="#" data-tg target="_blank" rel="noopener" class="fab-item tg magnet">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2.1381 8.6847C2.1381 8.6847 10.3483 5.31522 13.1958 4.12874C14.2873 3.65419 17.989 2.1355 17.989 2.1355C17.989 2.1355 19.6976 1.47112 19.5552 3.08466C19.5077 3.7491 19.128 6.0745 18.7484 8.58979C18.1789 12.1492 17.5619 16.0407 17.5619 16.0407C17.5619 16.0407 17.467 17.1322 16.6602 17.3221C15.8535 17.5119 14.5246 16.6577 14.2873 16.4678C14.0975 16.3255 10.728 14.1898 9.49408 13.1457C9.16186 12.861 8.78222 12.2916 9.5415 11.6271C11.25 10.061 13.2907 8.11524 14.5246 6.88134C15.0941 6.31181 15.6636 4.983 13.2907 6.59654C9.92121 8.92201 6.59915 11.1051 6.59915 11.1051C6.59915 11.1051 5.8398 11.5796 4.41608 11.1525C2.9923 10.7254 1.33127 10.1559 1.33127 10.1559C1.33127 10.1559 0.192342 9.44405 2.1381 8.6847V8.6847Z"></path></svg>
+        Написати в Telegram
+      </a>
+    </div>
+  </div>
+  <button type="button" class="fab-main magnet" id="fabBtn" aria-label="Зв'язатися з нами">
+    <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+    <svg class="icon-chat" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+  </button>
+</div>
+
+</div>
+
+<!-- ================= COOKIE (GDPR) ================= -->
+<div class="cookie-overlay" id="cookieOverlay" hidden></div>
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Згода на файли cookie" hidden>
+  <div class="cookie-text">
+    <strong>Ми поважаємо вашу приватність</strong>
+    <p>Ми використовуємо файли cookie для коректної роботи сайту. Аналітичні cookie вмикаються лише після вашої згоди. Докладніше — у <a href="privacy.html" target="_blank" rel="noopener">Політиці конфіденційності</a>.</p>
+  </div>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-primary magnet" id="cookieAccept">Прийняти</button>
+    <button type="button" class="btn btn-ghost magnet" id="cookieReject">Відхилити</button>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/what.js"></script>
+<script src="js/home.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/cookie.js"></script>
+</body>
+</html>

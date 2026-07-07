@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дизайн-система — x-sun clean</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="img/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* локальні стилі гайда — усе решта тягнеться з дизайн-системи */
+.ds { max-width: 1080px; margin: 0 auto; padding: 56px 32px 100px; }
+.ds-hero { margin-bottom: 8px; }
+.ds-hero h1 { margin: 0; font: 800 clamp(34px,5vw,54px)/1.05 var(--font-display); letter-spacing: -2px; }
+.ds-hero p { margin: 14px 0 0; font: 400 17px/1.6 var(--font-body); color: var(--muted); max-width: 620px; }
+
+.ds-section { margin-top: 64px; }
+.ds-section > h2 {
+  margin: 0 0 6px;
+  font: 700 26px var(--font-display); letter-spacing: -1px;
+}
+.ds-section > .ds-sub { margin: 0 0 24px; font: 400 15px/1.55 var(--font-body); color: var(--muted-light); }
+
+.ds-block { margin-top: 28px; }
+.ds-block h3 {
+  margin: 0 0 14px; font: 600 12px var(--font-body);
+  letter-spacing: 2px; text-transform: uppercase; color: var(--gold-text);
+}
+
+/* сітка зразків */
+.ds-grid { display: grid; gap: 16px; }
+.ds-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+/* кольори */
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 14px; }
+.swatch { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+.swatch .chip { height: 68px; border-bottom: 1px solid var(--border); }
+.swatch .meta { padding: 10px 12px; }
+.swatch .nm { display: block; font: 600 13px var(--font-body); }
+.swatch .vr { display: block; font: 500 11.5px var(--font-body); color: var(--muted-light); margin-top: 2px; }
+
+/* типографіка */
+.type-row { display: flex; align-items: baseline; gap: 18px; padding: 12px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+.type-row .tag { flex: none; width: 130px; font: 500 12px var(--font-body); color: var(--muted-light); }
+
+/* картки токенів (радіуси/тіні) */
+.token-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 16px; }
+.token-card { text-align: center; }
+.token-card .demo { height: 90px; background: var(--surface); border: 1px solid var(--border); display: grid; place-items: center; }
+.token-card .demo.sh { border: none; background: var(--surface); margin: 10px; height: 70px; }
+.token-card .lbl { font: 600 13px var(--font-body); margin-top: 10px; }
+.token-card .lbl span { display: block; font: 500 11.5px var(--font-body); color: var(--muted-light); }
+
+/* панель-приклад на темному фоні */
+.ds-dark { background: var(--ink); border-radius: var(--radius-xl); padding: 28px; }
+.ds-dark h3 { color: var(--accent); }
+
+.ds-note {
+  margin-top: 10px; font: 400 13px/1.6 var(--font-body); color: var(--muted-light);
+}
+.ds-card-demo {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-xl); padding: 24px; max-width: 320px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.ds-card-demo .h { font: 700 18px var(--font-display); letter-spacing: -.5px; }
+.ds-card-demo .p { margin: 0; font: 400 14.5px/1.55 var(--font-body); color: var(--muted); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner pad-x">
+    <a href="index.html" class="brand">
+      <svg class="brand-logo" width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 18.5793V23.802H7.19635C8.76041 23.802 10.4448 23.7811 11.6872 24.7312C12.6091 25.4361 12.9053 26.3333 12.9053 26.3333H19.0947C20.5376 23.8536 23.8692 23.8341 26.7382 23.8341H32V18.6434H22.4198L29.2016 12.0429L25.4156 8.3581L18.6996 14.8945V5.66663H13.3333V14.8945L6.61728 8.3581L2.83128 12.0429L9.54733 18.5793H0Z" fill="#FFC300"></path></svg>
+      <span class="brand-name">x-sun clean</span>
+    </a>
+    <div class="nav-actions">
+      <a href="index.html" class="btn btn-ghost btn-sm magnet">На головну</a>
+    </div>
+  </div>
+</nav>
+
+<main class="ds">
+  <header class="ds-hero">
+    <h1>Дизайн-система</h1>
+    <p>Єдине джерело істини для сайту x-sun clean. Усі кольори, шрифти, радіуси, тіні та компоненти визначені токенами у <code>css/styles.css</code> (<code>:root</code>) і використовуються скрізь. Ця сторінка — живий гайд: усе на ній намальовано тими самими класами, що й реальний сайт.</p>
+  </header>
+
+  <!-- КОЛЬОРИ -->
+  <section class="ds-section">
+    <h2>Кольори</h2>
+    <p class="ds-sub">Тепла нейтральна база + один жовтий бренд-акцент. Насиченість акценту стримана, щоб не «кричати».</p>
+
+    <div class="ds-block">
+      <h3>Поверхні й текст</h3>
+      <div class="swatches">
+        <div class="swatch"><div class="chip" style="background:var(--bg)"></div><div class="meta"><span class="nm">Фон</span><span class="vr">--bg · #FCFBF8</span></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--surface)"></div><div class="meta"><span class="nm">Поверхня</span><span class="vr">--surface · #fff</span></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--surface-warm)"></div><div class="meta"><span class="nm">Тепла</span><span class="vr">--surface-warm</span></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--ink)"></div><div class="meta"><span class="nm">Чорнило</span><span class="vr">--ink · #141414</span></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--muted)"></div><div class="meta"><span class="nm">Другорядний</span><span class="vr">--muted</span></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--muted-light)"></div><div class="meta"><span class="nm">Підписи</span><span class="vr">--muted-light</span></div></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3>Бренд</h3>
+      <div class="swatches">
+        <div class="swatch"><div class="chip" style="background:var(--accent)"></div><div class="meta"><span class="nm">Акцент</span><span class="vr">--accent · #FFC53D</span></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--accent-dark)"></div><div class="meta"><span class="nm">Насичений</span><span class="vr">--accent-dark</span></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--gold-text)"></div><div class="meta"><span class="nm">Золотий текст</span><span class="vr">--gold-text</span></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--badge-bg)"></div><div class="meta"><span class="nm">Фон бейджа</span><span class="vr">--badge-bg</span></div></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3>Межі та статуси</h3>
+      <div class="swatches">
+        <div class="swatch"><div class="chip" style="background:var(--border)"></div><div class="meta"><span class="nm">Межа</span><span class="vr">--border</span></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--border-strong)"></div><div class="meta"><span class="nm">Межа+</span><span class="vr">--border-strong</span></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--danger)"></div><div class="meta"><span class="nm">Помилка</span><span class="vr">--danger</span></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--danger-soft)"></div><div class="meta"><span class="nm">Фон помилки</span><span class="vr">--danger-soft</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ТИПОГРАФІКА -->
+  <section class="ds-section">
+    <h2>Типографіка</h2>
+    <p class="ds-sub">Заголовки — <b>Unbounded</b> (<code>--font-display</code>), текст — <b>Golos Text</b> (<code>--font-body</code>).</p>
+
+    <div class="ds-block">
+      <h3>Заголовки · Unbounded</h3>
+      <div class="type-row"><span class="tag">Display / 54</span><span style="font:800 54px/1 var(--font-display);letter-spacing:-2px">Готові до чистоти</span></div>
+      <div class="type-row"><span class="tag">H1 / 46</span><span style="font:700 46px/1 var(--font-display);letter-spacing:-1.5px">Зберіть прибирання</span></div>
+      <div class="type-row"><span class="tag">H2 / 26</span><span style="font:700 26px var(--font-display);letter-spacing:-1px">Що частіше — дешевше</span></div>
+      <div class="type-row"><span class="tag">Card / 18</span><span style="font:700 18px var(--font-display);letter-spacing:-.5px">Ваше замовлення</span></div>
+    </div>
+
+    <div class="ds-block">
+      <h3>Текст · Golos Text</h3>
+      <div class="type-row"><span class="tag">Lead / 18</span><span style="font:400 18px var(--font-body)">Фіксована ціна до початку роботи.</span></div>
+      <div class="type-row"><span class="tag">Body / 15</span><span style="font:400 15px var(--font-body)">Оберіть параметри — вартість порахується одразу.</span></div>
+      <div class="type-row"><span class="tag">Small / 13</span><span style="font:500 13px var(--font-body);color:var(--muted)">Кухня та коридор включені у вартість</span></div>
+      <div class="type-row"><span class="tag">Eyebrow / 12</span><span style="font:600 12px var(--font-body);letter-spacing:2px;text-transform:uppercase;color:var(--gold-text)">Послуги</span></div>
+    </div>
+  </section>
+
+  <!-- КНОПКИ -->
+  <section class="ds-section">
+    <h2>Кнопки</h2>
+    <p class="ds-sub">Ієрархія: <b>primary</b> (головна дія) → <b>secondary</b> → <b>ghost</b>. Три розміри, магнітний ефект і «втискання» при натисканні.</p>
+
+    <div class="ds-block">
+      <h3>Ієрархія (базовий розмір)</h3>
+      <div class="ds-row">
+        <button class="btn btn-primary magnet">Замовити прибирання</button>
+        <button class="btn btn-secondary magnet">Розрахувати вартість</button>
+        <button class="btn btn-ghost magnet">Telegram</button>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3>Розміри</h3>
+      <div class="ds-row">
+        <button class="btn btn-primary btn-sm magnet">Small</button>
+        <button class="btn btn-primary magnet">Base</button>
+        <button class="btn btn-primary btn-lg magnet">Large</button>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3>Стани</h3>
+      <div class="ds-row">
+        <button class="btn btn-primary magnet">Звичайна</button>
+        <button class="btn btn-primary disabled">Неактивна</button>
+        <button class="btn btn-secondary btn-block magnet" style="max-width:320px">На всю ширину · btn-block</button>
+      </div>
+      <p class="ds-note">На темному фоні використовуйте <code>.btn-ghost-inv</code>:</p>
+      <div class="ds-dark" style="margin-top:8px">
+        <div class="ds-row">
+          <button class="btn btn-primary magnet">Головна</button>
+          <button class="btn btn-ghost-inv magnet">Другорядна</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФОРМИ -->
+  <section class="ds-section">
+    <h2>Елементи форм</h2>
+    <p class="ds-sub">Лейбл над полем, помилка знизу. Однакові радіуси, фокус — жовта обводка.</p>
+    <div class="ds-block">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:640px">
+        <label class="field">Текстове поле
+          <input type="text" placeholder="Як до вас звертатися">
+        </label>
+        <label class="field">Поле з помилкою
+          <input type="text" class="invalid" placeholder="Вкажіть значення">
+          <span class="field-err" style="display:block">Обов'язкове поле</span>
+        </label>
+        <label class="field">Селект
+          <select><option>Будь-який час</option><option>Ранок</option></select>
+        </label>
+        <label class="field">Лічильник
+          <span class="mini-counter" style="margin-top:8px">
+            <button type="button">−</button><span data-wval>2</span><button type="button">+</button>
+          </span>
+        </label>
+      </div>
+      <label class="consent" style="margin-top:16px;max-width:520px">
+        <input type="checkbox" checked>
+        <span>Чекбокс згоди — квадратний, жовтий у стані «обрано».</span>
+      </label>
+    </div>
+  </section>
+
+  <!-- ЧИПИ, БЕЙДЖІ -->
+  <section class="ds-section">
+    <h2>Чипи, пілюлі, бейджі</h2>
+    <div class="ds-block">
+      <h3>Пілюлі (перемикач)</h3>
+      <div class="pills" style="margin:0">
+        <button class="pill active">Разове</button>
+        <button class="pill">Раз на місяць <span class="disc">−10%</span> <span class="pop">популярно</span></button>
+        <button class="pill">Раз на тиждень <span class="disc">−20%</span></button>
+      </div>
+    </div>
+    <div class="ds-block">
+      <h3>Сегменти (вибір)</h3>
+      <div class="type-toggle">
+        <button class="seg active">Квартира</button>
+        <button class="seg">Приватний будинок <span class="mult">+20%</span></button>
+      </div>
+    </div>
+    <div class="ds-block">
+      <h3>Інформативні чипи</h3>
+      <div class="ds-row">
+        <span class="chip static">Духовка · 40 zł</span>
+        <span class="chip static">Балкон · 30 zł</span>
+        <span class="chip static">Прасування · 45 zł</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- РАДІУСИ Й ТІНІ -->
+  <section class="ds-section">
+    <h2>Радіуси й тіні</h2>
+    <div class="ds-block">
+      <h3>Радіуси</h3>
+      <div class="token-cards">
+        <div class="token-card"><div class="demo" style="border-radius:var(--radius-sm)"></div><div class="lbl">sm<span>--radius-sm · 10</span></div></div>
+        <div class="token-card"><div class="demo" style="border-radius:var(--radius-md)"></div><div class="lbl">md<span>--radius-md · 12</span></div></div>
+        <div class="token-card"><div class="demo" style="border-radius:var(--radius)"></div><div class="lbl">base<span>--radius · 14</span></div></div>
+        <div class="token-card"><div class="demo" style="border-radius:var(--radius-xl)"></div><div class="lbl">xl<span>--radius-xl · 20</span></div></div>
+        <div class="token-card"><div class="demo" style="border-radius:var(--radius-2xl)"></div><div class="lbl">2xl<span>--radius-2xl · 22</span></div></div>
+        <div class="token-card"><div class="demo" style="border-radius:var(--radius-pill)"></div><div class="lbl">pill<span>--radius-pill</span></div></div>
+      </div>
+    </div>
+    <div class="ds-block">
+      <h3>Тіні</h3>
+      <div class="token-cards">
+        <div class="token-card"><div class="demo sh" style="box-shadow:var(--shadow-pop);border-radius:var(--radius)"></div><div class="lbl">pop<span>--shadow-pop</span></div></div>
+        <div class="token-card"><div class="demo sh" style="box-shadow:var(--shadow-card);border-radius:var(--radius)"></div><div class="lbl">card<span>--shadow-card</span></div></div>
+        <div class="token-card"><div class="demo sh" style="box-shadow:var(--shadow-lift);border-radius:var(--radius)"></div><div class="lbl">lift<span>--shadow-lift</span></div></div>
+        <div class="token-card"><div class="demo sh" style="box-shadow:var(--shadow-modal);border-radius:var(--radius)"></div><div class="lbl">modal<span>--shadow-modal</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАРТКИ -->
+  <section class="ds-section">
+    <h2>Картки</h2>
+    <p class="ds-sub">Поверхня <code>--surface</code>, межа <code>--border</code>, радіус <code>--radius-xl</code>. Для акценту — темна варіація.</p>
+    <div class="ds-row" style="align-items:stretch;margin-top:8px">
+      <div class="ds-card-demo">
+        <span class="h">Світла картка</span>
+        <p class="p">Стандартна поверхня для контенту, форм і опцій.</p>
+        <button class="btn btn-ghost btn-block magnet">Дія</button>
+      </div>
+      <div class="ds-card-demo" style="background:var(--ink);border:none">
+        <span class="h" style="color:#fff">Темна картка</span>
+        <p class="p" style="color:rgba(255,255,255,.7)">Для сум, підсумків, акцентних блоків.</p>
+        <button class="btn btn-primary btn-block magnet">Дія</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer standalone">
+  <div class="foot-grid pad-x">
+    <div class="foot-brand">
+      <svg class="brand-logo" width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 18.5793V23.802H7.19635C8.76041 23.802 10.4448 23.7811 11.6872 24.7312C12.6091 25.4361 12.9053 26.3333 12.9053 26.3333H19.0947C20.5376 23.8536 23.8692 23.8341 26.7382 23.8341H32V18.6434H22.4198L29.2016 12.0429L25.4156 8.3581L18.6996 14.8945V5.66663H13.3333V14.8945L6.61728 8.3581L2.83128 12.0429L9.54733 18.5793H0Z" fill="#FFC300"></path></svg>
+      <span class="name">x-sun clean</span>
+      <span class="loc">· дизайн-система</span>
+    </div>
+    <a href="#" data-email class="foot-email"></a>
+    <span class="foot-copy">© 2026 X-sun Clean</span>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/fx.js"></script>
+</body>
+</html>

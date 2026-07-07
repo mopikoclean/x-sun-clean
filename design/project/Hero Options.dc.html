@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Golos+Text:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+body{margin:0;background:#f0eee9;font-family:"Golos Text",system-ui,sans-serif}
+a{color:#1a1a1a}a:hover{color:#E8A100}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}
+.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}
+.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}
+.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}
+.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes sunfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes spinrays{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+</style>
+</helmet>
+
+<section class="dv-turn" id="t2" data-screen-label="Turn 2 — Professional tone">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Ріффи на <a class="dv-oid" href="#1a">1a</a> — без бігучого рядка, професійний чистий тон</span></div>
+<div class="dv-opts">
+
+<!-- ============ 2a Професійний світлий ============ -->
+<div class="dv-opt" id="2a" data-screen-label="2a Професійний світлий">
+<div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Професійний світлий — стриманий акцент, чіткі формулювання</div>
+<div class="dv-card" style="width:1200px">
+<div style="position:relative;width:1200px;height:780px;background:#FCFBF8;overflow:hidden;display:flex;flex-direction:column">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:26px 56px;border-bottom:1px solid #E9E5DB;position:relative;z-index:3">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:32px;height:32px;border-radius:50%;background:#FFC53D;display:grid;place-items:center;font:800 14px Unbounded,sans-serif;color:#141414">X</div>
+      <span style="font:700 16px Unbounded,sans-serif;color:#141414;letter-spacing:-.5px">x-sun clean</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:28px;font:500 14px 'Golos Text',sans-serif;color:#3D3A33">
+      <span>Послуги</span><span>Ціни</span><span>Для бізнесу</span><span>Контакти</span>
+      <span style="display:inline-flex;align-items:center;gap:8px;background:#141414;color:#fff;border-radius:999px;padding:9px 20px;font-weight:600">+48 XXX XXX XXX</span>
+    </div>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:1fr 400px;gap:56px;padding:0 56px;position:relative;z-index:2;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <div style="display:inline-flex;align-items:center;gap:10px;width:max-content;background:#fff;border:1px solid #E9E5DB;border-radius:999px;padding:8px 16px 8px 10px;box-shadow:0 2px 8px rgba(20,20,20,.05)">
+        <span style="width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFD976,#FFC53D 65%,#F5B31F);display:inline-block;margin-left:6px"></span>
+        <span style="font:600 13.5px 'Golos Text',sans-serif;color:#3D3A33">Клінінгова компанія</span>
+        <span style="width:1px;height:14px;background:#E9E5DB"></span>
+        <span style="font:600 13.5px 'Golos Text',sans-serif;color:#8A6D1B">Познань</span>
+      </div>
+      <h1 data-anim="title-2a" style="margin:0;font:700 66px/1.08 Unbounded,sans-serif;letter-spacing:-2px;color:#141414">
+        Професійне прибирання<br><span style="color:#E8A100">у Познані</span>
+      </h1>
+      <p style="margin:0;max-width:480px;font:400 18px/1.6 'Golos Text',sans-serif;color:#55524B">
+        Фіксована ціна до початку роботи. Власні засоби та інвентар. Оплата після прибирання — карткою або готівкою. Фактура VAT для компаній.
+      </p>
+      <div style="display:flex;gap:14px">
+        <a href="#" style="display:inline-flex;align-items:center;gap:10px;background:#141414;color:#fff;text-decoration:none;font:600 16px 'Golos Text',sans-serif;padding:16px 30px;border-radius:999px" style-hover="background:#E8A100;color:#141414">Розрахувати вартість</a>
+        <a href="#" style="display:inline-flex;align-items:center;gap:10px;border:1.5px solid #C9C3B4;color:#141414;text-decoration:none;font:600 16px 'Golos Text',sans-serif;padding:16px 30px;border-radius:999px" style-hover="border-color:#141414">Telegram</a>
+      </div>
+
+    </div>
+    <div data-anim="calc-2a" style="background:#fff;border:1px solid #E9E5DB;border-radius:20px;padding:30px;box-shadow:0 20px 50px -30px rgba(20,20,20,.25);display:flex;flex-direction:column;gap:18px">
+      <div style="font:700 19px Unbounded,sans-serif;color:#141414;letter-spacing:-.5px">Вартість прибирання</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:center;justify-content:space-between;border:1px solid #E9E5DB;border-radius:12px;padding:12px 16px">
+          <span style="font:500 15px 'Golos Text',sans-serif;color:#141414">Кімнати</span>
+          <div style="display:flex;align-items:center;gap:14px">
+            <button onClick="{{ decR4 }}" style="width:32px;height:32px;border-radius:50%;border:1px solid #C9C3B4;background:#fff;font:600 17px 'Golos Text',sans-serif;cursor:pointer;color:#141414" style-hover="border-color:#141414">−</button>
+            <span style="font:700 17px 'Golos Text',sans-serif;min-width:18px;text-align:center">{{ rooms4 }}</span>
+            <button onClick="{{ incR4 }}" style="width:32px;height:32px;border-radius:50%;border:1px solid #C9C3B4;background:#fff;font:600 17px 'Golos Text',sans-serif;cursor:pointer;color:#141414" style-hover="border-color:#141414">+</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;border:1px solid #E9E5DB;border-radius:12px;padding:12px 16px">
+          <span style="font:500 15px 'Golos Text',sans-serif;color:#141414">Санвузли</span>
+          <div style="display:flex;align-items:center;gap:14px">
+            <button onClick="{{ decB4 }}" style="width:32px;height:32px;border-radius:50%;border:1px solid #C9C3B4;background:#fff;font:600 17px 'Golos Text',sans-serif;cursor:pointer;color:#141414" style-hover="border-color:#141414">−</button>
+            <span style="font:700 17px 'Golos Text',sans-serif;min-width:18px;text-align:center">{{ baths4 }}</span>
+            <button onClick="{{ incB4 }}" style="width:32px;height:32px;border-radius:50%;border:1px solid #C9C3B4;background:#fff;font:600 17px 'Golos Text',sans-serif;cursor:pointer;color:#141414" style-hover="border-color:#141414">+</button>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;padding-top:6px;border-top:1px solid #E9E5DB">
+        <span style="font:400 14px 'Golos Text',sans-serif;color:#8A857A">Разове прибирання</span>
+        <span style="font:800 32px Unbounded,sans-serif;color:#141414;letter-spacing:-1px">{{ price4 }} <span style="font:600 17px Unbounded,sans-serif">zł</span></span>
+      </div>
+      <button style="border:none;background:#FFC53D;border-radius:999px;padding:15px;font:700 15px 'Golos Text',sans-serif;color:#141414;cursor:pointer" style-hover="background:#141414;color:#fff">Замовити прибирання</button>
+      <div style="font:400 12.5px 'Golos Text',sans-serif;color:#8A857A;text-align:center">Кухня та коридор включені у вартість</div>
+    </div>
+  </div>
+  <div style="position:absolute;inset:0;background:radial-gradient(900px 600px at 88% -8%, rgba(255,197,61,.30), rgba(255,230,170,.12) 45%, transparent 70%);pointer-events:none;z-index:1"></div>
+</div>
+</div>
+</div>
+
+<!-- ============ 2b Швейцарська сітка ============ -->
+<div class="dv-opt" id="2b" data-screen-label="2b Швейцарська сітка">
+<div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>Швейцарська сітка — ще строгіше: лінії, верхній регістр, мінімум кольору</div>
+<div class="dv-card" style="width:1200px">
+<div style="position:relative;width:1200px;height:780px;background:#FFFFFF;overflow:hidden;display:flex;flex-direction:column">
+  <div style="display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:32px;padding:22px 56px;border-bottom:1.5px solid #141414;position:relative;z-index:3">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:30px;height:30px;border-radius:50%;background:#FFC53D;display:grid;place-items:center;font:800 13px Unbounded,sans-serif;color:#141414">X</div>
+      <span style="font:700 16px Unbounded,sans-serif;color:#141414;letter-spacing:-.5px">x-sun clean</span>
+    </div>
+    <div style="display:flex;gap:26px;font:500 13px 'Golos Text',sans-serif;color:#141414;text-transform:uppercase;letter-spacing:1px">
+      <span>Послуги</span><span>Ціни</span><span>Для бізнесу</span><span>FAQ</span>
+    </div>
+    <span style="font:600 14px 'Golos Text',sans-serif;color:#141414">+48 XXX XXX XXX</span>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;position:relative;z-index:2">
+    <div style="padding:52px 56px 0">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;font:500 12px 'Golos Text',sans-serif;color:#8A857A;text-transform:uppercase;letter-spacing:2px;margin-bottom:22px">
+        <span>Клінінгова компанія</span><span>Познань, PL</span>
+      </div>
+      <h1 data-anim="title-2b" style="margin:0;font:700 88px/1 Unbounded,sans-serif;letter-spacing:-3.5px;color:#141414;text-transform:uppercase">
+        Прибирання<br>без компромісів<span style="color:#E8A100">.</span>
+      </h1>
+    </div>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1.5px solid #141414;margin-top:44px">
+      <div style="padding:28px 32px 28px 56px;border-right:1px solid #E4E0D6;display:flex;flex-direction:column;gap:12px">
+        <span style="font:500 12px 'Golos Text',sans-serif;color:#8A857A;text-transform:uppercase;letter-spacing:2px">Що робимо</span>
+        <p style="margin:0;font:400 16px/1.6 'Golos Text',sans-serif;color:#3D3A33">Звичайне та генеральне прибирання, після ремонту, миття вікон. Квартири та офіси.</p>
+      </div>
+      <div style="padding:28px 32px;border-right:1px solid #E4E0D6;display:flex;flex-direction:column;gap:12px">
+        <span style="font:500 12px 'Golos Text',sans-serif;color:#8A857A;text-transform:uppercase;letter-spacing:2px">Умови</span>
+        <p style="margin:0;font:400 16px/1.6 'Golos Text',sans-serif;color:#3D3A33">Фіксована ціна до початку. Оплата після виконання. Фактура VAT для компаній.</p>
+      </div>
+      <div data-anim="calc-2b" style="padding:28px 56px 28px 32px;display:flex;flex-direction:column;gap:14px;background:#FCFBF8">
+        <span style="font:500 12px 'Golos Text',sans-serif;color:#8A857A;text-transform:uppercase;letter-spacing:2px">Розрахунок</span>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span style="font:500 15px 'Golos Text',sans-serif;color:#141414">Кімнати</span>
+          <div style="display:flex;align-items:center;gap:12px">
+            <button onClick="{{ decR5 }}" style="width:30px;height:30px;border-radius:0;border:1.5px solid #141414;background:#fff;font:600 16px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D">−</button>
+            <span style="font:700 16px 'Golos Text',sans-serif;min-width:16px;text-align:center">{{ rooms5 }}</span>
+            <button onClick="{{ incR5 }}" style="width:30px;height:30px;border-radius:0;border:1.5px solid #141414;background:#fff;font:600 16px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D">+</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span style="font:500 15px 'Golos Text',sans-serif;color:#141414">Санвузли</span>
+          <div style="display:flex;align-items:center;gap:12px">
+            <button onClick="{{ decB5 }}" style="width:30px;height:30px;border-radius:0;border:1.5px solid #141414;background:#fff;font:600 16px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D">−</button>
+            <span style="font:700 16px 'Golos Text',sans-serif;min-width:16px;text-align:center">{{ baths5 }}</span>
+            <button onClick="{{ incB5 }}" style="width:30px;height:30px;border-radius:0;border:1.5px solid #141414;background:#fff;font:600 16px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D">+</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;border-top:1.5px solid #141414;padding-top:12px">
+          <span style="font:400 13px 'Golos Text',sans-serif;color:#8A857A">разове</span>
+          <span style="font:800 28px Unbounded,sans-serif;color:#141414;letter-spacing:-1px">{{ price5 }} zł</span>
+        </div>
+        <button style="border:none;background:#141414;border-radius:0;padding:14px;font:600 14px 'Golos Text',sans-serif;color:#fff;cursor:pointer;text-transform:uppercase;letter-spacing:1.5px" style-hover="background:#E8A100;color:#141414">Замовити →</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Далі: «збираємо повний сайт на базі <a class="dv-oid" href="#2a">2a</a>» · «<a class="dv-oid" href="#2b">2b</a>, але з жовтішим акцентом» · «заголовок з <a class="dv-oid" href="#2b">2b</a> у макеті <a class="dv-oid" href="#2a">2a</a>»</p>
+</section>
+
+<section class="dv-turn" id="t1" data-screen-label="Turn 1 — Hero directions">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">X-sun Clean — 3 направления hero (Познань, укр., калькулятор у кожному)</span></div>
+<div class="dv-opts">
+
+<!-- ============ 1a Сонячний мінімал ============ -->
+<div class="dv-opt" id="1a" data-screen-label="1a Сонячний мінімал">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Сонячний мінімал — світло, повітря, велика типографіка</div>
+<div class="dv-card" style="width:1200px">
+<div style="position:relative;width:1200px;height:780px;background:#FEFCF6;overflow:hidden;display:flex;flex-direction:column">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:26px 48px 0;position:relative;z-index:3">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:34px;height:34px;border-radius:50%;background:#FFC53D;display:grid;place-items:center;font:800 15px Unbounded,sans-serif;color:#141414">X</div>
+      <span style="font:700 17px Unbounded,sans-serif;color:#141414;letter-spacing:-.5px">x-sun clean</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:26px;font:500 14px 'Golos Text',sans-serif;color:#141414">
+      <span>Послуги</span><span>Ціни</span><span>Як це працює</span><span>Контакти</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;border:1.5px solid #141414;border-radius:999px;padding:7px 16px;font-weight:600">UA <span style="opacity:.35">· PL · EN</span></span>
+    </div>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:1fr 400px;gap:48px;padding:36px 48px 0;position:relative;z-index:2">
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:26px">
+      <div style="display:inline-flex;align-items:center;gap:8px;font:600 13px 'Golos Text',sans-serif;color:#8A6D1B;background:#FFF3D1;border-radius:999px;padding:7px 14px;width:max-content">
+        <span style="width:7px;height:7px;border-radius:50%;background:#E8A100"></span> Познань і тільки Познань
+      </div>
+      <h1 data-anim="title-a" style="margin:0;font:800 78px/1.02 Unbounded,sans-serif;letter-spacing:-2.5px;color:#141414">
+        Чисто,<br>наче сонце<br><span style="color:#E8A100">зазирнуло</span> в дім.
+      </h1>
+      <p style="margin:0;max-width:460px;font:400 18px/1.55 'Golos Text',sans-serif;color:#55524B">
+        Прибираємо квартири та офіси в Познані. Приходимо зі своїми засобами, йдемо — коли все блищить. Оплата після прибирання.
+      </p>
+      <div style="display:flex;gap:14px">
+        <a href="#" style="display:inline-flex;align-items:center;gap:10px;background:#141414;color:#fff;text-decoration:none;font:600 16px 'Golos Text',sans-serif;padding:16px 28px;border-radius:999px" style-hover="background:#E8A100;color:#141414">Замовити прибирання →</a>
+        <a href="#" style="display:inline-flex;align-items:center;gap:10px;border:1.5px solid #141414;color:#141414;text-decoration:none;font:600 16px 'Golos Text',sans-serif;padding:16px 28px;border-radius:999px" style-hover="background:#141414;color:#fff">Написати в Telegram</a>
+      </div>
+    </div>
+    <div data-anim="calc-a" style="align-self:center;background:#fff;border:1px solid #EDE7D8;border-radius:24px;padding:30px;box-shadow:0 24px 60px -24px rgba(140,110,20,.25);display:flex;flex-direction:column;gap:20px">
+      <div style="font:700 20px Unbounded,sans-serif;color:#141414;letter-spacing:-.5px">Скільки коштує?</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;justify-content:space-between;background:#FAF6EC;border-radius:14px;padding:12px 16px">
+          <span style="font:500 16px 'Golos Text',sans-serif;color:#141414">Кімнати</span>
+          <div style="display:flex;align-items:center;gap:14px">
+            <button onClick="{{ decR1 }}" style="width:34px;height:34px;border-radius:50%;border:1.5px solid #141414;background:#fff;font:600 18px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D">−</button>
+            <span style="font:700 18px 'Golos Text',sans-serif;min-width:18px;text-align:center">{{ rooms1 }}</span>
+            <button onClick="{{ incR1 }}" style="width:34px;height:34px;border-radius:50%;border:1.5px solid #141414;background:#fff;font:600 18px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D">+</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:#FAF6EC;border-radius:14px;padding:12px 16px">
+          <span style="font:500 16px 'Golos Text',sans-serif;color:#141414">Санвузли</span>
+          <div style="display:flex;align-items:center;gap:14px">
+            <button onClick="{{ decB1 }}" style="width:34px;height:34px;border-radius:50%;border:1.5px solid #141414;background:#fff;font:600 18px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D">−</button>
+            <span style="font:700 18px 'Golos Text',sans-serif;min-width:18px;text-align:center">{{ baths1 }}</span>
+            <button onClick="{{ incB1 }}" style="width:34px;height:34px;border-radius:50%;border:1.5px solid #141414;background:#fff;font:600 18px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D">+</button>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between">
+        <span style="font:400 14px 'Golos Text',sans-serif;color:#8A857A">разове прибирання</span>
+        <span style="font:800 34px Unbounded,sans-serif;color:#141414;letter-spacing:-1px">{{ price1 }} <span style="font:600 18px Unbounded,sans-serif">zł</span></span>
+      </div>
+      <button style="border:none;background:#FFC53D;border-radius:999px;padding:16px;font:700 16px 'Golos Text',sans-serif;color:#141414;cursor:pointer" style-hover="background:#141414;color:#fff">Розрахувати точно</button>
+      <div style="font:400 12.5px 'Golos Text',sans-serif;color:#8A857A;text-align:center">Кухня та коридор — завжди включені</div>
+    </div>
+  </div>
+  <div data-anim="sun-a" style="position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFD976,#FFC53D 60%,#F5B31F);z-index:1;animation:sunfloat 7s ease-in-out infinite"></div>
+  <div style="border-top:1.5px solid #141414;background:#FFC53D;overflow:hidden;white-space:nowrap;padding:12px 0;position:relative;z-index:3">
+    <div style="display:inline-flex;gap:38px;animation:marq 22s linear infinite;font:600 15px Unbounded,sans-serif;color:#141414;letter-spacing:.5px">
+      <span>ПРИБИРАННЯ КВАРТИР</span><span>✳</span><span>ГЕНЕРАЛЬНЕ</span><span>✳</span><span>ПІСЛЯ РЕМОНТУ</span><span>✳</span><span>МИТТЯ ВІКОН</span><span>✳</span><span>ОФІСИ</span><span>✳</span><span>ПОЗНАНЬ</span><span>✳</span><span>ПРИБИРАННЯ КВАРТИР</span><span>✳</span><span>ГЕНЕРАЛЬНЕ</span><span>✳</span><span>ПІСЛЯ РЕМОНТУ</span><span>✳</span><span>МИТТЯ ВІКОН</span><span>✳</span><span>ОФІСИ</span><span>✳</span><span>ПОЗНАНЬ</span><span>✳</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ============ 1b Нічний контраст ============ -->
+<div class="dv-opt" id="1b" data-screen-label="1b Нічний контраст">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Нічний контраст — темно-синій, схід сонця, кінетичний заголовок</div>
+<div class="dv-card" style="width:1200px">
+<div style="position:relative;width:1200px;height:780px;background:#0E1626;overflow:hidden;display:flex;flex-direction:column">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:26px 48px;position:relative;z-index:3">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:34px;height:34px;border-radius:50%;background:#FFC53D;display:grid;place-items:center;font:800 15px Unbounded,sans-serif;color:#0E1626">X</div>
+      <span style="font:700 17px Unbounded,sans-serif;color:#fff;letter-spacing:-.5px">x-sun clean</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:26px;font:500 14px 'Golos Text',sans-serif;color:rgba(255,255,255,.85)">
+      <span>Послуги</span><span>Ціни</span><span>Для бізнесу</span>
+      <span style="display:inline-flex;align-items:center;gap:8px;background:#FFC53D;color:#0E1626;border-radius:999px;padding:9px 18px;font-weight:700">+48 XXX XXX XXX</span>
+    </div>
+  </div>
+  <div style="flex:1;position:relative;z-index:2;padding:10px 48px 0;display:flex;flex-direction:column;justify-content:center">
+    <h1 data-anim="title-b" style="margin:0;font:800 108px/.98 Unbounded,sans-serif;letter-spacing:-4px;color:#fff;text-transform:uppercase">
+      <span style="display:block">Темно від</span>
+      <span style="display:block;color:#FFC53D">пилу? Ми</span>
+      <span style="display:block">вже їдемо<span style="color:#FFC53D">.</span></span>
+    </h1>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:34px;gap:40px">
+      <p style="margin:0;max-width:380px;font:400 17px/1.55 'Golos Text',sans-serif;color:rgba(255,255,255,.65)">
+        Клінінг квартир та офісів у Познані. Свій інвентар, фіксована ціна, оплата після прибирання — карткою або готівкою.
+      </p>
+      <div data-anim="calc-b" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px);border-radius:20px;padding:22px 26px;display:flex;align-items:center;gap:28px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font:500 12px 'Golos Text',sans-serif;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1px">Кімнати</span>
+          <div style="display:flex;align-items:center;gap:12px">
+            <button onClick="{{ decR2 }}" style="width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font:600 17px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D;color:#0E1626;border-color:#FFC53D">−</button>
+            <span style="font:700 20px Unbounded,sans-serif;color:#fff;min-width:20px;text-align:center">{{ rooms2 }}</span>
+            <button onClick="{{ incR2 }}" style="width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font:600 17px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D;color:#0E1626;border-color:#FFC53D">+</button>
+          </div>
+        </div>
+        <div style="width:1px;height:52px;background:rgba(255,255,255,.14)"></div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font:500 12px 'Golos Text',sans-serif;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1px">Санвузли</span>
+          <div style="display:flex;align-items:center;gap:12px">
+            <button onClick="{{ decB2 }}" style="width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font:600 17px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D;color:#0E1626;border-color:#FFC53D">−</button>
+            <span style="font:700 20px Unbounded,sans-serif;color:#fff;min-width:20px;text-align:center">{{ baths2 }}</span>
+            <button onClick="{{ incB2 }}" style="width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font:600 17px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D;color:#0E1626;border-color:#FFC53D">+</button>
+          </div>
+        </div>
+        <div style="width:1px;height:52px;background:rgba(255,255,255,.14)"></div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span style="font:500 12px 'Golos Text',sans-serif;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1px">Разове</span>
+          <span style="font:800 30px Unbounded,sans-serif;color:#FFC53D;letter-spacing:-1px">{{ price2 }} zł</span>
+        </div>
+        <button style="border:none;background:#FFC53D;border-radius:999px;padding:16px 26px;font:700 15px 'Golos Text',sans-serif;color:#0E1626;cursor:pointer;white-space:nowrap" style-hover="background:#fff">Замовити →</button>
+      </div>
+    </div>
+  </div>
+  <div data-anim="sun-b" style="position:absolute;left:50%;bottom:-330px;width:640px;height:640px;margin-left:-320px;border-radius:50%;background:radial-gradient(circle at 50% 30%,#FFE29A,#FFC53D 55%,#E8A100);box-shadow:0 0 160px 40px rgba(255,197,61,.35);z-index:1"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(transparent,rgba(14,22,38,.9));z-index:2;pointer-events:none"></div>
+  <div style="position:relative;z-index:3;display:flex;justify-content:space-between;padding:0 48px 24px;font:500 13px 'Golos Text',sans-serif;color:rgba(255,255,255,.55)">
+    <span>Познань · Jeżyce · Wilda · Grunwald · Stare Miasto · Rataje</span>
+    <span>Оплата після прибирання</span>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ============ 1c Сусідський friendly ============ -->
+<div class="dv-opt" id="1c" data-screen-label="1c Сусідський friendly">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Сусідський friendly — крем, наліпки, рукописні акценти</div>
+<div class="dv-card" style="width:1200px">
+<div style="position:relative;width:1200px;height:780px;background:#FFF4E0;overflow:hidden;display:flex;flex-direction:column">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:26px 48px;position:relative;z-index:3">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div data-anim="rays-c" style="width:38px;height:38px;position:relative;display:grid;place-items:center">
+        <svg width="38" height="38" viewBox="0 0 38 38" style="position:absolute;inset:0;animation:spinrays 14s linear infinite"><g stroke="#E8A100" stroke-width="2.5" stroke-linecap="round"><line x1="19" y1="1" x2="19" y2="7"></line><line x1="19" y1="31" x2="19" y2="37"></line><line x1="1" y1="19" x2="7" y2="19"></line><line x1="31" y1="19" x2="37" y2="19"></line><line x1="6.3" y1="6.3" x2="10.5" y2="10.5"></line><line x1="27.5" y1="27.5" x2="31.7" y2="31.7"></line><line x1="6.3" y1="31.7" x2="10.5" y2="27.5"></line><line x1="27.5" y1="10.5" x2="31.7" y2="6.3"></line></g></svg>
+        <div style="width:18px;height:18px;border-radius:50%;background:#FFC53D;border:2px solid #141414"></div>
+      </div>
+      <span style="font:700 18px Unbounded,sans-serif;color:#141414;letter-spacing:-.5px">x-sun clean</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="#" style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid #141414;border-radius:999px;padding:9px 18px;font:600 14px 'Golos Text',sans-serif;color:#141414;text-decoration:none;box-shadow:3px 3px 0 #141414" style-hover="transform:translate(2px,2px);box-shadow:1px 1px 0 #141414">Telegram</a>
+      <a href="#" style="display:inline-flex;align-items:center;gap:8px;background:#FFC53D;border:2px solid #141414;border-radius:999px;padding:9px 18px;font:700 14px 'Golos Text',sans-serif;color:#141414;text-decoration:none;box-shadow:3px 3px 0 #141414" style-hover="transform:translate(2px,2px);box-shadow:1px 1px 0 #141414">+48 XXX XXX XXX</a>
+    </div>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:1.15fr 1fr;gap:30px;padding:10px 48px 44px;position:relative;z-index:2">
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:24px">
+      <div style="font:700 26px Caveat,cursive;color:#C0392B;transform:rotate(-2deg);width:max-content">Привіт, Познань! 👋</div>
+      <h1 data-anim="title-c" style="margin:0;font:800 72px/1.04 Unbounded,sans-serif;letter-spacing:-2.5px;color:#141414">
+        Ми приберемо.<br>Ви — <span style="position:relative;display:inline-block;color:#141414"><span style="position:relative;z-index:1">живіть</span><span style="position:absolute;left:-4px;right:-4px;bottom:6px;height:22px;background:#FFC53D;z-index:0;transform:rotate(-1deg)"></span></span>.
+      </h1>
+      <p style="margin:0;max-width:440px;font:400 18px/1.55 'Golos Text',sans-serif;color:#5A5344">
+        Звичайне, генеральне, після ремонту, вікна — квартири й офіси в Познані. Свої засоби, чесні ціни, оплата як зручно: карткою чи готівкою.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <span style="background:#fff;border:2px solid #141414;border-radius:999px;padding:8px 16px;font:600 14px 'Golos Text',sans-serif;transform:rotate(-1.5deg)">🧽 свій інвентар</span>
+        <span style="background:#fff;border:2px solid #141414;border-radius:999px;padding:8px 16px;font:600 14px 'Golos Text',sans-serif;transform:rotate(1deg)">💳 оплата після</span>
+        <span style="background:#fff;border:2px solid #141414;border-radius:999px;padding:8px 16px;font:600 14px 'Golos Text',sans-serif;transform:rotate(-1deg)">🧾 фактура VAT</span>
+      </div>
+    </div>
+    <div data-anim="calc-c" style="align-self:center;background:#fff;border:2.5px solid #141414;border-radius:26px;padding:30px;box-shadow:8px 8px 0 #FFC53D;display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between">
+        <span style="font:700 21px Unbounded,sans-serif;color:#141414;letter-spacing:-.5px">Порахуємо?</span>
+        <span style="font:700 20px Caveat,cursive;color:#C0392B;transform:rotate(2deg)">за 5 секунд</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:center;justify-content:space-between;border:2px solid #141414;border-radius:16px;padding:12px 16px">
+          <span style="font:600 16px 'Golos Text',sans-serif">🛋 Кімнати</span>
+          <div style="display:flex;align-items:center;gap:12px">
+            <button onClick="{{ decR3 }}" style="width:34px;height:34px;border-radius:12px;border:2px solid #141414;background:#fff;font:700 18px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D">−</button>
+            <span style="font:700 19px Unbounded,sans-serif;min-width:20px;text-align:center">{{ rooms3 }}</span>
+            <button onClick="{{ incR3 }}" style="width:34px;height:34px;border-radius:12px;border:2px solid #141414;background:#fff;font:700 18px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D">+</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;border:2px solid #141414;border-radius:16px;padding:12px 16px">
+          <span style="font:600 16px 'Golos Text',sans-serif">🛁 Санвузли</span>
+          <div style="display:flex;align-items:center;gap:12px">
+            <button onClick="{{ decB3 }}" style="width:34px;height:34px;border-radius:12px;border:2px solid #141414;background:#fff;font:700 18px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D">−</button>
+            <span style="font:700 19px Unbounded,sans-serif;min-width:20px;text-align:center">{{ baths3 }}</span>
+            <button onClick="{{ incB3 }}" style="width:34px;height:34px;border-radius:12px;border:2px solid #141414;background:#fff;font:700 18px 'Golos Text',sans-serif;cursor:pointer" style-hover="background:#FFC53D">+</button>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#FFF4E0;border-radius:16px;padding:14px 18px">
+        <span style="font:500 14px 'Golos Text',sans-serif;color:#8A6D1B">разове прибирання</span>
+        <span style="font:800 30px Unbounded,sans-serif;color:#141414;letter-spacing:-1px">{{ price3 }} zł</span>
+      </div>
+      <button style="border:2.5px solid #141414;background:#FFC53D;border-radius:999px;padding:15px;font:700 16px 'Golos Text',sans-serif;color:#141414;cursor:pointer;box-shadow:4px 4px 0 #141414" style-hover="transform:translate(3px,3px);box-shadow:1px 1px 0 #141414">Хочу так само чисто →</button>
+    </div>
+  </div>
+  <div style="position:absolute;left:-90px;bottom:-120px;width:320px;height:320px;border-radius:50%;background:#FFC53D;opacity:.5;z-index:1"></div>
+  <div style="position:absolute;right:220px;top:70px;font:700 22px Caveat,cursive;color:#8A6D1B;transform:rotate(6deg);z-index:1">кухня і коридор — у подарунок ↓</div>
+</div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Далі: «збираємо повний сайт на базі <a class="dv-oid" href="#1a">1a</a>» · «hero як <a class="dv-oid" href="#1b">1b</a>, але світлий» · «змішай <a class="dv-oid" href="#1a">1a</a> з наліпками з <a class="dv-oid" href="#1c">1c</a>»</p>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { r1: 1, b1: 1, r2: 2, b2: 1, r3: 1, b3: 1, r4: 2, b4: 1, r5: 2, b5: 1 };
+
+  price(r, b) {
+    const v = 184.90 + (r - 1) * 45 + (b - 1) * 40;
+    return v.toFixed(2);
+  }
+
+  bump(key, d) {
+    this.setState(s => ({ [key]: Math.max(1, Math.min(9, s[key] + d)) }));
+  }
+
+  componentDidMount() {
+    const go = () => {
+      if (!window.gsap) { setTimeout(go, 150); return; }
+      const g = window.gsap;
+      g.from('[data-anim="title-2a"]', { y: 50, opacity: 0, duration: 1, ease: 'power3.out' });
+      g.from('[data-anim="calc-2a"]', { y: 40, opacity: 0, duration: 1, delay: .2, ease: 'power3.out' });
+      g.from('[data-anim="title-2b"]', { y: 70, opacity: 0, duration: 1, ease: 'power4.out' });
+      g.from('[data-anim="title-a"]', { y: 60, opacity: 0, duration: 1, ease: 'power3.out' });
+      g.from('[data-anim="calc-a"]', { y: 40, opacity: 0, duration: 1, delay: .25, ease: 'power3.out' });
+      g.from('[data-anim="title-b"] span', { y: 90, opacity: 0, duration: .9, stagger: .12, ease: 'power4.out' });
+      g.from('[data-anim="sun-b"]', { y: 220, duration: 1.6, ease: 'power2.out' });
+      g.from('[data-anim="calc-b"]', { x: 60, opacity: 0, duration: 1, delay: .5, ease: 'power3.out' });
+      g.from('[data-anim="title-c"]', { scale: .94, opacity: 0, duration: .9, ease: 'back.out(1.4)' });
+      g.from('[data-anim="calc-c"]', { rotate: 3, y: 50, opacity: 0, duration: .9, delay: .3, ease: 'back.out(1.2)' });
+    };
+    go();
+  }
+
+  renderVals() {
+    const s = this.state;
+    return {
+      rooms1: s.r1, baths1: s.b1, price1: this.price(s.r1, s.b1),
+      rooms2: s.r2, baths2: s.b2, price2: this.price(s.r2, s.b2),
+      rooms3: s.r3, baths3: s.b3, price3: this.price(s.r3, s.b3),
+      incR1: () => this.bump('r1', 1), decR1: () => this.bump('r1', -1),
+      incB1: () => this.bump('b1', 1), decB1: () => this.bump('b1', -1),
+      incR2: () => this.bump('r2', 1), decR2: () => this.bump('r2', -1),
+      incB2: () => this.bump('b2', 1), decB2: () => this.bump('b2', -1),
+      incR3: () => this.bump('r3', 1), decR3: () => this.bump('r3', -1),
+      incB3: () => this.bump('b3', 1), decB3: () => this.bump('b3', -1),
+      rooms4: s.r4, baths4: s.b4, price4: this.price(s.r4, s.b4),
+      rooms5: s.r5, baths5: s.b5, price5: this.price(s.r5, s.b5),
+      incR4: () => this.bump('r4', 1), decR4: () => this.bump('r4', -1),
+      incB4: () => this.bump('b4', 1), decB4: () => this.bump('b4', -1),
+      incR5: () => this.bump('r5', 1), decR5: () => this.bump('r5', -1),
+      incB5: () => this.bump('b5', 1), decB5: () => this.bump('b5', -1),
+    };
+  }
+}
+</script>
+</body>
+</html>

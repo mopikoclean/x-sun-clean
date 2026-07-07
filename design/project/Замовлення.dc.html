@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FCFBF8;font-family:"Golos Text",system-ui,sans-serif;color:#141414}
+a{color:#141414}a:hover{color:#E8A100}
+button,input,textarea{font-family:"Golos Text",system-ui,sans-serif}
+input:focus,textarea:focus{outline:2px solid #FFC53D;outline-offset:0;border-color:#E8A100}
+.hv{transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,color .25s ease,border-color .25s ease}
+.hv:hover{transform:translateY(-3px);box-shadow:0 14px 28px -14px rgba(20,20,20,.45)}
+.hv-dark:hover{background:#E8A100!important;color:#141414!important}
+.hv-glow:hover{background:#fff!important}
+.hv-line:hover{border-color:#141414!important}
+@media (max-width:1023px){
+  .ord-grid{grid-template-columns:1fr!important}
+  .ord-summary{position:static!important}
+  .nav-links{display:none!important}
+}
+@media (max-width:767px){
+  .pad-x{padding-left:20px!important;padding-right:20px!important}
+  .per-grid{grid-template-columns:repeat(2,1fr)!important}
+  .ex-grid{grid-template-columns:repeat(2,1fr)!important}
+}
+</style>
+</helmet>
+
+<div style="background:#FCFBF8;min-height:100vh">
+
+<nav data-screen-label="Навігація" style="position:sticky;top:0;z-index:60;background:rgba(252,251,248,.88);backdrop-filter:blur(12px);border-bottom:1px solid #E9E5DB">
+  <div class="pad-x" style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 32px">
+    <a href="X-sun Clean.dc.html" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+      <span style="width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFD976,#FFC53D 65%,#F5B31F);display:grid;place-items:center;font:800 13px Unbounded,sans-serif;color:#141414">X</span>
+      <span style="font:700 16px Unbounded,sans-serif;color:#141414;letter-spacing:-.5px">x-sun clean</span>
+    </a>
+    <div class="nav-links" style="display:flex;align-items:center;gap:28px;font:500 14px 'Golos Text',sans-serif">
+      <a href="X-sun Clean.dc.html#poslugy" style="text-decoration:none">Послуги</a>
+      <a href="X-sun Clean.dc.html#tsiny" style="text-decoration:none">Ціни</a>
+      <a href="X-sun Clean.dc.html#zona" style="text-decoration:none">Де працюємо</a>
+      <a href="X-sun Clean.dc.html#biznes" style="text-decoration:none">Для бізнесу</a>
+      <a href="X-sun Clean.dc.html#faq" style="text-decoration:none">FAQ</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="position:relative">
+        <button onClick="{{ toggleLang }}" class="hv hv-line" style="display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #E9E5DB;border-radius:999px;padding:9px 14px;font:600 13px 'Golos Text',sans-serif;cursor:pointer;color:#141414">UA <span style="font-size:10px">{{ langCaret }}</span></button>
+        <sc-if value="{{ langOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;right:0;top:calc(100% + 8px);background:#fff;border:1px solid #E9E5DB;border-radius:14px;box-shadow:0 14px 34px -14px rgba(20,20,20,.3);padding:6px;display:flex;flex-direction:column;min-width:180px;z-index:80">
+            <button onClick="{{ toggleLang }}" style="display:flex;justify-content:space-between;align-items:center;gap:14px;background:#FCFBF8;border:none;border-radius:10px;padding:10px 12px;font:600 13.5px 'Golos Text',sans-serif;cursor:pointer;text-align:left;color:#141414">Українська <span style="color:#E8A100">✓</span></button>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;padding:10px 12px;font:500 13.5px 'Golos Text',sans-serif;color:#B4AF9F">Polski <span style="font-size:11.5px">незабаром</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;padding:10px 12px;font:500 13.5px 'Golos Text',sans-serif;color:#B4AF9F">English <span style="font-size:11.5px">незабаром</span></div>
+          </div>
+        </sc-if>
+      </div>
+      <a href="{{ telHref }}" class="hv hv-dark" style="display:inline-flex;align-items:center;gap:8px;background:#141414;color:#fff;border-radius:999px;padding:9px 18px;font:600 14px 'Golos Text',sans-serif;text-decoration:none;white-space:nowrap">{{ phone }}</a>
+    </div>
+  </div>
+</nav>
+
+<div class="ord-grid pad-x" data-screen-label="Замовлення" style="max-width:1220px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:40px;align-items:start;padding:48px 32px 96px">
+
+  <!-- ===== FORM ===== -->
+  <div style="display:flex;flex-direction:column;gap:22px">
+    <div>
+      <div style="font:600 13px 'Golos Text',sans-serif;color:#8A6D1B;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px">Замовлення онлайн — без оплати на сайті</div>
+      <h1 style="margin:0;font:700 clamp(30px,4vw,46px)/1.1 Unbounded,sans-serif;letter-spacing:-1.5px">Зберіть своє прибирання</h1>
+      <p style="margin:14px 0 0;font:400 16px/1.6 'Golos Text',sans-serif;color:#55524B;max-width:520px">Оберіть параметри — ми сформуємо готове повідомлення, і ви надішлете його нам у Telegram або WhatsApp одним дотиком. Менеджер підтвердить деталі та час.</p>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E9E5DB;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:18px">
+      <span style="font:700 18px Unbounded,sans-serif;letter-spacing:-.5px">1. Що прибираємо</span>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button onClick="{{ setFlat }}" style="{{ typeFlatStyle }}">Квартира</button>
+        <button onClick="{{ setHouse }}" style="{{ typeHouseStyle }}">Приватний будинок <span style="opacity:.6">×1.2</span></button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+        <div style="display:flex;align-items:center;justify-content:space-between;border:1px solid #E9E5DB;border-radius:14px;padding:14px 18px">
+          <span style="font:500 15px 'Golos Text',sans-serif">Кімнати</span>
+          <div style="display:flex;align-items:center;gap:14px">
+            <button onClick="{{ decR }}" style="width:34px;height:34px;border-radius:50%;border:1px solid #C9C3B4;background:#fff;font:600 17px 'Golos Text',sans-serif;cursor:pointer" style-hover="border-color:#141414">−</button>
+            <span style="font:700 18px 'Golos Text',sans-serif;min-width:18px;text-align:center">{{ rooms }}</span>
+            <button onClick="{{ incR }}" style="width:34px;height:34px;border-radius:50%;border:1px solid #C9C3B4;background:#fff;font:600 17px 'Golos Text',sans-serif;cursor:pointer" style-hover="border-color:#141414">+</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;border:1px solid #E9E5DB;border-radius:14px;padding:14px 18px">
+          <span style="font:500 15px 'Golos Text',sans-serif">Санвузли</span>
+          <div style="display:flex;align-items:center;gap:14px">
+            <button onClick="{{ decB }}" style="width:34px;height:34px;border-radius:50%;border:1px solid #C9C3B4;background:#fff;font:600 17px 'Golos Text',sans-serif;cursor:pointer" style-hover="border-color:#141414">−</button>
+            <span style="font:700 18px 'Golos Text',sans-serif;min-width:18px;text-align:center">{{ baths }}</span>
+            <button onClick="{{ incB }}" style="width:34px;height:34px;border-radius:50%;border:1px solid #C9C3B4;background:#fff;font:600 17px 'Golos Text',sans-serif;cursor:pointer" style-hover="border-color:#141414">+</button>
+          </div>
+        </div>
+      </div>
+      <span style="font:400 13px 'Golos Text',sans-serif;color:#8A857A">Кухня та коридор завжди включені у вартість</span>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E9E5DB;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px">
+        <span style="font:700 18px Unbounded,sans-serif;letter-spacing:-.5px">2. Як часто</span>
+        <span style="font:400 13.5px 'Golos Text',sans-serif;color:#8A857A">Що частіше — то вища знижка</span>
+      </div>
+      <div class="per-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+        <sc-for list="{{ periods }}" as="p" hint-placeholder-count="4">
+          <button onClick="{{ p.select }}" style="{{ p.style }}">
+            <span style="{{ p.badgeStyle }}">{{ p.badge }}</span>
+            <span style="font:600 14px 'Golos Text',sans-serif;display:block">{{ p.label }}</span>
+            <span style="font:700 17px Unbounded,sans-serif;letter-spacing:-.5px;display:block">{{ p.price }} zł</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E9E5DB;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px">
+        <span style="font:700 18px Unbounded,sans-serif;letter-spacing:-.5px">3. Додаткові опції</span>
+        <span style="font:400 13.5px 'Golos Text',sans-serif;color:#8A857A">Необов'язково</span>
+      </div>
+      <div class="ex-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+        <sc-for list="{{ extras }}" as="x" hint-placeholder-count="8">
+          <button onClick="{{ x.toggle }}" style="{{ x.style }}">
+            <span style="font:600 14px 'Golos Text',sans-serif;display:block">{{ x.label }}</span>
+            <span style="font:700 14px Unbounded,sans-serif;display:block;margin-top:4px">{{ x.price }} zł</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E9E5DB;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:16px">
+      <span style="font:700 18px Unbounded,sans-serif;letter-spacing:-.5px">4. Деталі</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+        <label style="display:flex;flex-direction:column;gap:8px;font:500 13.5px 'Golos Text',sans-serif;color:#55524B">Ваше ім'я
+          <input type="text" value="{{ nameVal }}" onInput="{{ setName }}" placeholder="Як до вас звертатися" style="border:1px solid #E9E5DB;border-radius:12px;padding:13px 16px;font:400 15px 'Golos Text',sans-serif;background:#FCFBF8" />
+        </label>
+        <label style="display:flex;flex-direction:column;gap:8px;font:500 13.5px 'Golos Text',sans-serif;color:#55524B">Бажана дата
+          <input type="date" value="{{ dateVal }}" onInput="{{ setDate }}" style="border:1px solid #E9E5DB;border-radius:12px;padding:12px 16px;font:400 15px 'Golos Text',sans-serif;background:#FCFBF8" />
+        </label>
+      </div>
+      <label style="display:flex;flex-direction:column;gap:8px;font:500 13.5px 'Golos Text',sans-serif;color:#55524B">Коментар
+        <textarea rows="3" value="{{ commentVal }}" onInput="{{ setComment }}" placeholder="Район, під'їзд, особливі побажання…" style="border:1px solid #E9E5DB;border-radius:12px;padding:13px 16px;font:400 15px/1.5 'Golos Text',sans-serif;background:#FCFBF8;resize:vertical"></textarea>
+      </label>
+    </div>
+  </div>
+
+  <!-- ===== SUMMARY ===== -->
+  <div class="ord-summary" style="position:sticky;top:88px;display:flex;flex-direction:column;gap:14px">
+    <div style="background:#141414;border-radius:20px;padding:28px;color:#fff;display:flex;flex-direction:column;gap:16px">
+      <span style="font:700 19px Unbounded,sans-serif;letter-spacing:-.5px">Ваше замовлення</span>
+      <p style="margin:0;font:400 14.5px/1.55 'Golos Text',sans-serif;color:rgba(255,255,255,.7)">{{ summaryText }}</p>
+      <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid rgba(255,255,255,.14);padding-top:14px">
+        <div style="display:flex;justify-content:space-between;font:400 14px 'Golos Text',sans-serif;color:rgba(255,255,255,.7)"><span>Базова вартість</span><span>{{ basePrice }} zł</span></div>
+        <sc-if value="{{ hasExtras }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;justify-content:space-between;font:400 14px 'Golos Text',sans-serif;color:rgba(255,255,255,.7)"><span>Додаткові опції</span><span>+{{ extrasSum }} zł</span></div>
+        </sc-if>
+        <sc-if value="{{ hasDiscount }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;justify-content:space-between;font:400 14px 'Golos Text',sans-serif;color:#FFC53D"><span>Знижка {{ discountLabel }}</span><span>−{{ discountVal }} zł</span></div>
+        </sc-if>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.14);padding-top:14px">
+        <span style="font:500 14px 'Golos Text',sans-serif;color:rgba(255,255,255,.7)">Разом</span>
+        <span style="font:800 34px Unbounded,sans-serif;letter-spacing:-1.5px;color:#FFC53D">{{ total }} zł</span>
+      </div>
+      <sc-if value="{{ needInfo }}" hint-placeholder-val="{{ true }}">
+        <div style="background:rgba(255,197,61,.12);border:1px dashed rgba(255,197,61,.45);border-radius:12px;padding:12px 16px;font:500 13.5px/1.5 'Golos Text',sans-serif;color:#FFC53D;text-align:center">Вкажіть ім'я та бажану дату — і кнопки стануть активними</div>
+      </sc-if>
+      <a href="{{ tgOrderHref }}" target="_blank" class="hv hv-glow" style="{{ tgBtnStyle }}">Замовити в Telegram →</a>
+      <a href="{{ waOrderHref }}" target="_blank" class="hv" style="{{ waBtnStyle }}" style-hover="border-color:#FFC53D;color:#FFC53D">Або у WhatsApp</a>
+      <span style="font:400 12.5px/1.5 'Golos Text',sans-serif;color:rgba(255,255,255,.5);text-align:center">Без оплати онлайн. Повідомлення вже заповнене — просто натисніть «Надіслати», і менеджер зв'яжеться з вами.</span>
+    </div>
+  </div>
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;+48 XXX XXX XXX&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Контакти&quot;},&quot;telegram&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;xsunclean&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Контакти&quot;},&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;48000000000&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Контакти&quot;}}">
+class Component extends DCLogic {
+  state = { type: 'flat', rooms: 2, baths: 1, period: 'month', extrasSel: {}, name: '', date: '', comment: '', langOpen: false };
+
+  extrasData = [
+    { id: 'oven', label: 'Духовка', price: 40 },
+    { id: 'fridge', label: 'Холодильник', price: 40 },
+    { id: 'micro', label: 'Мікрохвильовка', price: 18 },
+    { id: 'windows', label: 'Миття вікон', price: 40 },
+    { id: 'balcony', label: 'Балкон', price: 30 },
+    { id: 'iron', label: 'Прасування', price: 45 },
+    { id: 'dishes', label: 'Миття посуду', price: 25 },
+    { id: 'cabinets', label: 'Прибрати в шафі', price: 30 },
+  ];
+
+  periodsData = [
+    { id: 'week', label: 'Раз на тиждень', disc: 0.20, badge: '−20%' },
+    { id: 'two', label: 'Раз на два тижні', disc: 0.15, badge: '−15%' },
+    { id: 'month', label: 'Раз на місяць', disc: 0.10, badge: '−10% · популярно' },
+    { id: 'once', label: 'Разове', disc: 0, badge: 'без знижки' },
+  ];
+
+  base() {
+    const s = this.state;
+    const raw = 184.90 + (s.rooms - 1) * 45 + (s.baths - 1) * 40;
+    return s.type === 'house' ? raw * 1.2 : raw;
+  }
+
+  bump(key, d) { this.setState(s => ({ [key]: Math.max(1, Math.min(9, s[key] + d)) })); }
+
+  segStyle(active) {
+    return {
+      border: active ? '1.5px solid #141414' : '1px solid #E9E5DB',
+      background: active ? '#141414' : '#FCFBF8',
+      color: active ? '#fff' : '#141414',
+      borderRadius: '999px', padding: '12px 22px',
+      font: "600 14.5px 'Golos Text',sans-serif", cursor: 'pointer',
+      transition: 'all .2s',
+    };
+  }
+
+  renderVals() {
+    const s = this.state;
+    const phone = this.props.phone ?? '+48 XXX XXX XXX';
+    const telegram = this.props.telegram ?? 'xsunclean';
+    const whatsapp = this.props.whatsapp ?? '48000000000';
+
+    const base = this.base();
+    const per = this.periodsData.find(p => p.id === s.period);
+    const extrasSum = this.extrasData.reduce((sum, x) => sum + (s.extrasSel[x.id] ? x.price : 0), 0);
+    const discountVal = base * per.disc;
+    const total = base - discountVal + extrasSum;
+    const fmt = (n) => String(Math.round(n));
+    const canSend = s.name.trim().length > 1 && !!s.date;
+
+    const typeLabel = s.type === 'house' ? 'Приватний будинок' : 'Квартира';
+    const extrasList = this.extrasData.filter(x => s.extrasSel[x.id]).map(x => x.label).join(', ');
+
+    const lines = [
+      'Вітаю! Хочу замовити прибирання 🧹',
+      '— Тип: ' + typeLabel,
+      '— Кімнат: ' + s.rooms + ', санвузлів: ' + s.baths,
+      '— Періодичність: ' + per.label + (per.disc ? ' (−' + per.disc * 100 + '%)' : ''),
+    ];
+    if (extrasList) lines.push('— Додатково: ' + extrasList);
+    if (s.date) lines.push('— Бажана дата: ' + s.date);
+    lines.push('— Орієнтовна вартість: ' + fmt(total) + ' zł');
+    if (s.name) lines.push('— Ім\'я: ' + s.name);
+    if (s.comment) lines.push('— Коментар: ' + s.comment);
+    const msg = lines.join('\n');
+
+    return {
+      phone,
+      telHref: 'tel:' + phone.replace(/[^+\d]/g, ''),
+      tgOrderHref: canSend ? 'https://t.me/' + telegram + '?text=' + encodeURIComponent(msg) : undefined,
+      waOrderHref: canSend ? 'https://wa.me/' + whatsapp.replace(/[^\d]/g, '') + '?text=' + encodeURIComponent(msg) : undefined,
+      needInfo: !canSend,
+      tgBtnStyle: {
+        textAlign: 'center', textDecoration: 'none', background: '#FFC53D',
+        borderRadius: '999px', padding: '16px',
+        font: "700 15.5px 'Golos Text',sans-serif", color: '#141414',
+        opacity: canSend ? 1 : 0.4,
+        pointerEvents: canSend ? 'auto' : 'none',
+        cursor: canSend ? 'pointer' : 'not-allowed',
+      },
+      waBtnStyle: {
+        textAlign: 'center', textDecoration: 'none',
+        border: '1.5px solid rgba(255,255,255,.35)',
+        borderRadius: '999px', padding: '14px',
+        font: "600 15px 'Golos Text',sans-serif", color: '#fff',
+        opacity: canSend ? 1 : 0.4,
+        pointerEvents: canSend ? 'auto' : 'none',
+      },
+
+      rooms: s.rooms, baths: s.baths,
+      incR: () => this.bump('rooms', 1), decR: () => this.bump('rooms', -1),
+      incB: () => this.bump('baths', 1), decB: () => this.bump('baths', -1),
+
+      setFlat: () => this.setState({ type: 'flat' }),
+      setHouse: () => this.setState({ type: 'house' }),
+      typeFlatStyle: this.segStyle(s.type === 'flat'),
+      typeHouseStyle: this.segStyle(s.type === 'house'),
+
+      periods: this.periodsData.map(p => {
+        const active = s.period === p.id;
+        return {
+          label: p.label, badge: p.badge,
+          price: fmt(base * (1 - p.disc)),
+          select: () => this.setState({ period: p.id }),
+          style: {
+            border: active ? '1.5px solid #141414' : '1px solid #E9E5DB',
+            background: active ? '#141414' : '#FCFBF8',
+            color: active ? '#fff' : '#141414',
+            borderRadius: '16px', padding: '16px 14px', textAlign: 'left',
+            cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '8px',
+            transition: 'all .2s',
+          },
+          badgeStyle: {
+            alignSelf: 'flex-start',
+            background: active ? '#FFC53D' : '#FFF3D1',
+            color: active ? '#141414' : '#8A6D1B',
+            borderRadius: '999px', padding: '3px 10px',
+            font: "700 11.5px 'Golos Text',sans-serif",
+          },
+        };
+      }),
+
+      extras: this.extrasData.map(x => {
+        const on = !!s.extrasSel[x.id];
+        return {
+          label: x.label, price: x.price,
+          check: on ? '✓ ' : '',
+          toggle: () => this.setState(st => ({ extrasSel: { ...st.extrasSel, [x.id]: !st.extrasSel[x.id] } })),
+          style: {
+            border: on ? '1.5px solid #E8A100' : '1px solid #E9E5DB',
+            background: on ? '#FFF3D1' : '#FCFBF8',
+            color: on ? '#8A6D1B' : '#141414',
+            borderRadius: '14px', padding: '14px', textAlign: 'left',
+            cursor: 'pointer', transition: 'all .2s',
+          },
+        };
+      }),
+
+      langOpen: s.langOpen,
+      langCaret: s.langOpen ? '▴' : '▾',
+      toggleLang: () => this.setState(st => ({ langOpen: !st.langOpen })),
+      nameVal: s.name, setName: (e) => this.setState({ name: e.target.value }),
+      dateVal: s.date, setDate: (e) => this.setState({ date: e.target.value }),
+      commentVal: s.comment, setComment: (e) => this.setState({ comment: e.target.value }),
+
+      summaryText: typeLabel + ' · ' + s.rooms + ' кімн. · ' + s.baths + ' санвузол · ' + per.label.toLowerCase(),
+      basePrice: fmt(base),
+      extrasSum: extrasSum.toFixed(0),
+      hasExtras: extrasSum > 0,
+      hasDiscount: per.disc > 0,
+      discountLabel: '−' + per.disc * 100 + '%',
+      discountVal: fmt(discountVal),
+      total: fmt(total),
+    };
+  }
+}
+</script>
+</body>
+</html>
