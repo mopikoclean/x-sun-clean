@@ -35,8 +35,8 @@
   --placeholder: #EFEAE0;
 
   /* ---- Типографіка ---- */
-  --font-display: Unbounded, sans-serif;
-  --font-body: "Golos Text", system-ui, sans-serif;
+  --font-display: Unbounded, "Unbounded Fallback", sans-serif;
+  --font-body: "Golos Text", "Golos Text Fallback", system-ui, sans-serif;
 
   /* ---- Радіуси ---- */
   --radius-xs: 6px;
