@@ -260,7 +260,15 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
   padding: 48px 32px 96px;
 }
 
-.form-col { display: flex; flex-direction: column; gap: 22px; }
+.form-col { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+
+/* Grid/flex-елементи мають могти стискатись нижче min-content свого вмісту —
+   інакше внутрішні 2-колонкові сітки блокують ширину і дають горизонтальний
+   скрол на мобільному. */
+.ord-summary, .summary-card,
+.per-grid, .ex-grid, .details-grid, .counters-grid,
+.per-grid > *, .ex-grid > *, .details-grid > *, .counters-grid > *,
+.phone-field { min-width: 0; }
 
 .eyebrow {
   font: 600 13px var(--font-body);
@@ -576,6 +584,13 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
   .pad-x { padding-left: 20px; padding-right: 20px; }
   .per-grid { grid-template-columns: repeat(2, 1fr); }
   .ex-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  /* перемикачі — однакові, на всю ширину (замість різної ширини по контенту) */
+  .type-toggle .seg { flex: 1 1 100%; text-align: center; }
+  /* таби кімнат «Що входить» — компактно у 2 колонки */
+  .what-tabs .seg { flex: 1 1 calc(50% - 5px); }
 }
 
 /* ===== Футер (спільний для всіх сторінок) ===== */
