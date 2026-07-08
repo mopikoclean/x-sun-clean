@@ -473,7 +473,7 @@ function render() {
     btn.classList.toggle('active', state.period === p.id);
     btn.querySelector('[data-price]').textContent = fmt(base * (1 - p.disc)) + ' zł';
     const save = btn.querySelector('[data-save]');
-    if (p.disc > 0) { save.hidden = false; save.textContent = T.save + ' ' + fmt(base * p.disc) + ' zł'; }
+    if (p.disc > 0) { save.hidden = false; save.textContent = '−' + Math.round(p.disc * 100) + '%'; }
     else { save.hidden = true; }
   });
 
@@ -510,8 +510,6 @@ function render() {
   const savings = Math.round(fullPrice) - Math.round(total);
   $('oldTotal').hidden = savings < 1;
   $('oldTotal').textContent = fmt(fullPrice) + ' zł';
-  $('saveRow').hidden = savings < 1;
-  $('saveVal').textContent = '−' + savings + ' zł';
   $('durationText').textContent = durationLabel();
   $('durationRow').hidden = isReno();
 

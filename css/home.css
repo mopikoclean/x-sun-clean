@@ -129,7 +129,7 @@ html { scroll-behavior: smooth; }
   padding-top: 2px;
 }
 .calc-total .label { font: 400 14px var(--font-body); color: var(--muted-light); }
-.calc-price { font: 800 32px var(--font-display); letter-spacing: -1px; }
+.calc-price { font: 800 32px var(--font-display); letter-spacing: -1px; white-space: nowrap; }
 .calc-price .zl { font: 600 17px var(--font-display); }
 
 .calc-note { font: 400 12.5px var(--font-body); color: var(--muted-light); text-align: center; }
@@ -778,13 +778,12 @@ html { scroll-behavior: smooth; }
   .zone-grid { grid-template-columns: 1fr; }
   .svc-track { overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 32px 20px; scroll-padding-left: 32px; }
   .svc-card { scroll-snap-align: start; }
-  .foot-grid { grid-template-columns: 1fr; gap: 28px; }
 }
 
 /* Планшет (iPad портрет тощо): hero у 2 колонки як на десктопі — текст ліворуч,
    калькулятор праворуч (вужчий), щоб оффер і ціна були видні одразу */
 @media (min-width: 768px) and (max-width: 1023px) {
-  .hero-grid { grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; padding: 48px 32px 56px; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; padding: 48px 32px 56px; }
 }
 
 /* Планшет: переваги у сітку 2×2 (замість 3+1 від auto-fit), з хрестовим розділювачем */
@@ -798,6 +797,7 @@ html { scroll-behavior: smooth; }
 
 @media (max-width: 767px) {
   .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .foot-grid { grid-template-columns: 1fr; gap: 28px; }
   .steps-grid { grid-template-columns: 1fr; }
   .step-line { display: none; }
   /* Переваги у стовпчик: однаковий лівий відступ у всіх (прибираємо padding-left:0
