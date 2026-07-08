@@ -578,6 +578,9 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
   .ord-grid { grid-template-columns: 1fr; }
   .ord-summary { position: static; }
   .nav-links { display: none; }
+  /* сводка стає під формою — дублікат кнопок унизу форми прибираємо
+     (.form-col для вищої специфічності за базове .submit-final нижче у файлі) */
+  .form-col .submit-final { display: none; }
 }
 
 @media (max-width: 767px) {

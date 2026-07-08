@@ -320,7 +320,7 @@ document.querySelectorAll('.js-order-tg').forEach((btn) => {
 
 // заявка «ми передзвонимо» — для тих, хто без месенджерів.
 // Кнопок дві (у сводці й унизу форми) — спільний обробник.
-const CB_LABEL = 'Надіслати заявку — ми передзвонимо';
+const CB_LABEL = 'Надіслати заявку';
 document.querySelectorAll('.js-callback').forEach((btn) => {
   const errEl = $(btn.dataset.err);
   btn.addEventListener('click', () => {

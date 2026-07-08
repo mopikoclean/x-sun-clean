@@ -438,7 +438,6 @@ html { scroll-behavior: smooth; }
   height: 52px;
   border-radius: 50%;
   background: var(--accent);
-  border: 2px solid var(--ink);
   display: grid;
   place-items: center;
   font: 800 17px var(--font-display);
@@ -503,10 +502,13 @@ html { scroll-behavior: smooth; }
 }
 .zone-map iframe {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: calc(100% + 40px);
+  /* iframe більший за контейнер з усіх боків — контроли (+/-) та атрибуцію
+     OSM обрізає overflow:hidden контейнера. pointer-events:none → сторінка
+     скролиться навіть коли палець над картою. */
+  left: -50px;
+  top: -50px;
+  width: calc(100% + 100px);
+  height: calc(100% + 150px);
   border: 0;
   pointer-events: none;
 }
