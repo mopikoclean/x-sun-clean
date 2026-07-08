@@ -27,11 +27,12 @@ const MESSAGES = {
     leadSending: 'Надсилаємо…',
     leadFailed: 'Не вдалося надіслати. Спробуйте ще раз або зателефонуйте: {phone}',
     periods: {
-      once: { label: 'Разове', badge: 'без знижки' },
-      month: { label: 'Раз на місяць', badge: '−10% · популярно' },
-      two: { label: 'Раз на два тижні', badge: '−15%' },
-      week: { label: 'Раз на тиждень', badge: '−20%' },
+      once: { label: 'Разове' },
+      month: { label: 'Раз на місяць' },
+      two: { label: 'Раз на два тижні' },
+      week: { label: 'Раз на тиждень' },
     },
+    save: 'економія', popular: 'популярно',
     times: { any: 'Будь-який час', morning: 'Ранок (8–12)', day: 'День (12–16)', evening: 'Вечір (16–20)' },
     extrasLabels: { oven: 'Духовка', fridge: 'Холодильник', micro: 'Мікрохвильовка', windows: 'Миття вікон', balcony: 'Балкон', iron: 'Прасування', dishes: 'Миття посуду', cabinets: 'Прибрати в шафі' },
   },
@@ -57,11 +58,12 @@ const MESSAGES = {
     leadSending: 'Wysyłanie…',
     leadFailed: 'Nie udało się wysłać. Spróbuj ponownie lub zadzwoń: {phone}',
     periods: {
-      once: { label: 'Jednorazowo', badge: 'bez rabatu' },
-      month: { label: 'Raz w miesiącu', badge: '−10% · popularne' },
-      two: { label: 'Co dwa tygodnie', badge: '−15%' },
-      week: { label: 'Co tydzień', badge: '−20%' },
+      once: { label: 'Jednorazowo' },
+      month: { label: 'Raz w miesiącu' },
+      two: { label: 'Co dwa tygodnie' },
+      week: { label: 'Co tydzień' },
     },
+    save: 'oszczędność', popular: 'popularne',
     times: { any: 'Dowolna pora', morning: 'Rano (8–12)', day: 'Dzień (12–16)', evening: 'Wieczór (16–20)' },
     extrasLabels: { oven: 'Piekarnik', fridge: 'Lodówka', micro: 'Mikrofalówka', windows: 'Mycie okien', balcony: 'Balkon', iron: 'Prasowanie', dishes: 'Zmywanie naczyń', cabinets: 'Porządek w szafie' },
   },
@@ -74,7 +76,7 @@ const PERIODS = [
   { id: 'month', disc: 0.10 },
   { id: 'two', disc: 0.15 },
   { id: 'week', disc: 0.20 },
-].map((p) => ({ ...p, label: T.periods[p.id].label, badge: T.periods[p.id].badge }));
+].map((p) => ({ ...p, label: T.periods[p.id].label }));
 
 const EXTRAS = [
   { id: 'oven', price: 40 },
@@ -194,7 +196,8 @@ PERIODS.forEach((p) => {
   btn.className = 'period-card';
   btn.dataset.period = p.id;
   btn.innerHTML =
-    '<span class="period-badge">' + p.badge + '</span>' +
+    (p.id === 'two' ? '<span class="period-pop">' + T.popular + '</span>' : '') +
+    '<span class="period-badge" data-save hidden></span>' +
     '<span class="period-label">' + p.label + '</span>' +
     '<span class="period-price" data-price></span>';
   btn.addEventListener('click', () => { state.period = p.id; render(); });
@@ -469,6 +472,9 @@ function render() {
     const p = PERIODS.find((x) => x.id === btn.dataset.period);
     btn.classList.toggle('active', state.period === p.id);
     btn.querySelector('[data-price]').textContent = fmt(base * (1 - p.disc)) + ' zł';
+    const save = btn.querySelector('[data-save]');
+    if (p.disc > 0) { save.hidden = false; save.textContent = T.save + ' ' + fmt(base * p.disc) + ' zł'; }
+    else { save.hidden = true; }
   });
 
   // опції

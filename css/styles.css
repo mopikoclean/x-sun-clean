@@ -391,6 +391,7 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
 }
 
 .period-card {
+  position: relative;
   border: 1.5px solid var(--border);
   background: var(--bg);
   color: var(--ink);
@@ -416,10 +417,26 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
   border-radius: var(--radius-pill);
   padding: 3px 10px;
   font: 700 11.5px var(--font-body);
+  white-space: nowrap;
 }
 .period-card.active .period-badge { background: var(--accent); color: var(--ink); }
 
-.period-label { font: 600 14px var(--font-body); display: block; }
+/* «популярно» — той самий акцентний ярличок, що й на головній */
+.period-pop {
+  position: absolute;
+  top: -9px;
+  right: 10px;
+  background: var(--accent);
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+  padding: 2px 9px;
+  font: 700 10.5px var(--font-body);
+  letter-spacing: .2px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(20, 20, 20, .16);
+}
+
+.period-label { font: 600 14px var(--font-body); display: block; margin-top: auto; }
 .period-price { font: 700 17px var(--font-display); letter-spacing: -.5px; display: block; }
 
 /* ---- додаткові опції ---- */

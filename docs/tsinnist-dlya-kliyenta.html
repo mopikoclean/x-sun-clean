@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>x-sun clean — что сделано и почему это ценно</title>
+<style>
+  :root{
+    --bg:#FCFBF8; --ink:#171512; --muted:#6B6459; --line:#ECE7DB;
+    --accent:#FFC53D; --gold:#8A6D1B; --card:#FFFFFF; --dark:#161412;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:400 17px/1.62 "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .wrap{max-width:800px;margin:0 auto;padding:64px 24px 88px}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .eyebrow .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
+  h1{font-size:clamp(30px,5.6vw,50px);line-height:1.04;letter-spacing:-.025em;font-weight:800;
+    text-wrap:balance;margin:20px 0 0}
+  h1 .hl{color:var(--gold)}
+  .lead{font-size:19px;line-height:1.6;color:#3a352e;max-width:62ch;margin:22px 0 0}
+  .lead b{font-weight:700;color:var(--ink)}
+
+  .cat{margin-top:58px}
+  .cat-head{display:flex;align-items:baseline;gap:14px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+  .cat-num{font-weight:800;font-size:15px;color:var(--accent);letter-spacing:.02em;
+    font-variant-numeric:tabular-nums}
+  .cat-head h2{font-size:22px;font-weight:800;letter-spacing:-.01em;margin:0}
+
+  .item{padding:24px 0;border-bottom:1px solid var(--line)}
+  .item h3{font-size:18.5px;font-weight:700;margin:0 0 7px;letter-spacing:-.005em}
+  .item p{margin:0;color:var(--muted);font-size:16px;line-height:1.58}
+  .item .why{margin-top:9px;color:var(--ink);font-weight:500;display:flex;gap:10px;align-items:flex-start}
+  .item .why::before{content:"";flex:none;width:16px;height:16px;margin-top:3px;border-radius:50%;
+    background:var(--accent);
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat;
+    mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat;}
+
+  .flow-intro{margin:22px 0 8px;color:#3a352e;font-size:16.5px;line-height:1.6;max-width:64ch}
+  .flow-intro b{color:var(--ink);font-weight:700}
+  .flow{list-style:none;margin:16px 0 0;padding:0}
+  .step{position:relative;display:flex;gap:18px;padding-bottom:24px}
+  .step:not(:last-child)::before{content:"";position:absolute;left:16px;top:36px;bottom:0;width:2px;background:var(--line)}
+  .step-n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;
+    font:800 13px/1 "Segoe UI",system-ui,sans-serif;display:flex;align-items:center;justify-content:center;
+    font-variant-numeric:tabular-nums;position:relative;z-index:1}
+  .step-body{padding-top:4px}
+  .step-body h4{margin:0 0 4px;font-size:16.5px;font-weight:700;letter-spacing:-.005em}
+  .step-body p{margin:0;color:var(--muted);font-size:15px;line-height:1.55}
+  .step-body .job{margin-top:5px;color:var(--ink);font-weight:500}
+  .step-body .job b{font-weight:700}
+
+  .close{margin-top:64px;background:var(--dark);color:#F3EFE7;border-radius:22px;padding:40px 36px}
+  .close h2{font-size:24px;font-weight:800;letter-spacing:-.015em;margin:0 0 14px;color:#fff}
+  .close p{margin:0 0 16px;color:#C9C2B4;font-size:16.5px;line-height:1.62}
+  .close p:last-child{margin-bottom:0}
+  .close b{color:#fff;font-weight:700}
+  .close .yellow{color:var(--accent)}
+  .team{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px}
+  .team span{font-size:13.5px;font-weight:600;color:#EDE7DA;background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:7px 13px}
+  .kicker{font-size:26px;line-height:1.35;font-weight:800;letter-spacing:-.02em;color:#fff;margin-top:26px}
+  .kicker .yellow{color:var(--accent)}
+
+  .foot{margin-top:44px;padding:22px 24px;background:#fff;border:1px solid var(--line);border-radius:16px}
+  .foot h3{margin:0 0 10px;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+  .foot p{margin:0;color:var(--muted);font-size:15px;line-height:1.6}
+  .sig{margin-top:34px;font-size:14px;color:var(--muted)}
+  @media(max-width:560px){.wrap{padding:44px 18px 64px}.close{padding:30px 22px}}
+</style>
+
+<div class="wrap">
+  <span class="eyebrow"><span class="dot"></span>x-sun clean · сайт под ключ</span>
+  <h1>Что мы построили — и почему это <span class="hl">работает на бизнес</span></h1>
+  <p class="lead">Это не «красивый сайт-визитка». Это <b>рабочий инструмент продаж</b>, который сам считает цену, принимает заказы и приводит клиентов из поиска — 24/7, на двух языках и в рамках закона. Ниже — по-человечески, без технических слов, за что именно заплачено.</p>
+
+  <!-- A -->
+  <section class="cat">
+    <div class="cat-head"><span class="cat-num">01</span><h2>Продаёт за вас — превращает посетителя в заявку</h2></div>
+
+    <div class="item">
+      <h3>Онлайн-калькулятор стоимости</h3>
+      <p>Клиент сам выбирает тип жилья, количество комнат и санузлов, площадь и дополнительные опции — и цена считается мгновенно прямо на экране. Логика продумана до мелочей: стоимость учитывает метраж, а по отдельным услугам (например, мойка окон) можно указать даже <b>количество окон</b>.</p>
+      <p class="why">Человек видит честную цену сразу, не уходит «подумать» и не ждёт ответа менеджера. За этой простотой — кропотливо выверенная система расчёта, чтобы цифра была справедливой и для клиента, и для вас. Прозрачная цена = доверие = больше заказов.</p>
+    </div>
+
+    <div class="item">
+      <h3>Продуманный сценарий заказа — под каждый случай</h3>
+      <p>Сначала человек выбирает, что у него: квартира, частный дом или уборка после ремонта — и весь сценарий подстраивается (у дома комнат и санузлов больше; после ремонта важен метраж). Учтены даже нюансы: обычная кухня или кухня-студия — это разный объём, время и цена, и калькулятор их различает. Всё считается в реальном времени, без участия менеджера.</p>
+      <p class="why">Клиент проходит путь, который «понимает» его ситуацию, и сам получает точную цену. Это снимает нагрузку с вас и не даёт повода уйти к конкуренту за ответом.</p>
+    </div>
+
+    <div class="item">
+      <h3>Дополнительные опции с автоматическим расчётом</h3>
+      <p>Духовка, холодильник, микроволновка и другие доп-услуги отмечаются в один тап и сразу пересчитывают цену. Под каждую опцию нарисована своя уникальная иконка в стиле сайта.</p>
+      <p class="why">Клиент легко добавляет нужное и видит итог мгновенно, а вы допродаёте услуги без единого звонка. Иконки — отдельная кропотливая работа дизайнера, из которой и складывается ощущение «дорогого» продукта.</p>
+    </div>
+
+    <div class="item">
+      <h3>Сайт запоминает выбор клиента</h3>
+      <p>Если человек на главной выбрал, скажем, 3 комнаты и 1 санузел и перешёл к оформлению — эти данные уже подставлены. Вводить заново ничего не нужно.</p>
+      <p class="why">Каждое лишнее действие — это потерянные клиенты. Мы убрали раздражение: путь от интереса до заявки максимально короткий.</p>
+    </div>
+
+    <div class="item">
+      <h3>Система промокодов</h3>
+      <p>Встроена возможность промокодов: можно выдать клиенту код на скидку, и он применит его прямо при оформлении заказа.</p>
+      <p class="why">Готовый инструмент для акций, партнёров и постоянных клиентов — можно запускать маркетинговые кампании хоть завтра, без доработок сайта.</p>
+    </div>
+
+    <div class="item">
+      <h3>Заказ в один клик — через Telegram с готовым сообщением</h3>
+      <p>Клиент нажимает кнопку — и в Telegram уже сформировано сообщение со всеми деталями: что убирать, сколько комнат, дата, опции, цена, имя, телефон.</p>
+      <p class="why">Менеджеру не нужно ничего переспрашивать, ни одна заявка не теряется, ответ клиенту — за секунды.</p>
+    </div>
+
+    <div class="item">
+      <h3>Запасной путь для тех, кто без мессенджеров</h3>
+      <p>Кнопка «оставьте заявку — мы перезвоним» на случай, если человек не пользуется Telegram.</p>
+      <p class="why">Вы не теряете и эту часть клиентов — заявка всё равно доходит.</p>
+    </div>
+
+    <div class="item">
+      <h3>Минимум полей — осознанное конкурентное преимущество</h3>
+      <p>Мы намеренно <b>не</b> заставляем человека вводить адрес, подъезд и этаж на этапе заявки. Только самое нужное: как обращаться, телефон и удобные дата и время. Точный адрес уточняется уже в разговоре.</p>
+      <p class="why">Каждое лишнее поле отпугивает и роняет конверсию — у конкурентов длинные формы теряют клиентов. Наша задача №1 — получить заявку. Всё остальное выясняется потом, когда человек уже «ваш».</p>
+    </div>
+
+    <div class="item">
+      <h3>Интерактивная квартира «в разрезе»</h3>
+      <p>Отдельная страница с квартирой в разрезе: наводишь или нажимаешь на комнату — кухню, санузел, спальню, коридор — и прямо на картинке видно, что именно мы там убираем.</p>
+      <p class="why">Клиент своими глазами видит объём работы и понимает, за что платит. Такое вовлечение удерживает на сайте и снимает вопрос «а что вообще входит?» ещё до заказа.</p>
+    </div>
+
+    <div class="item">
+      <h3>Маркетинг встроен в каждую деталь</h3>
+      <p>Показ выгоды при регулярной уборке (старая цена зачёркнута, видна экономия), пометка «популярный» тариф, отзывы, галерея «до/после», плавающая кнопка связи.</p>
+      <p class="why">Каждый элемент мягко подталкивает к заказу — это работа маркетолога, а не просто картинки.</p>
+    </div>
+  </section>
+
+  <!-- A2: homepage funnel -->
+  <section class="cat">
+    <div class="cat-head"><span class="cat-num">02</span><h2>Главная страница — это маршрут, а не набор блоков</h2></div>
+    <p class="flow-intro">Каждая секция главной решает <b>одну задачу</b>: снимает страх или отвечает на вопрос — и ведёт человека к заявке. Вот этот путь сверху вниз. Это и есть маркетинг: не «красивые картинки», а продуманная последовательность.</p>
+    <ol class="flow">
+      <li class="step"><span class="step-n">01</span><div class="step-body">
+        <h4>Первый экран</h4>
+        <p>Кто мы, чем занимаемся, почему именно мы — и цена сразу, на первом же экране.</p>
+        <p class="job">За 3 секунды человек понимает, что получит и сколько это стоит. Никаких «свяжитесь для уточнения цены».</p>
+      </div></li>
+      <li class="step"><span class="step-n">02</span><div class="step-body">
+        <h4>Почему именно мы</h4>
+        <p>Фиксированная цена, свои профессиональные средства, оплата <b>после</b> работы, фактуры для фирм.</p>
+        <p class="job">Снимаем главные страхи разом: «обманут», «плати вперёд», «а чем убирают?». Фактуры открывают дверь бизнес-клиентам.</p>
+      </div></li>
+      <li class="step"><span class="step-n">03</span><div class="step-body">
+        <h4>Что мы убираем</h4>
+        <p>Обычная и генеральная уборка, после ремонта, мойка окон, отдельные условия для офисов по площади.</p>
+        <p class="job">Человек находит ровно свою задачу и видит, что вы её точно делаете.</p>
+      </div></li>
+      <li class="step"><span class="step-n">04</span><div class="step-body">
+        <h4>Интерактивная квартира</h4>
+        <p>Наглядный чек-лист по комнатам: что именно моем, чистим, полируем.</p>
+        <p class="job">Человек заранее видит, что ему обещают. Обещали отполировать окна — он этого ждёт. Ожидание = доверие, а не «пришли, убрали и сами сказали, что убрали».</p>
+      </div></li>
+      <li class="step"><span class="step-n">05</span><div class="step-body">
+        <h4>Цены с маркетингом</h4>
+        <p>Рядом видно: разовая уборка двушки — 230 zł, а раз в две недели — уже 195 zł.</p>
+        <p class="job">Мягко подталкиваем к регулярной уборке. Клиент чувствует, что экономит, а бизнес получает постоянного клиента вместо разового. Это маркетинг, а не прайс.</p>
+      </div></li>
+      <li class="step"><span class="step-n">06</span><div class="step-body">
+        <h4>До / После</h4>
+        <p>Галерея результата и самого процесса работы.</p>
+        <p class="job">Люди обожают сравнивать «было / стало». Ничто не продаёт уборку сильнее, чем видимый результат.</p>
+      </div></li>
+      <li class="step"><span class="step-n">07</span><div class="step-body">
+        <h4>Как это работает</h4>
+        <p>Три простых шага: заявка → подтверждение → уборка.</p>
+        <p class="job">Показываем, что всё прозрачно и без подводных камней. Простота убивает сомнения.</p>
+      </div></li>
+      <li class="step"><span class="step-n">08</span><div class="step-body">
+        <h4>Работаем по всему городу</h4>
+        <p>Понятно обозначено, что выезжаем по всему городу.</p>
+        <p class="job">Снимаем ещё один страх — «а вдруг мой район не обслуживают».</p>
+      </div></li>
+      <li class="step"><span class="step-n">09</span><div class="step-body">
+        <h4>Для салонов и офисов</h4>
+        <p>Отдельная секция для бизнеса: условия обговариваются лично — написать или позвонить.</p>
+        <p class="job">B2B-клиент видит, что с ним готовы работать индивидуально. А это самые крупные и постоянные чеки.</p>
+      </div></li>
+      <li class="step"><span class="step-n">10</span><div class="step-body">
+        <h4>Отзывы клиентов</h4>
+        <p>Реальные отзывы людей, которые уже заказывали.</p>
+        <p class="job">Социальное доказательство: понравилось другим — значит, можно доверять.</p>
+      </div></li>
+      <li class="step"><span class="step-n">11</span><div class="step-body">
+        <h4>Частые вопросы (FAQ)</h4>
+        <p>Ответы на типовые вопросы — сразу на странице.</p>
+        <p class="job">Человек закрывает сомнения сам, не дёргает менеджера и приходит оформлять заявку уже «тёплым», готовым клиентом.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <!-- B -->
+  <section class="cat">
+    <div class="cat-head"><span class="cat-num">03</span><h2>Приводит новых клиентов из интернета</h2></div>
+
+    <div class="item">
+      <h3>Две языковые версии, правильно настроенные под Google (SEO)</h3>
+      <p>Украинская и польская версии сделаны не «переключателем на одной странице», а как <b>отдельные страницы с отдельными адресами</b>. И — это ключевой момент — мы заранее прописали для Google специальную разметку (hreflang), которая прямо говорит поисковику: «вот эта страница — на украинском, а вот та же самая — на польском».</p>
+      <p class="why">Без этого Google легко решает, что сайт «просто украинский», и польскую версию почти не показывает — половина рынка теряется. У нас же поисковик индексирует <b>каждый язык отдельно</b> и показывает нужную страницу нужному человеку: поляку в выдаче — польскую, украинцу — украинскую. Это удваивает охват и даёт бесплатный поток клиентов из поиска — но работает только потому, что заложено технически правильно с самого начала.</p>
+    </div>
+
+    <div class="item">
+      <h3>Идеально на телефоне, планшете и компьютере</h3>
+      <p>Каждая страница, каждая кнопка выверены под любой экран.</p>
+      <p class="why">Больше половины людей заходят с телефона. Сайт везде безупречен — вы не теряете эту половину клиентов.</p>
+    </div>
+
+    <div class="item">
+      <h3>Скорость и надёжность</h3>
+      <p>Свой хостинг шрифтов, сжатые изображения, мировая сеть доставки (сайт лежит на серверах по всему миру).</p>
+      <p class="why">Быстрый сайт Google ставит выше в поиске, и люди не уходят, не дождавшись загрузки.</p>
+    </div>
+
+    <div class="item">
+      <h3>Красивое превью при отправке ссылки (Open Graph)</h3>
+      <p>Кидаешь ссылку в Telegram, Facebook, WhatsApp — появляется большая карточка с логотипом и названием, на нужном языке.</p>
+      <p class="why">Выглядит как крупный бренд, по такой ссылке кликают заметно чаще.</p>
+    </div>
+  </section>
+
+  <!-- C -->
+  <section class="cat">
+    <div class="cat-head"><span class="cat-num">04</span><h2>Защищает бизнес от штрафов</h2></div>
+
+    <div class="item">
+      <h3>Политика конфиденциальности + баннер согласия на cookie (GDPR / RODO)</h3>
+      <p>Это прямые требования закона ЕС о защите данных. На сайте всё оформлено правильно: до согласия человека ничего не отслеживается.</p>
+      <p class="why">Нарушение GDPR — штрафы до 20 млн € или 4% оборота. Это юридический щит, а не косметика. <b>(Финальную проверку текста и реквизиты компании — за юристом.)</b></p>
+    </div>
+
+    <div class="item">
+      <h3>Доступность для всех (accessibility)</h3>
+      <p>Сайт работает с клавиатуры, читается программами для незрячих, уважает настройку «меньше анимации», проверен контраст текста.</p>
+      <p class="why">Это тоже требование законодательства ЕС к сайтам — и заодно шире аудитория.</p>
+    </div>
+  </section>
+
+  <!-- D -->
+  <section class="cat">
+    <div class="cat-head"><span class="cat-num">05</span><h2>Сделано, чтобы жить и расти</h2></div>
+
+    <div class="item">
+      <h3>Логотип и фирменный стиль</h3>
+      <p>Собственный логотип и единый визуальный язык бренда — самостоятельная работа дизайнера, за которую берут отдельные деньги.</p>
+    </div>
+
+    <div class="item">
+      <h3>Единая дизайн-система</h3>
+      <p>Все цвета, шрифты и кнопки собраны на «переключателях» в одном месте.</p>
+      <p class="why">Поменять что-то по всему сайту (например, оттенок бренда) — минуты, а не переделка с нуля.</p>
+    </div>
+
+    <div class="item">
+      <h3>Автоматические обновления</h3>
+      <p>Любое изменение попадает на живой сайт за минуту, у посетителей не «застревает» старая версия.</p>
+      <p class="why">Развивать сайт дальше — быстро, дёшево и без риска что-то сломать.</p>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="close">
+    <h2>Почему это стоит своих денег</h2>
+    <p>Это не один «сайт». Это работа целой команды специалистов — и в каждой из этих ролей нужна отдельная экспертиза:</p>
+    <div class="team">
+      <span>Дизайнер (внешний вид, UX)</span>
+      <span>Frontend-разработчик</span>
+      <span>SEO-специалист</span>
+      <span>Юрист по GDPR</span>
+      <span>Спец по доступности</span>
+      <span>Переводчик</span>
+      <span>DevOps (хостинг, надёжность)</span>
+    </div>
+    <p>Каждая мелочь, которых здесь <b>десятки</b>, — это чья-то работа и знания. Собрать всё это вместе, чтобы оно работало как единый механизм, — и есть настоящая ценность.</p>
+    <p class="kicker">И главное: сайт <span class="yellow">приносит деньги</span>, а не тратит их. Он считает цену, принимает заказы и приводит клиентов из поиска даже когда вы спите. <span class="yellow">Один-два дополнительных заказа в месяц</span> — и он себя окупает.</p>
+  </section>
+
+  <div class="foot">
+    <h3>Что осталось перед запуском</h3>
+    <p>Честно: сайт почти готов. Финальные штрихи — вставить реальные контакты и телефон, подключить форму заявок на почту, добавить настоящие отзывы, купить домен и дать юристу проверить политику. Это быстрые шаги, всё остальное уже сделано и работает вживую.</p>
+  </div>
+
+  <p class="sig">Подготовлено для x-sun clean · дизайн и разработка — Kovalov (kovalov.cz)</p>
+</div>
+
+</html>
