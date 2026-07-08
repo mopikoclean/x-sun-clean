@@ -503,14 +503,22 @@ html { scroll-behavior: smooth; }
 .zone-map iframe {
   position: absolute;
   /* iframe більший за контейнер з усіх боків — контроли (+/-) та атрибуцію
-     OSM обрізає overflow:hidden контейнера. pointer-events:none → сторінка
-     скролиться навіть коли палець над картою. */
+     OSM обрізає overflow:hidden контейнера. */
   left: -50px;
   top: -50px;
   width: calc(100% + 100px);
   height: calc(100% + 150px);
   border: 0;
   pointer-events: none;
+}
+/* Прозорий оверлей поверх iframe: на iOS Safari iframe перехоплює тач-скрол
+   навіть з pointer-events:none. Оверлей — звичайний елемент сторінки, тож палець
+   над картою нормально скролить сторінку. Мітка й коло — над оверлеєм. */
+.zone-map::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 .zone-map .circle {
   position: absolute;
@@ -523,6 +531,7 @@ html { scroll-behavior: smooth; }
   background: rgba(255, 197, 61, .16);
   border: 2px solid rgba(232, 161, 0, .65);
   pointer-events: none;
+  z-index: 2;
 }
 .zone-map .tag {
   position: absolute;
@@ -534,6 +543,7 @@ html { scroll-behavior: smooth; }
   padding: 8px 16px;
   font: 600 13px var(--font-body);
   pointer-events: none;
+  z-index: 2;
 }
 
 .zone-side { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }

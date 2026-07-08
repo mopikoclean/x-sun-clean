@@ -150,8 +150,13 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
   top: 0;
   z-index: 60;
   background: rgba(252, 251, 248, .88);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+  /* iOS Safari: елементи з transform (GSAP-анімації) інакше рендеряться ПОВЕРХ
+     sticky-навбару. Власний композитний шар + isolation тримають навбар зверху. */
+  transform: translateZ(0);
+  isolation: isolate;
 }
 
 .nav-inner {
