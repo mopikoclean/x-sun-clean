@@ -71,6 +71,38 @@ const ROOMS = [
   },
 ];
 
+// Мова сторінки — для підписів «додаткова опція» тощо.
+const WLANG = (document.documentElement.lang || 'uk').slice(0, 2);
+const WHAT_T = ({
+  uk: { optAria: 'додаткова опція', opt: 'опція' },
+  pl: { optAria: 'opcja dodatkowa', opt: 'opcja' },
+})[WLANG] || { optAria: 'додаткова опція', opt: 'опція' };
+
+// Польський переклад: підміняємо лише тексти/підписи за індексами
+// (координати, зображення й ціни спільні — без ризику зсуву).
+if (WLANG === 'pl') {
+  const PL = {
+    labels: ['Kuchnia', 'Pokój', 'Łazienka', 'Przedpokój'],
+    alts: [
+      'Izometryczna kuchnia: co sprzątamy',
+      'Izometryczny pokój: co sprzątamy',
+      'Izometryczna łazienka: co sprzątamy',
+      'Izometryczny przedpokój: co sprzątamy',
+    ],
+    spots: [
+      ['Myjemy płytę i fartuch kuchenny', 'Myjemy zlew i baterię do połysku', 'Przecieramy blaty i fronty szafek', 'Ścieramy kurz z półek i naczyń', 'Myjemy parapet i grzejnik', 'Przecieramy stół i krzesła', 'Odkurzamy i myjemy podłogę, wynosimy śmieci', 'Piekarnik w środku', 'Lodówka w środku', 'Mycie okien'],
+      ['Ścielimy łóżko, w razie potrzeby zmieniamy pościel', 'Ścieramy kurz ze wszystkich odkrytych powierzchni', 'Polerujemy lustra', 'Przecieramy ramy, lampy i włączniki', 'Odkurzamy dywan i myjemy podłogę', 'Porządek w szafie', 'Prasowanie'],
+      ['Myjemy i dezynfekujemy wannę i prysznic', 'Myjemy i dezynfekujemy toaletę', 'Myjemy umywalki i baterie', 'Polerujemy lustra', 'Przecieramy półki i kosmetyki', 'Starannie wieszamy ręczniki', 'Myjemy podłogę i dywanik'],
+      ['Porządkujemy obuwie', 'Polerujemy lustro', 'Ścieramy kurz z półek i wieszaków', 'Myjemy drzwi wejściowe i klamki', 'Odkurzamy dywanik i myjemy podłogę'],
+    ],
+  };
+  ROOMS.forEach((room, ri) => {
+    room.label = PL.labels[ri];
+    room.alt = PL.alts[ri];
+    room.spots.forEach((s, si) => { s.text = PL.spots[ri][si]; });
+  });
+}
+
 const stage = document.getElementById('whatStage');
 const listEl = document.getElementById('whatList');
 const tabsEl = document.getElementById('whatTabs');
@@ -132,11 +164,11 @@ function renderRoom(animate) {
       b.dataset.spot = idx;
       b.style.left = s.x + '%';
       b.style.top = s.y + '%';
-      b.setAttribute('aria-label', s.text + (s.extra ? ' (додаткова опція ' + s.extra + ')' : ''));
+      b.setAttribute('aria-label', s.text + (s.extra ? ' (' + WHAT_T.optAria + ' ' + s.extra + ')' : ''));
       b.innerHTML =
         '<span class="dot">' + (s.extra ? '+' : idx + 1) + '</span>' +
         '<span class="tip' + (s.x > 55 ? ' left' : '') + '">' + s.text +
-        (s.extra ? ' <em>' + s.extra + ' · опція</em>' : '') + '</span>';
+        (s.extra ? ' <em>' + s.extra + ' · ' + WHAT_T.opt + '</em>' : '') + '</span>';
       b.addEventListener('mouseenter', () => linkHover(idx, true));
       b.addEventListener('mouseleave', () => linkHover(idx, false));
       b.addEventListener('click', (e) => {

@@ -6,6 +6,10 @@ const fmt = (n) => String(Math.round(n));
 // Користувач попросив менше руху — поважаємо на рівні всієї сторінки.
 const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Мова сторінки (з <html lang>) — для текстів, що рендеряться з JS.
+const PLANG = (document.documentElement.lang || 'uk').slice(0, 2);
+const pick = (dict) => dict[PLANG] || dict.uk;
+
 /* ---- калькулятор у hero ---- */
 const calc = { rooms: 2, baths: 1 };
 const basePrice = (r, b) => 184.90 + (r - 1) * 45 + (b - 1) * 40;
@@ -14,7 +18,8 @@ const basePrice = (r, b) => 184.90 + (r - 1) * 45 + (b - 1) * 40;
 // далі — на сторінку замовлення, щоб не вводити їх заново
 function syncCalcOrderLinks() {
   const q = '?rooms=' + calc.rooms + '&baths=' + calc.baths;
-  document.querySelectorAll('.js-calc-order').forEach((a) => { a.href = 'zamovlennya.html' + q; });
+  // абсолютний шлях — щоб працювало і з /pl/ (польська форма замовлення поки спільна, UA)
+  document.querySelectorAll('.js-calc-order').forEach((a) => { a.href = '/zamovlennya.html' + q; });
 }
 syncCalcOrderLinks();
 
@@ -36,12 +41,20 @@ document.querySelectorAll('.step-btn').forEach((btn) => {
 
 /* ---- ціни: періодичність + доп. опції ---- */
 const DISC = { once: 0, month: 0.10, two: 0.15, week: 0.20 };
-const PERIOD_LABELS = {
-  once: 'разове прибирання',
-  week: 'щотижня (−20%)',
-  two: 'раз на два тижні (−15%)',
-  month: 'раз на місяць (−10%)',
-};
+const PERIOD_LABELS = pick({
+  uk: {
+    once: 'разове прибирання',
+    week: 'щотижня (−20%)',
+    two: 'раз на два тижні (−15%)',
+    month: 'раз на місяць (−10%)',
+  },
+  pl: {
+    once: 'sprzątanie jednorazowe',
+    week: 'co tydzień (−20%)',
+    two: 'co dwa tygodnie (−15%)',
+    month: 'raz w miesiącu (−10%)',
+  },
+});
 const priceState = { period: 'once' };
 
 document.querySelectorAll('.pill').forEach((pill) => {
@@ -66,9 +79,17 @@ function renderPrices() {
 renderPrices();
 
 /* ---- слайдер + галерея «до / після» ---- */
+const BA_LABELS = pick({
+  uk: ["Під'їзд після ремонту", 'Газова плита'],
+  pl: ['Klatka schodowa po remoncie', 'Kuchenka gazowa'],
+});
+const BA_WORDS = pick({
+  uk: { before: 'до', after: 'після', example: 'Приклад: ' },
+  pl: { before: 'przed', after: 'po', example: 'Przykład: ' },
+});
 const BA_ITEMS = [
-  { before: 'img/ba-before.webp', after: 'img/ba-after.webp', label: "Під'їзд після ремонту" },
-  { before: 'img/ba2-before.webp', after: 'img/ba2-after.webp', label: 'Газова плита' },
+  { before: 'img/ba-before.webp', after: 'img/ba-after.webp', label: BA_LABELS[0] },
+  { before: 'img/ba2-before.webp', after: 'img/ba2-after.webp', label: BA_LABELS[1] },
 ];
 let baIdx = 0;
 
@@ -83,8 +104,8 @@ function showBA(i) {
   const it = BA_ITEMS[baIdx];
   $('baBeforeImg').src = it.before;
   $('baAfterImg').src = it.after;
-  $('baBeforeImg').alt = it.label + ' — до';
-  $('baAfterImg').alt = it.label + ' — після';
+  $('baBeforeImg').alt = it.label + ' — ' + BA_WORDS.before;
+  $('baAfterImg').alt = it.label + ' — ' + BA_WORDS.after;
   $('baRange').value = 50;
   setSlider(50);
   dotsWrap.querySelectorAll('button').forEach((d, di) => d.classList.toggle('active', di === baIdx));
@@ -94,7 +115,7 @@ const dotsWrap = $('baDots');
 BA_ITEMS.forEach((it, i) => {
   const d = document.createElement('button');
   d.type = 'button';
-  d.setAttribute('aria-label', 'Приклад: ' + it.label);
+  d.setAttribute('aria-label', BA_WORDS.example + it.label);
   d.addEventListener('click', () => showBA(i));
   dotsWrap.appendChild(d);
 });
@@ -112,14 +133,24 @@ showBA(0);
 })();
 
 /* ---- FAQ ---- */
-const FAQS = [
-  { q: 'Чи потрібно надавати свої засоби для прибирання?', a: 'Ні. Ми приїжджаємо з усім необхідним: професійна хімія, інвентар, пилосос. Вам достатньо відчинити двері.' },
-  { q: 'Як відбувається оплата?', a: 'Після завершення прибирання, коли ви прийняли роботу. Карткою, готівкою або переказом — як вам зручно. Без передоплат.' },
-  { q: 'Чи видаєте фактуру VAT?', a: 'Так, для компаній та офісів надаємо фактуру VAT і працюємо за договором.' },
-  { q: 'Скільки триває прибирання?', a: 'Звичайне прибирання 1-кімнатної квартири — приблизно 2–3 години, 2-кімнатної — 3–4. Точний час залежить від стану приміщення.' },
-  { q: 'Чи можна замовити регулярне прибирання?', a: 'Так, це найвигідніший формат: раз на тиждень −20%, раз на два тижні −15%, раз на місяць −10%. Приїжджає той самий виконавець.' },
-  { q: 'Чи виїжджаєте за межі Познані?', a: 'Наразі працюємо в межах Познані. Найближчі околиці — за домовленістю, напишіть нам.' },
-];
+const FAQS = pick({
+  uk: [
+    { q: 'Чи потрібно надавати свої засоби для прибирання?', a: 'Ні. Ми приїжджаємо з усім необхідним: професійна хімія, інвентар, пилосос. Вам достатньо відчинити двері.' },
+    { q: 'Як відбувається оплата?', a: 'Після завершення прибирання, коли ви прийняли роботу. Карткою, готівкою або переказом — як вам зручно. Без передоплат.' },
+    { q: 'Чи видаєте фактуру VAT?', a: 'Так, для компаній та офісів надаємо фактуру VAT і працюємо за договором.' },
+    { q: 'Скільки триває прибирання?', a: 'Звичайне прибирання 1-кімнатної квартири — приблизно 2–3 години, 2-кімнатної — 3–4. Точний час залежить від стану приміщення.' },
+    { q: 'Чи можна замовити регулярне прибирання?', a: 'Так, це найвигідніший формат: раз на тиждень −20%, раз на два тижні −15%, раз на місяць −10%. Приїжджає той самий виконавець.' },
+    { q: 'Чи виїжджаєте за межі Познані?', a: 'Наразі працюємо в межах Познані. Найближчі околиці — за домовленістю, напишіть нам.' },
+  ],
+  pl: [
+    { q: 'Czy trzeba zapewnić własne środki do sprzątania?', a: 'Nie. Przyjeżdżamy z wszystkim, co potrzebne: profesjonalna chemia, sprzęt, odkurzacz. Wystarczy, że otworzysz drzwi.' },
+    { q: 'Jak wygląda płatność?', a: 'Po zakończeniu sprzątania, gdy odbierzesz pracę. Kartą, gotówką lub przelewem — jak Ci wygodnie. Bez przedpłat.' },
+    { q: 'Czy wystawiacie fakturę VAT?', a: 'Tak, dla firm i biur wystawiamy fakturę VAT i pracujemy na podstawie umowy.' },
+    { q: 'Ile trwa sprzątanie?', a: 'Standardowe sprzątanie mieszkania 1-pokojowego to około 2–3 godzin, 2-pokojowego — 3–4. Dokładny czas zależy od stanu lokalu.' },
+    { q: 'Czy można zamówić sprzątanie regularne?', a: 'Tak, to najkorzystniejszy format: co tydzień −20%, co dwa tygodnie −15%, raz w miesiącu −10%. Przyjeżdża ten sam wykonawca.' },
+    { q: 'Czy dojeżdżacie poza Poznań?', a: 'Na razie pracujemy w granicach Poznania. Najbliższe okolice — po uzgodnieniu, napisz do nas.' },
+  ],
+});
 
 const faqList = $('faqList');
 FAQS.forEach((f, i) => {
