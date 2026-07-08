@@ -624,7 +624,7 @@ html { scroll-behavior: smooth; }
   transition: transform .35s cubic-bezier(.4, 0, .2, 1), background .3s, border-color .3s;
 }
 .faq-item.open .faq-icon {
-  border-color: var(--ink);
+  border-color: var(--accent);
   background: var(--accent);
   transform: rotate(45deg);
 }
@@ -777,9 +777,18 @@ html { scroll-behavior: smooth; }
   .biz-grid { grid-template-columns: 1fr; }
   .svc-pin { height: auto; padding: 64px 0 24px; gap: 28px; }
   .zone-grid { grid-template-columns: 1fr; }
-  .svc-track { overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 24px 20px; }
+  .svc-track { overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 32px 20px; scroll-padding-left: 32px; }
   .svc-card { scroll-snap-align: start; }
   .foot-grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* Планшет: переваги у сітку 2×2 (замість 3+1 від auto-fit), з хрестовим розділювачем */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .trust-grid { grid-template-columns: 1fr 1fr; }
+  .trust-item { border-right: none; }
+  .trust-item:nth-child(odd) { border-right: 1px solid var(--border); padding-left: 0; padding-right: 32px; }
+  .trust-item:nth-child(even) { padding-left: 32px; padding-right: 0; }
+  .trust-item:nth-child(1), .trust-item:nth-child(2) { border-bottom: 1px solid var(--border); }
 }
 
 @media (max-width: 767px) {
