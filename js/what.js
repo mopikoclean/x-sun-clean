@@ -121,6 +121,8 @@ function renderRoom(animate) {
     img.alt = room.alt;
     img.width = room.w;
     img.height = room.h;
+    img.loading = 'lazy';
+    img.decoding = 'async';
     stage.appendChild(img);
 
     room.spots.forEach((s, idx) => {

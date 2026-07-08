@@ -51,6 +51,34 @@ const EXTRAS = [
   { id: 'cabinets', label: 'Прибрати в шафі', price: 30 },
 ];
 
+// Іконки опцій — лінійний стиль сайту (основні лінії currentColor, одна золота деталь).
+// currentColor → іконка стає золотою разом із карткою у стані .on.
+const ICO = (inner) =>
+  '<svg class="extra-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" ' +
+  'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
+const ICONS = {
+  oven: ICO('<rect x="4" y="4" width="24" height="24" rx="3"/><line x1="4" y1="10.5" x2="28" y2="10.5"/>' +
+    '<circle class="acc-fill" cx="19" cy="7.2" r="1.1"/><circle class="acc-fill" cx="23" cy="7.2" r="1.1"/>' +
+    '<rect x="8" y="14" width="16" height="9.5" rx="1.5"/>'),
+  fridge: ICO('<rect x="8" y="3" width="16" height="26" rx="3"/><line x1="8" y1="13" x2="24" y2="13"/>' +
+    '<line class="acc" x1="20" y1="6.5" x2="20" y2="10"/><line class="acc" x1="20" y1="16" x2="20" y2="21"/>'),
+  micro: ICO('<rect x="3" y="7" width="26" height="18" rx="3"/><rect x="6" y="10" width="14" height="12" rx="1.5"/>' +
+    '<circle class="acc-fill" cx="24" cy="12" r="1"/><circle class="acc-fill" cx="24" cy="15" r="1"/>' +
+    '<line x1="22.5" y1="19" x2="25.5" y2="19"/>'),
+  windows: ICO('<rect x="4" y="5" width="15" height="19" rx="1.5"/><line x1="11.5" y1="5" x2="11.5" y2="24"/>' +
+    '<line x1="4" y1="14.5" x2="19" y2="14.5"/><path class="acc" d="M25 6 L25 12 M22 9 L28 9"/>'),
+  balcony: ICO('<line x1="4" y1="26" x2="28" y2="26"/><line x1="5" y1="13" x2="27" y2="13"/>' +
+    '<line x1="9" y1="13" x2="9" y2="26"/><line x1="15" y1="13" x2="15" y2="26"/><line x1="21" y1="13" x2="21" y2="26"/>' +
+    '<path class="acc" d="M24 12.5 C21.5 10.5 22.5 7 24 6.5 C25.5 7 26.5 10.5 24 12.5 Z"/>'),
+  iron: ICO('<path d="M6 21 L25 21 L25 18 C25 14 22 13 18 13 L11 13 C8 13 6 15 6 18 Z"/>' +
+    '<path d="M11 13 C11 9 19 9 19 13"/>' +
+    '<path class="acc" d="M26 8 C27.2 9 25 10 26 11.2"/><path class="acc" d="M22 6.5 C23.2 7.5 21 8.5 22 9.7"/>'),
+  dishes: ICO('<circle cx="13" cy="17" r="9"/><circle cx="13" cy="17" r="4.3"/>' +
+    '<circle class="acc" cx="25" cy="8" r="2"/><circle class="acc-fill" cx="21" cy="4.5" r="1"/>'),
+  cabinets: ICO('<rect x="6" y="4" width="20" height="24" rx="2"/><line x1="16" y1="4" x2="16" y2="28"/>' +
+    '<circle class="acc-fill" cx="14" cy="16" r="1.1"/><circle class="acc-fill" cx="18" cy="16" r="1.1"/>'),
+};
+
 const TIMES = {
   any: 'Будь-який час',
   morning: 'Ранок (8–12)',
@@ -155,6 +183,7 @@ EXTRAS.forEach((x) => {
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
     card.innerHTML =
+      (ICONS[x.id] || '') +
       '<span class="extra-label">' + x.label + '</span>' +
       '<span class="extra-price">' + x.price + ' zł / ' + x.unit + '</span>' +
       '<div class="mini-counter" hidden>' +
@@ -176,6 +205,7 @@ EXTRAS.forEach((x) => {
     btn.className = 'extra-card';
     btn.dataset.extra = x.id;
     btn.innerHTML =
+      (ICONS[x.id] || '') +
       '<span class="extra-label">' + x.label + '</span>' +
       '<span class="extra-price">' + x.price + ' zł</span>';
     btn.addEventListener('click', () => {

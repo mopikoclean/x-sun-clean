@@ -8,17 +8,17 @@
   /* ---- Кольори: поверхні й текст ---- */
   --bg: #FCFBF8;
   --surface: #ffffff;
-  --surface-warm: var(--surface-warm);
+  --surface-warm: #F7F1E6;
   --ink: #141414;
-  --ink-soft: var(--ink-soft);
+  --ink-soft: #2E2B27;
   --muted: #55524B;
-  --muted-light: #8A857A;
+  --muted-light: #726E64;
   --disabled: #B4AF9F;
 
   /* ---- Кольори: межі ---- */
   --border: #E9E5DB;
   --border-strong: #C9C3B4;
-  --border-warm: var(--border-warm);
+  --border-warm: #EBE1CE;
 
   /* ---- Кольори: бренд ---- */
   --accent: #FFC53D;
@@ -29,10 +29,10 @@
   --badge-bg: #FFF3D1;
 
   /* ---- Кольори: статуси ---- */
-  --danger: var(--danger);
-  --danger-soft: var(--danger-soft);
-  --danger-light: var(--danger-light);
-  --placeholder: var(--placeholder);
+  --danger: #C0392B;
+  --danger-soft: #FBEAE8;
+  --danger-light: #EA6A5F;
+  --placeholder: #EFEAE0;
 
   /* ---- Типографіка ---- */
   --font-display: Unbounded, sans-serif;
@@ -437,6 +437,11 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
   color: var(--gold-text);
 }
 
+.extra-icon { display: block; width: 26px; height: 26px; margin-bottom: 10px; }
+.extra-icon .acc { stroke: var(--accent-dark); }
+.extra-icon .acc-fill { fill: var(--accent-dark); stroke: none; }
+.extra-card.on .extra-icon .acc { stroke: currentColor; }
+.extra-card.on .extra-icon .acc-fill { fill: currentColor; }
 .extra-label { font: 600 14px var(--font-body); display: block; }
 .extra-price { font: 700 14px var(--font-display); display: block; margin-top: 4px; }
 
@@ -731,49 +736,37 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
 .summary-duration #durationText { font-weight: 700; color: #fff; }
 
 /* ===== Cookie-банер (GDPR) ===== */
-.cookie-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(20, 20, 20, .38);
-  backdrop-filter: blur(1.5px);
-  z-index: 90;
-  animation: cookie-fade .25s var(--ease) both;
-}
-@keyframes cookie-fade { from { opacity: 0; } to { opacity: 1; } }
-
+/* Делікатна картка в кутку — скрол не блокуємо, фон не затемнюємо */
 .cookie-banner {
   position: fixed;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  max-width: 720px;
+  left: 0;
+  right: 0;
   margin: 0 auto;
+  bottom: 20px;
+  width: calc(100% - 40px);
+  max-width: 380px;
   z-index: 100;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 18px;
   box-shadow: var(--shadow-modal);
-  padding: 22px 24px;
+  padding: 20px 22px;
   display: flex;
-  align-items: center;
-  gap: 24px;
-  animation: cookie-up .3s var(--ease) both;
+  flex-direction: column;
+  gap: 16px;
+  animation: cookie-up .35s var(--ease) both;
 }
 @keyframes cookie-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
-.cookie-text strong { display: block; font: 700 16px var(--font-display); letter-spacing: -.4px; margin-bottom: 6px; }
-.cookie-text p { margin: 0; font: 400 13.5px/1.55 var(--font-body); color: var(--muted); }
+.cookie-text strong { display: block; font: 700 15px var(--font-display); letter-spacing: -.3px; margin-bottom: 6px; }
+.cookie-text p { margin: 0; font: 400 13px/1.55 var(--font-body); color: var(--muted); }
 .cookie-text a { color: var(--accent-dark); text-decoration: underline; }
 
-.cookie-actions { display: flex; gap: 10px; flex: none; }
-
-/* блокування прокрутки, доки немає рішення (body фіксується — див. js/cookie.js) */
-html.cookie-lock, html.cookie-lock body { overflow: hidden; }
-html.cookie-lock body { position: fixed; left: 0; right: 0; width: 100%; }
+.cookie-actions { display: flex; gap: 10px; }
+.cookie-actions .btn { flex: 1; }
 
 @media (max-width: 640px) {
-  .cookie-banner { flex-direction: column; align-items: stretch; gap: 16px; }
-  .cookie-actions { flex-direction: column-reverse; }
+  .cookie-banner { bottom: 12px; width: calc(100% - 24px); }
 }
 
 /* ===== Сторінка «Політика конфіденційності» ===== */
@@ -814,7 +807,7 @@ html.cookie-lock body { position: fixed; left: 0; right: 0; width: 100%; }
 
 .what-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
+  grid-template-columns: minmax(0, 1fr) 430px;
   gap: 32px;
   align-items: start;
 }
@@ -872,6 +865,8 @@ html.cookie-lock body { position: fixed; left: 0; right: 0; width: 100%; }
   animation: none;
 }
 .what-spot:hover .dot, .what-spot.hl .dot { scale: 1.25; animation: none; }
+/* активний хотспот піднімаємо над рештою, щоб його тултип був поверх сусідніх «+» */
+.what-spot:hover, .what-spot.open, .what-spot.hl { z-index: 20; }
 
 /* тултип */
 .what-spot .tip {
@@ -943,14 +938,18 @@ html.cookie-lock body { position: fixed; left: 0; right: 0; width: 100%; }
   flex: none;
   display: grid;
   place-items: center;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   margin-top: -2px;
   border-radius: 50%;
-  background: var(--accent);
+  background: #fff;
+  border: 1.5px solid var(--border-strong);
   color: var(--ink);
   font: 700 13px var(--font-body);
+  transition: background-color .15s var(--ease), border-color .15s var(--ease), color .15s var(--ease);
 }
+/* жовтий — лише як сигнал взаємодії (наведення на точку/рядок), не постійний шум */
+.what-item.hl .n { background: var(--accent); border-color: transparent; color: var(--ink); }
 .what-item.extra .n { background: #fff; border: 1.5px solid var(--accent-dark); color: var(--accent-dark); font-size: 15px; }
 .what-item em { font-style: normal; font-weight: 700; color: var(--gold-text); }
 

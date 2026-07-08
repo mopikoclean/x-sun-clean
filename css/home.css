@@ -240,9 +240,10 @@ html { scroll-behavior: smooth; }
 }
 .prices-head .hint { font: 400 15px var(--font-body); color: var(--muted-light); }
 
-.pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+.pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; margin-bottom: 30px; }
 
 .pill {
+  position: relative;
   border: 1.5px solid var(--border);
   background: var(--bg);
   color: var(--ink);
@@ -259,15 +260,23 @@ html { scroll-behavior: smooth; }
   background: var(--ink);
   color: #fff;
 }
-.pill .disc { opacity: .6; }
+/* вигода — вторинна, тиха: сіра, не тягне увагу */
+.pill .disc { color: var(--muted-light); font-weight: 600; }
+.pill.active .disc { color: rgba(255, 255, 255, .5); }
+/* «популярно» — єдиний акцент, плаває ярличком у правому верхньому куті чипса */
 .pill .pop {
+  position: absolute;
+  top: -9px;
+  right: 6px;
   background: var(--accent);
   color: var(--ink);
   border-radius: var(--radius-pill);
   padding: 2px 9px;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
-  margin-left: 4px;
+  letter-spacing: .2px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(20, 20, 20, .16);
 }
 
 .price-grid {
@@ -316,8 +325,24 @@ html { scroll-behavior: smooth; }
 }
 .chip:not(.on):hover { border-color: var(--border-strong); }
 .chip:active { transform: scale(.98); }
-/* статичні інформативні чипси — без інтерактиву */
-.chip.static { cursor: default; }
+/* статичні інформативні чипси — «можна додати»: світлі, з жовтим «+».
+   М'який радіус (не pill) + без ховера + курсор default → не плутаються
+   з клікабельними ціновими пігулками вгорі. */
+.chip.static {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 7px 14px;
+  font: 500 13.5px var(--font-body);
+  cursor: default;
+}
+.chip.static::before {
+  content: '+';
+  margin-right: 6px;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
 .chip.static:hover { border-color: var(--border); }
 .chip.static:active { transform: none; }
 .chip.on {
@@ -509,7 +534,8 @@ html { scroll-behavior: smooth; }
   pointer-events: none;
 }
 
-.zone-chips { display: flex; flex-wrap: wrap; gap: 10px; align-content: flex-start; }
+.zone-side { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+.zone-chips { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; align-content: flex-start; }
 .zone-chip {
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
@@ -732,6 +758,12 @@ html { scroll-behavior: smooth; }
 
 @media (prefers-reduced-motion: reduce) {
   .fab:not(.open) .fab-main { animation: none; }
+  /* без scroll-hijack: «Послуги» стають звичайним горизонтальним скролом,
+     інакше JS-пін вимкнено, а картки лишились би обрізаними в overflow:hidden */
+  .svc-section { overflow: visible; }
+  .svc-pin { height: auto; overflow: visible; padding: 64px 0 24px; }
+  .svc-track { overflow-x: auto; scroll-snap-type: x mandatory; }
+  .svc-card { scroll-snap-align: start; }
 }
 .fab .icon-close { display: none; }
 .fab.open .icon-close { display: block; }
@@ -824,5 +856,5 @@ html { scroll-behavior: smooth; }
 }
 .ba-dots button.active { background: var(--accent-dark); transform: scale(1.25); }
 
-/* ===== CTA у секції зони (Task 7) ===== */
-.zone-cta { margin-top: 22px; }
+/* ===== CTA у секції зони — окремий рядок під хмарою районів (відступ дає .zone-side gap) ===== */
+.zone-cta { align-self: flex-start; }

@@ -3,6 +3,9 @@
 const $ = (id) => document.getElementById(id);
 const fmt = (n) => String(Math.round(n));
 
+// Користувач попросив менше руху — поважаємо на рівні всієї сторінки.
+const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 /* ---- калькулятор у hero ---- */
 const calc = { rooms: 2, baths: 1 };
 const basePrice = (r, b) => 184.90 + (r - 1) * 45 + (b - 1) * 40;
@@ -23,7 +26,7 @@ document.querySelectorAll('.step-btn').forEach((btn) => {
     $('bathsVal').textContent = calc.baths;
     $('calcPrice').textContent = fmt(basePrice(calc.rooms, calc.baths));
     syncCalcOrderLinks();
-    if (window.gsap) {
+    if (window.gsap && !REDUCE) {
       window.gsap.fromTo('[data-price-el]',
         { scale: 1.12, color: '#E8A100' },
         { scale: 1, color: '#141414', duration: 0.45, ease: 'power2.out' });
@@ -157,6 +160,9 @@ document.querySelectorAll('[data-tel-fab]').forEach((a) => {
 
 /* ---- анімації (GSAP + ScrollTrigger) ---- */
 (function initAnimations() {
+  // Повага до prefers-reduced-motion: жодного руху. Контент і так видимий у CSS
+  // (елементи ховає лише GSAP), а секцію «Послуги» робимо звичайним скролом (див. home.css).
+  if (REDUCE) return;
   if (!window.gsap || !window.ScrollTrigger) { setTimeout(initAnimations, 150); return; }
   const g = window.gsap;
   g.registerPlugin(window.ScrollTrigger);

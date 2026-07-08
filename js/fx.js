@@ -3,6 +3,8 @@
    щоб :active-стани могли комбінувати його зі своїм scale. */
 (function () {
   if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  // магнітний ефект — це рух: під prefers-reduced-motion не вмикаємо
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   document.querySelectorAll('.magnet').forEach((el) => {
     let raf = null;

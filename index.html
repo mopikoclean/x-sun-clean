@@ -6,13 +6,11 @@
 <title>x-sun clean — Професійне прибирання у Познані</title>
 <meta name="description" content="Клінінгова компанія у Познані. Фіксована ціна до початку роботи, власні засоби, оплата після прибирання. Квартири, будинки, офіси. Фактура VAT.">
 <link rel="icon" type="image/svg+xml" href="img/logo.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/home.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="css/fonts.css?v=6">
+<link rel="stylesheet" href="css/styles.css?v=6">
+<link rel="stylesheet" href="css/home.css?v=6">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
 <div class="page">
@@ -223,9 +221,9 @@
     </div>
     <div class="pills" data-reveal id="pills">
       <button type="button" class="pill" data-period="once">Разове</button>
+      <button type="button" class="pill" data-period="month">Раз на місяць <span class="disc">−10%</span></button>
+      <button type="button" class="pill" data-period="two">Раз на два тижні <span class="disc">−15%</span> <span class="pop">популярно</span></button>
       <button type="button" class="pill" data-period="week">Раз на тиждень <span class="disc">−20%</span></button>
-      <button type="button" class="pill" data-period="two">Раз на два тижні <span class="disc">−15%</span></button>
-      <button type="button" class="pill" data-period="month">Раз на місяць <span class="disc">−10%</span> <span class="pop">популярно</span></button>
     </div>
     <div class="price-grid">
       <div class="price-card" data-reveal>
@@ -264,11 +262,11 @@
     <h2 class="section-title" data-reveal style="margin-bottom:34px">До та після</h2>
     <div class="ba-wrap" data-reveal>
       <div class="ba-layer">
-        <img id="baAfterImg" src="img/ba-after.webp" alt="Після прибирання">
+        <img id="baAfterImg" src="img/ba-after.webp" alt="Після прибирання" loading="lazy" decoding="async">
         <span class="ba-tag after">Після</span>
       </div>
       <div class="ba-layer" id="baBefore" style="clip-path:inset(0 50% 0 0)">
-        <img id="baBeforeImg" src="img/ba-before.webp" alt="До прибирання">
+        <img id="baBeforeImg" src="img/ba-before.webp" alt="До прибирання" loading="lazy" decoding="async">
         <span class="ba-tag before">До</span>
       </div>
       <div class="ba-divider" id="baDivider" style="left:50%">
@@ -334,7 +332,8 @@
         <div class="circle"></div>
         <span class="tag">Зона покриття — Познань</span>
       </div>
-      <div class="zone-chips" data-reveal>
+      <div class="zone-side" data-reveal>
+        <div class="zone-chips">
         <span class="zone-chip lead-chip">Stare Miasto</span>
         <span class="zone-chip">Jeżyce</span>
         <span class="zone-chip">Wilda</span>
@@ -348,6 +347,7 @@
         <span class="zone-chip">Dębiec</span>
         <span class="zone-chip">Sołacz</span>
         <span class="zone-chip ask">околиці — запитуйте</span>
+        </div>
         <a href="zamovlennya.html" class="btn btn-primary magnet zone-cta">Замовити прибирання у Познані <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
       </div>
     </div>
@@ -475,7 +475,6 @@
 </div>
 
 <!-- ================= COOKIE (GDPR) ================= -->
-<div class="cookie-overlay" id="cookieOverlay" hidden></div>
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Згода на файли cookie" hidden>
   <div class="cookie-text">
     <strong>Ми поважаємо вашу приватність</strong>
@@ -487,11 +486,11 @@
   </div>
 </div>
 
-<script src="js/config.js"></script>
-<script src="js/nav.js"></script>
-<script src="js/what.js"></script>
-<script src="js/home.js"></script>
-<script src="js/fx.js"></script>
-<script src="js/cookie.js"></script>
+<script src="js/config.js?v=6"></script>
+<script src="js/nav.js?v=6"></script>
+<script src="js/what.js?v=6"></script>
+<script src="js/home.js?v=6"></script>
+<script src="js/fx.js?v=6"></script>
+<script src="js/cookie.js?v=6"></script>
 </body>
 </html>
