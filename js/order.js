@@ -6,7 +6,8 @@ const CONFIG = window.XSUN;
    Коли з'являться PL/EN версії сайту, достатньо додати словник сюди. */
 const MESSAGES = {
   uk: {
-    greeting: 'Вітаю! Хочу замовити прибирання.',
+    greeting: 'Вітаю! 👋 Планую замовити у вас прибирання. Ось деталі:',
+    closing: 'Підкажіть, будь ласка, чи вільна ця дата? Дякую!',
     flat: 'Квартира',
     house: 'Приватний будинок',
     renovation: 'Після ремонту',
@@ -361,38 +362,49 @@ document.querySelectorAll('.js-callback').forEach((btn) => {
   });
 });
 
-// текст замовлення (мовою сторінки) — для месенджерів і заявки менеджеру
+// відмінювання: 1 кімната / 2 кімнати / 5 кімнат
+function plural(n, one, few, many) {
+  const t = n % 10, h = n % 100;
+  if (t === 1 && h !== 11) return one;
+  if (t >= 2 && t <= 4 && (h < 12 || h > 14)) return few;
+  return many;
+}
+const dmy = (iso) => (iso ? iso.split('-').reverse().join('.') : '');
+
+// текст замовлення (мовою сторінки) — людяне повідомлення для месенджера/заявки.
+// Пише його клієнт від першої особи: привітання, деталі списком, контакти, ввічливе питання.
 function buildOrderLines() {
   const base = basePrice();
   const disc = periodDisc();
   const per = PERIODS.find((p) => p.id === state.period);
   const extrasSum = EXTRAS.reduce((sum, x) => sum + (state.extrasQty[x.id] || 0) * x.price, 0);
   const total = (base - base * disc + extrasSum) * (1 - state.promoDisc);
-  const typeLabel = T[state.type];
-  const extrasList = EXTRAS.filter((x) => state.extrasQty[x.id] > 0).map((x) => x.label + (x.perUnit && state.extrasQty[x.id] > 1 ? ' ×' + state.extrasQty[x.id] : '')).join(', ');
+  const extrasList = EXTRAS.filter((x) => state.extrasQty[x.id] > 0)
+    .map((x) => x.label.toLowerCase() + (x.perUnit && state.extrasQty[x.id] > 1 ? ' ×' + state.extrasQty[x.id] : ''))
+    .join(', ');
 
-  const lines = [
-    T.greeting,
-    '— ' + T.type + ': ' + typeLabel,
-  ];
+  const d = [];
   if (isReno()) {
-    lines.push('— ' + T.area + ': ' + state.area + ' м²');
+    d.push('• ' + T.renovation + ', площа ' + state.area + ' м²');
   } else {
-    lines.push('— ' + T.rooms + ': ' + state.rooms + ', ' + T.baths + ': ' + state.baths);
-    lines.push('— ' + T.kitchen + ': ' + (state.kitchen === 'studio' ? T.kitchenStudio : T.kitchenFull));
-    lines.push('— ' + T.period + ': ' + per.label + (disc ? ' (−' + disc * 100 + '%)' : ''));
+    d.push('• ' + T[state.type] + ': ' + state.rooms + ' ' + plural(state.rooms, 'кімната', 'кімнати', 'кімнат') +
+      ', ' + state.baths + ' ' + plural(state.baths, 'санвузол', 'санвузли', 'санвузлів'));
+    d.push('• ' + T.kitchen + ': ' + (state.kitchen === 'studio' ? 'студія' : 'окрема'));
+    d.push('• ' + T.period + ': ' + per.label.toLowerCase() + (disc ? ' (−' + disc * 100 + '%)' : ''));
   }
-  lines.push('— ' + T.duration + ': ' + durationLabel());
-  if (extrasList) lines.push('— ' + T.extras + ': ' + extrasList);
-  if (state.date) {
-    lines.push('— ' + T.date + ': ' + state.date +
-      (state.time !== 'any' ? ', ' + TIMES[state.time].toLowerCase() : ''));
-  }
-  if (state.promoCode) lines.push('— ' + T.promo + ': ' + state.promoCode + ' (−' + Math.round(state.promoDisc * 100) + '%)');
-  lines.push('— ' + T.price + ': ' + fmt(total) + ' zł');
-  if (state.name) lines.push('— ' + T.name + ': ' + state.name);
-  if (state.phone) lines.push('— ' + T.phone + ': ' + fullPhone());
-  if (state.comment) lines.push('— ' + T.comment + ': ' + state.comment);
+  if (extrasList) d.push('• ' + T.extras + ': ' + extrasList);
+  if (state.date) d.push('• ' + T.date + ': ' + dmy(state.date) + (state.time !== 'any' ? ', ' + TIMES[state.time].toLowerCase() : ''));
+  d.push('• ' + T.duration + ': ' + durationLabel());
+  if (state.promoCode) d.push('• ' + T.promo + ': ' + state.promoCode + ' (−' + Math.round(state.promoDisc * 100) + '%)');
+  d.push('• ' + T.price + ': ' + fmt(total) + ' zł');
+
+  const lines = [T.greeting, '', ...d];
+  if (state.comment) lines.push('• ' + T.comment + ': ' + state.comment);
+  lines.push('');
+  if (state.name && state.phone) lines.push('Мене звати ' + state.name + ', мій номер ' + fullPhone() + '.');
+  else if (state.name) lines.push('Мене звати ' + state.name + '.');
+  else if (state.phone) lines.push('Мій номер: ' + fullPhone() + '.');
+  lines.push(T.closing);
   return lines;
 }
 

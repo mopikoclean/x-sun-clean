@@ -589,7 +589,7 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
   max-width: 1280px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr auto auto auto;
+  grid-template-columns: 1fr auto auto auto auto;
   gap: 40px;
   align-items: center;
   padding: 26px 32px;
@@ -606,6 +606,8 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
 .foot-lang { font: 500 13px var(--font-body); color: rgba(255, 255, 255, .45); }
 .foot-lang .cur { color: #fff; }
 .foot-copy { font: 400 13px var(--font-body); color: rgba(255, 255, 255, .45); }
+.foot-credit { font: 500 13px var(--font-body); color: rgba(255, 255, 255, .55); text-decoration: none; white-space: nowrap; transition: color .2s var(--ease); }
+.foot-credit:hover { color: var(--accent); }
 
 @media (max-width: 1023px) {
   .foot-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -735,9 +737,10 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
 .summary-duration svg { flex: none; color: var(--accent); }
 .summary-duration #durationText { font-weight: 700; color: #fff; }
 
-/* ===== Cookie-банер (GDPR) ===== */
+/* ===== Банер згоди (GDPR) =====
+   Класи навмисно без слова "cookie" — інакше adblock-фільтри ховають банер. */
 /* Делікатна картка в кутку — скрол не блокуємо, фон не затемнюємо */
-.cookie-banner {
+.xs-note {
   position: fixed;
   left: 0;
   right: 0;
@@ -754,19 +757,19 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
   display: flex;
   flex-direction: column;
   gap: 16px;
-  animation: cookie-up .35s var(--ease) both;
+  animation: xs-note-up .35s var(--ease) both;
 }
-@keyframes cookie-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes xs-note-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
-.cookie-text strong { display: block; font: 700 15px var(--font-display); letter-spacing: -.3px; margin-bottom: 6px; }
-.cookie-text p { margin: 0; font: 400 13px/1.55 var(--font-body); color: var(--muted); }
-.cookie-text a { color: var(--accent-dark); text-decoration: underline; }
+.xs-note-text strong { display: block; font: 700 15px var(--font-display); letter-spacing: -.3px; margin-bottom: 6px; }
+.xs-note-text p { margin: 0; font: 400 13px/1.55 var(--font-body); color: var(--muted); }
+.xs-note-text a { color: var(--accent-dark); text-decoration: underline; }
 
-.cookie-actions { display: flex; gap: 10px; }
-.cookie-actions .btn { flex: 1; }
+.xs-note-actions { display: flex; gap: 10px; }
+.xs-note-actions .btn { flex: 1; }
 
 @media (max-width: 640px) {
-  .cookie-banner { bottom: 12px; width: calc(100% - 24px); }
+  .xs-note { bottom: 12px; width: calc(100% - 24px); }
 }
 
 /* ===== Сторінка «Політика конфіденційності» ===== */

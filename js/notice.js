@@ -1,12 +1,14 @@
-/* ===== Банер згоди на cookie (GDPR / RODO) =====
+/* ===== Банер згоди (GDPR / RODO) =====
    Підхід як у преміальних сайтів — делікатний, БЕЗ примусу:
    - показуємо ненав'язливий банер унизу, скрол сторінки НЕ блокуємо;
    - до вибору користувача НЕ вмикаємо жодну аналітику / трекінг
      (тому вільний перегляд сайту без рішення — повністю відповідає GDPR);
-   - аналітика підключається лише у enableAnalytics() після згоди. */
+   - аналітика підключається лише у enableAnalytics() після згоди.
+   Ідентифікатори навмисно НЕ містять слова "cookie" — інакше adblock-фільтри
+   ("annoyances"/EasyList Cookie) ховають банер за назвами класів/файлу. */
 (function () {
-  const KEY = 'xsun-cookie-consent';
-  const banner = document.getElementById('cookieBanner');
+  const KEY = 'xsun-privacy-choice';
+  const banner = document.getElementById('xsNote');
   if (!banner) return;
 
   function enableAnalytics() {
@@ -29,6 +31,6 @@
     if (value === 'accepted') enableAnalytics();
   }
 
-  document.getElementById('cookieAccept').addEventListener('click', () => decide('accepted'));
-  document.getElementById('cookieReject').addEventListener('click', () => decide('rejected'));
+  document.getElementById('xsNoteYes').addEventListener('click', () => decide('accepted'));
+  document.getElementById('xsNoteNo').addEventListener('click', () => decide('rejected'));
 })();

@@ -1,7 +1,7 @@
 /* Контакти — замініть на реальні перед публікацією */
 window.XSUN = {
   phone: '+48 XXX XXX XXX',
-  telegram: 'xsunclean',
+  telegram: 'andkovalov',
   whatsapp: '48000000000',
   email: 'info@xsunclean.pl',
   /* Промокоди: код (великими літерами) → частка знижки на підсумок.
