@@ -8,7 +8,7 @@ const ROOMS = [
     id: 'kitchen',
     label: 'Кухня',
     img: '/img/room-kitchen.webp',
-    w: 1248, h: 909,
+    w: 1000, h: 728,
     alt: 'Ізометрична кухня: що ми прибираємо',
     spots: [
       { x: 44, y: 42, text: 'Миємо плиту та кухонний фартух' },
@@ -27,7 +27,7 @@ const ROOMS = [
     id: 'bedroom',
     label: 'Кімната',
     img: '/img/room-bedroom.webp',
-    w: 1248, h: 832,
+    w: 1000, h: 667,
     alt: 'Ізометрична спальня: що ми прибираємо',
     spots: [
       { x: 40, y: 55, text: 'Заправляємо ліжко, за потреби міняємо білизну' },
@@ -43,7 +43,7 @@ const ROOMS = [
     id: 'bathroom',
     label: 'Санвузол',
     img: '/img/room-bathroom.webp',
-    w: 1248, h: 832,
+    w: 1000, h: 667,
     alt: 'Ізометричний санвузол: що ми прибираємо',
     spots: [
       { x: 52, y: 62, text: 'Миємо та дезінфікуємо ванну і душ' },
@@ -59,7 +59,7 @@ const ROOMS = [
     id: 'hallway',
     label: 'Коридор',
     img: '/img/room-hallway.webp',
-    w: 1248, h: 832,
+    w: 1000, h: 667,
     alt: 'Ізометричний коридор: що ми прибираємо',
     spots: [
       { x: 34, y: 64, text: 'Охайно розставляємо взуття' },
