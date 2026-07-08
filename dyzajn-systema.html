@@ -6,8 +6,1392 @@
 <title>Дизайн-система — x-sun clean</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/svg+xml" href="img/logo.svg">
-<link rel="stylesheet" href="css/fonts.css?v=39">
-<link rel="stylesheet" href="css/styles.css?v=39">
+<!--CSS:START v=39-->
+<style>
+/* Самостійно захостовані шрифти (Unbounded, Golos Text) — без запитів до Google CDN.
+   Причина: GDPR (IP користувача не йде на сервери Google) + швидший LCP.
+   Джерело: Google Fonts (обидва OFL). Згенеровано скриптом, нарізки: cyrillic(+ext), latin(+ext). */
+
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/golos-text-400-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/golos-text-400-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/golos-text-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/golos-text-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/golos-text-500-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/golos-text-500-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/golos-text-500-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/golos-text-500-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/golos-text-600-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/golos-text-600-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/golos-text-600-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/golos-text-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/golos-text-700-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/golos-text-700-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/golos-text-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/golos-text-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url('../fonts/unbounded-400-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url('../fonts/unbounded-400-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url('../fonts/unbounded-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url('../fonts/unbounded-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+  src: url('../fonts/unbounded-500-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+  src: url('../fonts/unbounded-500-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+  src: url('../fonts/unbounded-500-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+  src: url('../fonts/unbounded-500-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+  src: url('../fonts/unbounded-600-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+  src: url('../fonts/unbounded-600-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+  src: url('../fonts/unbounded-600-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+  src: url('../fonts/unbounded-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+  src: url('../fonts/unbounded-700-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+  src: url('../fonts/unbounded-700-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+  src: url('../fonts/unbounded-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+  src: url('../fonts/unbounded-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 800;
+  font-display: optional;
+  src: url('../fonts/unbounded-800-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 800;
+  font-display: optional;
+  src: url('../fonts/unbounded-800-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 800;
+  font-display: optional;
+  src: url('../fonts/unbounded-800-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 800;
+  font-display: optional;
+  src: url('../fonts/unbounded-800-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* ===== X-sun clean — базові стилі ===== */
+
+/* =====================================================================
+   ДИЗАЙН-СИСТЕМА X-SUN CLEAN — єдине джерело істини (токени).
+   Наочний гайд: dyzajn-systema.html
+   ===================================================================== */
+:root {
+  /* ---- Кольори: поверхні й текст ---- */
+  --bg: #FCFBF8;
+  --surface: #ffffff;
+  --surface-warm: #F7F1E6;
+  --ink: #141414;
+  --ink-soft: #2E2B27;
+  --muted: #55524B;
+  --muted-light: #726E64;
+  --disabled: #B4AF9F;
+
+  /* ---- Кольори: межі ---- */
+  --border: #E9E5DB;
+  --border-strong: #C9C3B4;
+  --border-warm: #EBE1CE;
+
+  /* ---- Кольори: бренд ---- */
+  --accent: #FFC53D;
+  --accent-dark: #E8A100;
+  --accent-glow: #FFD976;
+  --accent-deep: #F5B31F;
+  --gold-text: #8A6D1B;
+  --badge-bg: #FFF3D1;
+
+  /* ---- Кольори: статуси ---- */
+  --danger: #C0392B;
+  --danger-soft: #FBEAE8;
+  --danger-light: #EA6A5F;
+  --placeholder: #EFEAE0;
+
+  /* ---- Типографіка ---- */
+  --font-display: Unbounded, sans-serif;
+  --font-body: "Golos Text", system-ui, sans-serif;
+
+  /* ---- Радіуси ---- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius: 14px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 22px;
+  --radius-pill: 999px;
+
+  /* ---- Тіні ---- */
+  --shadow-pop: 0 6px 18px rgba(20, 20, 20, .25);
+  --shadow-menu: 0 14px 34px -14px rgba(20, 20, 20, .3);
+  --shadow-card: 0 20px 50px -30px rgba(20, 20, 20, .25);
+  --shadow-lift: 0 14px 34px rgba(0, 0, 0, .3);
+  --shadow-fab: 0 14px 34px rgba(0, 0, 0, .35);
+  --shadow-modal: 0 24px 60px -24px rgba(20, 20, 20, .5);
+
+  /* ---- Рух ---- */
+  --ease: cubic-bezier(.16, 1, .3, 1);
+
+  /* ---- Відступи ---- */
+  --space-1: 6px; --space-2: 10px; --space-3: 14px;
+  --space-4: 20px; --space-5: 28px; --space-6: 40px;
+
+  /* ---- Розкладка ---- */
+  --container: 1280px;
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: var(--font-body);
+  color: var(--ink);
+}
+
+a { color: var(--ink); }
+a:hover { color: var(--accent-dark); }
+
+button, input, textarea { font-family: var(--font-body); }
+
+input:focus, textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+  border-color: var(--accent-dark);
+}
+
+input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 1; }
+
+/* ===== Дизайн-система: кнопки =====
+   Ієрархія:
+   .btn-primary   — головна дія (жовта, вага 700)
+   .btn-secondary — друга за вагою дія (чорна)
+   .btn-ghost     — третинна, контурна на світлому фоні
+   .btn-ghost-inv — третинна, контурна на темному фоні
+   Розміри: .btn-sm / базовий / .btn-lg. Модифікатори: .btn-block, .disabled.
+   Усі кнопки мають прозорий бордер 1.5px, щоб висоти збігалися. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 12.5px 26.5px;
+  font: 600 15px var(--font-body);
+  color: var(--ink);
+  background: none;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-primary { background: var(--accent); font-weight: 700; }
+.btn-secondary { background: var(--ink); color: #fff; }
+.btn-ghost { border-color: var(--border-strong); }
+.btn-ghost-inv { border-color: rgba(255, 255, 255, .35); color: #fff; }
+.btn-sm { padding: 7.5px 16.5px; font-size: 14px; }
+.btn-lg { padding: 16.5px 32.5px; font-size: 16px; }
+.btn-block { width: 100%; }
+.btn.disabled { opacity: .4; cursor: not-allowed; }
+
+/* колір тексту кнопки фіксований і не змінюється при ховері
+   (перебиває загальне правило a:hover — інакше жовтий текст ставав
+   ще жовтішим на жовтому фоні й зникав) */
+.btn:hover { color: var(--ink); }
+.btn-secondary:hover, .btn-ghost-inv:hover { color: #fff; }
+
+/* тактильний відгук: кнопка "втискається" при натисканні.
+   Використовуємо незалежне властивість scale, щоб не конфліктувати з
+   transform (яким магніт щокадрово рухає кнопку до курсора). */
+.btn:active { scale: .97; }
+.btn.disabled:active { scale: 1; }
+
+/* ---- магнітні кнопки (див. js/fx.js): легке тяжіння до курсора ---- */
+.magnet {
+  transform: translate(var(--mx, 0px), var(--my, 0px));
+  transition: scale .25s var(--ease);
+  will-change: transform, scale;
+}
+/* на ховері кнопка плавно ледь збільшується — ніби притягується до вас */
+.magnet:hover:not(:active) { scale: 1.03; }
+
+/* ===== Навігація ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(252, 251, 248, .88);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  /* iOS Safari: елементи з transform (GSAP-анімації) інакше рендеряться ПОВЕРХ
+     sticky-навбару. Власний композитний шар + isolation тримають навбар зверху. */
+  transform: translateZ(0);
+  isolation: isolate;
+}
+
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-logo { display: block; flex: none; }
+
+.brand-name {
+  font: 700 16px var(--font-display);
+  color: var(--ink);
+  letter-spacing: -.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font: 500 14px var(--font-body);
+}
+.nav-links a { text-decoration: none; }
+
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+
+/* ---- перемикач мови ---- */
+.lang-wrap { position: relative; }
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 9px 14px;
+  font: 600 13px var(--font-body);
+  cursor: pointer;
+  color: var(--ink);
+}
+.lang-btn .caret {
+  display: inline-flex;
+  transition: transform .2s var(--ease);
+}
+.lang-btn .caret.open { transform: rotate(180deg); }
+
+.lang-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-menu);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 80;
+}
+.lang-menu[hidden] { display: none; }
+
+.lang-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font: 600 13.5px var(--font-body);
+  text-align: left;
+  color: var(--ink);
+  background: var(--bg);
+  cursor: pointer;
+}
+.lang-item .check { color: var(--accent-dark); }
+
+.lang-item.soon {
+  background: none;
+  font-weight: 500;
+  color: var(--disabled);
+  cursor: default;
+}
+.lang-item.soon .soon-tag { font-size: 11.5px; }
+
+/* ===== Сторінка замовлення ===== */
+.ord-grid {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 40px;
+  align-items: start;
+  padding: 48px 32px 96px;
+}
+
+.form-col { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+
+/* Grid/flex-елементи мають могти стискатись нижче min-content свого вмісту —
+   інакше внутрішні 2-колонкові сітки блокують ширину і дають горизонтальний
+   скрол на мобільному. */
+.ord-summary, .summary-card,
+.per-grid, .ex-grid, .details-grid, .counters-grid,
+.per-grid > *, .ex-grid > *, .details-grid > *, .counters-grid > *,
+.phone-field { min-width: 0; }
+
+.eyebrow {
+  font: 600 13px var(--font-body);
+  color: var(--gold-text);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.page-title {
+  margin: 0;
+  font: 700 clamp(30px, 4vw, 46px)/1.1 var(--font-display);
+  letter-spacing: -1.5px;
+}
+
+.page-lead {
+  margin: 14px 0 0;
+  font: 400 16px/1.6 var(--font-body);
+  color: var(--muted);
+  max-width: 520px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.card.details { gap: 16px; }
+
+.card-title {
+  font: 700 18px var(--font-display);
+  letter-spacing: -.5px;
+}
+
+.card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-hint { font: 400 13.5px var(--font-body); color: var(--muted-light); }
+.card-note { font: 400 13px var(--font-body); color: var(--muted-light); }
+
+/* ---- тип житла ---- */
+.type-toggle { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.seg {
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+  padding: 12px 22px;
+  font: 600 14.5px var(--font-body);
+  cursor: pointer;
+  transition: background-color .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+}
+.seg.active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+.seg .mult { opacity: .6; }
+
+/* ---- лічильники ---- */
+.counters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+}
+.counter-label { font: 500 15px var(--font-body); }
+.counter-controls { display: flex; align-items: center; gap: 14px; }
+
+.step-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: #fff;
+  font: 600 17px var(--font-body);
+  cursor: pointer;
+  transition: border-color .2s ease, transform .15s ease;
+}
+.step-btn:hover { border-color: var(--ink); }
+.step-btn:active { transform: scale(.9); }
+
+/* ховер для клікабельних карток вибору: ледь помітний натяк на клікабельність */
+.seg:not(.active):hover,
+.period-card:not(.active):hover,
+.extra-card:not(.on):hover { border-color: var(--border-strong); }
+
+/* тактильний відгук для перемикачів і чипів */
+.seg:active, .period-card:active, .extra-card:active { transform: scale(.98); }
+
+.counter-value {
+  font: 700 18px var(--font-body);
+  min-width: 18px;
+  text-align: center;
+}
+
+/* ---- періодичність ---- */
+.per-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.period-card {
+  position: relative;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  color: var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 16px 14px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background-color .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+}
+.period-card.active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.period-badge {
+  align-self: flex-start;
+  background: var(--badge-bg);
+  color: var(--gold-text);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  font: 700 11.5px var(--font-body);
+  white-space: nowrap;
+}
+.period-card.active .period-badge { background: var(--accent); color: var(--ink); }
+
+/* «популярно» — той самий акцентний ярличок, що й на головній */
+.period-pop {
+  position: absolute;
+  top: -9px;
+  right: 10px;
+  background: var(--accent);
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+  padding: 2px 9px;
+  font: 700 10.5px var(--font-body);
+  letter-spacing: .2px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(20, 20, 20, .16);
+}
+
+.period-label { font: 600 14px var(--font-body); display: block; margin-top: auto; }
+.period-price { font: 700 17px var(--font-display); letter-spacing: -.5px; display: block; }
+
+/* ---- додаткові опції ---- */
+.ex-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.extra-card {
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  color: var(--ink);
+  border-radius: var(--radius);
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+}
+.extra-card.on {
+  border-color: var(--accent-dark);
+  background: var(--badge-bg);
+  color: var(--gold-text);
+}
+
+.extra-icon { display: block; width: 26px; height: 26px; margin-bottom: 10px; }
+.extra-icon .acc { stroke: var(--accent-dark); }
+.extra-icon .acc-fill { fill: var(--accent-dark); stroke: none; }
+.extra-card.on .extra-icon .acc { stroke: currentColor; }
+.extra-card.on .extra-icon .acc-fill { fill: currentColor; }
+.extra-label { font: 600 14px var(--font-body); display: block; }
+.extra-price { font: 700 14px var(--font-display); display: block; margin-top: 4px; }
+
+/* ---- деталі ---- */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font: 500 13.5px var(--font-body);
+  color: var(--muted);
+}
+
+.field input,
+.field textarea {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 13px 16px;
+  /* 16px обов'язково — при меншому iOS Safari зумить сторінку при фокусі */
+  font: 400 16px var(--font-body);
+  background: var(--bg);
+  transition: border-color .2s var(--ease), background-color .2s var(--ease);
+}
+
+.field input.invalid { border-color: var(--danger); background: var(--danger-soft); }
+.field-err { font: 500 12.5px var(--font-body); color: var(--danger); }
+.field input[type="date"] { padding: 12px 16px; }
+.field textarea { line-height: 1.5; resize: vertical; }
+
+/* ===== Підсумок ===== */
+.ord-summary {
+  position: sticky;
+  top: 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.summary-card {
+  background: var(--ink);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.summary-title { font: 700 19px var(--font-display); letter-spacing: -.5px; }
+
+.summary-desc {
+  margin: 0;
+  font: 400 14.5px/1.55 var(--font-body);
+  color: rgba(255, 255, 255, .7);
+}
+
+.summary-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  padding-top: 14px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font: 400 14px var(--font-body);
+  color: rgba(255, 255, 255, .7);
+}
+.summary-row.discount { color: var(--accent); }
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  padding-top: 14px;
+}
+.summary-total .label { font: 500 14px var(--font-body); color: rgba(255, 255, 255, .7); }
+.summary-total .value {
+  font: 800 34px var(--font-display);
+  letter-spacing: -1.5px;
+  color: var(--accent);
+}
+
+.summary-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 500 12.5px var(--font-body);
+  color: rgba(255, 255, 255, .45);
+  white-space: nowrap;
+}
+.summary-divider::before,
+.summary-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, .14);
+}
+
+.lead-success {
+  background: rgba(255, 197, 61, .12);
+  border: 1px solid rgba(255, 197, 61, .4);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  font: 500 14px/1.5 var(--font-body);
+  color: var(--accent);
+  text-align: center;
+}
+.lead-error { text-align: center; color: var(--danger-light); }
+
+.summary-note {
+  font: 400 12.5px/1.5 var(--font-body);
+  color: rgba(255, 255, 255, .5);
+  text-align: center;
+}
+
+/* ===== Адаптивність ===== */
+@media (max-width: 1023px) {
+  .nav-links { display: none; }
+}
+
+/* Планшет (iPad портрет тощо): форма ліворуч, картка з ціною праворуч (sticky) —
+   як на десктопі. Внутрішні сітки форми стискаємо у 2 колонки під вужчу форму. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ord-grid { grid-template-columns: minmax(0, 1fr) 360px; gap: 24px; }
+  .per-grid { grid-template-columns: repeat(2, 1fr); }
+  .ex-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .pad-x { padding-left: 20px; padding-right: 20px; }
+  .per-grid { grid-template-columns: repeat(2, 1fr); }
+  .ex-grid { grid-template-columns: repeat(2, 1fr); }
+  /* мобайл: сводка під формою у стовпчик, дублікат нижньої кнопки форми прибираємо */
+  .ord-grid { grid-template-columns: 1fr; }
+  .ord-summary { position: static; }
+  .form-col .submit-final { display: none; }
+}
+
+@media (max-width: 640px) {
+  /* перемикачі — однакові, на всю ширину (замість різної ширини по контенту) */
+  .type-toggle .seg { flex: 1 1 100%; text-align: center; }
+  /* таби кімнат «Що входить» — компактно у 2 колонки */
+  .what-tabs .seg { flex: 1 1 calc(50% - 5px); }
+}
+
+/* ===== Футер (спільний для всіх сторінок) ===== */
+.footer { background: var(--ink); color: #fff; }
+.footer a { color: inherit; }
+/* кнопки у футері зберігають свій колір тексту (перебиває .footer a) */
+.footer .btn-primary { color: var(--ink); }
+.footer .btn-ghost-inv, .footer .btn-secondary { color: #fff; }
+
+.foot-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 26px;
+  align-items: center;
+  padding: 26px 32px;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+}
+.footer.standalone .foot-grid { border-top: none; }
+
+.foot-brand { display: flex; align-items: center; gap: 10px; }
+.foot-brand .name { font: 700 15px var(--font-display); letter-spacing: -.5px; }
+.foot-brand .loc { font: 400 13px var(--font-body); color: rgba(255, 255, 255, .45); margin-left: 8px; }
+
+.foot-email { font: 500 13px var(--font-body); color: rgba(255, 255, 255, .7); text-decoration: none; }
+.foot-email:hover { color: var(--accent); }
+.foot-lang { font: 500 13px var(--font-body); color: rgba(255, 255, 255, .45); }
+.foot-lang .cur { color: #fff; }
+.foot-copy { font: 400 13px var(--font-body); color: rgba(255, 255, 255, .45); }
+.foot-credit { font: 500 13px var(--font-body); color: rgba(255, 255, 255, .55); text-decoration: none; white-space: nowrap; transition: color .2s var(--ease); }
+.foot-credit:hover { color: var(--accent); }
+.foot-link { font: 500 13px var(--font-body); color: rgba(255, 255, 255, .55); text-decoration: none; white-space: nowrap; transition: color .2s var(--ease); }
+.foot-link:hover { color: var(--accent); }
+
+@media (max-width: 767px) {
+  .foot-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ===== Селект (час прибирання) ===== */
+.field select {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 13px 16px;
+  font: 400 16px var(--font-body);
+  background: var(--bg);
+  color: var(--ink);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23141414' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
+.field select:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent-dark); }
+
+/* ===== Телефон із кодом країни ===== */
+.phone-field { display: flex; gap: 8px; }
+.phone-field .dial {
+  flex: none;
+  width: 112px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 13px 28px 13px 12px;
+  font: 500 16px var(--font-body);
+  background-color: var(--bg);
+  color: var(--ink);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23141414' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  cursor: pointer;
+}
+.phone-field .dial:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent-dark); }
+.phone-field input { flex: 1; min-width: 0; }
+
+/* ===== Чекбокс згоди ===== */
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font: 400 13.5px/1.5 var(--font-body);
+  color: var(--muted);
+}
+.consent input {
+  appearance: none;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: 1px 0 0;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-xs);
+  background: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color .2s var(--ease), border-color .2s var(--ease);
+}
+.consent input:checked {
+  background: var(--accent);
+  border-color: var(--accent-dark);
+}
+.consent input:checked::before {
+  content: '';
+  width: 10px;
+  height: 6px;
+  border-left: 2.2px solid var(--ink);
+  border-bottom: 2.2px solid var(--ink);
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+.consent.invalid { color: var(--danger); }
+.consent.invalid input { border-color: var(--danger); background: var(--danger-soft); }
+.consent.invalid input:checked { background: var(--accent); }
+
+/* ===== Блок відправлення у формі ===== */
+.submit-block { display: flex; flex-direction: column; gap: 12px; }
+.submit-hint { font: 400 13px var(--font-body); color: var(--muted-light); text-align: center; }
+
+/* ===== Промокод ===== */
+.promo-row { display: flex; gap: 8px; }
+.promo-row input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font: 500 16px var(--font-body);
+  background: rgba(255, 255, 255, .06);
+  color: #fff;
+  text-transform: uppercase;
+}
+.promo-row input::placeholder { color: rgba(255, 255, 255, .35); text-transform: none; }
+.promo-row input:focus { outline: 2px solid var(--accent); outline-offset: 0; }
+.promo-btn {
+  flex: none;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  font: 600 13.5px var(--font-body);
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  transition: border-color .2s var(--ease);
+}
+.promo-btn:hover { border-color: var(--accent); }
+.promo-err { font: 500 12.5px var(--font-body); color: var(--danger-light); }
+.promo-ok { font: 500 12.5px var(--font-body); color: var(--accent); }
+
+/* ===== Тип кухні ===== */
+.kitchen-block { display: flex; flex-direction: column; gap: 10px; }
+.kitchen-toggle { flex-wrap: wrap; }
+
+/* ===== Тривалість у сводці ===== */
+.summary-duration {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 500 13.5px var(--font-body);
+  color: rgba(255, 255, 255, .7);
+}
+.summary-duration svg { flex: none; color: var(--accent); }
+.summary-duration #durationText { font-weight: 700; color: #fff; }
+
+/* ===== Банер згоди (GDPR) =====
+   Класи навмисно без слова "cookie" — інакше adblock-фільтри ховають банер. */
+/* Делікатна картка в кутку — скрол не блокуємо, фон не затемнюємо */
+.xs-note {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 20px;
+  width: calc(100% - 40px);
+  max-width: 380px;
+  z-index: 100;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow-modal);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: xs-note-up .35s var(--ease) both;
+}
+@keyframes xs-note-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+.xs-note-text strong { display: block; font: 700 15px var(--font-display); letter-spacing: -.3px; margin-bottom: 6px; }
+.xs-note-text p { margin: 0; font: 400 13px/1.55 var(--font-body); color: var(--muted); }
+.xs-note-text a { color: var(--accent-dark); text-decoration: underline; }
+
+.xs-note-actions { display: flex; gap: 10px; }
+.xs-note-actions .btn { flex: 1; }
+
+@media (max-width: 640px) {
+  .xs-note { bottom: 12px; width: calc(100% - 24px); }
+}
+
+/* ===== Сторінка «Політика конфіденційності» ===== */
+.legal {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 32px 96px;
+}
+.legal-title { margin: 0; font: 700 clamp(28px, 4vw, 42px)/1.1 var(--font-display); letter-spacing: -1.5px; }
+.legal-updated { margin: 10px 0 0; font: 400 13.5px var(--font-body); color: var(--muted-light); }
+.legal-lead { margin: 26px 0 0; font: 400 16.5px/1.65 var(--font-body); color: var(--muted); }
+.legal-section { margin-top: 34px; }
+.legal-section h2 { margin: 0 0 12px; font: 700 20px var(--font-display); letter-spacing: -.5px; }
+.legal-section p { margin: 0 0 10px; font: 400 15.5px/1.7 var(--font-body); color: var(--muted); }
+.legal-section ul { margin: 0 0 10px; padding-left: 22px; }
+.legal-section li { font: 400 15.5px/1.7 var(--font-body); color: var(--muted); margin-bottom: 4px; }
+.legal-section a { color: var(--accent-dark); text-decoration: underline; }
+.legal-section strong { color: var(--ink); }
+.legal-note {
+  margin-top: 40px;
+  padding: 16px 18px;
+  background: var(--badge-bg);
+  border-radius: var(--radius-md);
+  font: 500 13.5px/1.6 var(--font-body);
+  color: var(--gold-text);
+}
+
+/* ===== Сторінка «Що входить у прибирання» ===== */
+.what-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 32px 96px;
+}
+
+.what-head { max-width: 640px; margin-bottom: 30px; }
+
+.what-tabs { margin-bottom: 26px; }
+
+.what-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 430px;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ---- сцена з зображенням та хотспотами ---- */
+.what-stage {
+  position: relative;
+  transition: opacity .18s var(--ease), scale .18s var(--ease);
+}
+.what-stage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* кімната "парить" на фоні сторінки з м'якою тінню */
+  filter: drop-shadow(0 30px 40px rgba(20, 20, 20, .14));
+}
+.what-stage.switching, .what-list.switching { opacity: 0; scale: .985; }
+.what-list { transition: opacity .18s var(--ease), scale .18s var(--ease); }
+
+/* пульс хотспота — м'яке жовте кільце */
+@keyframes spot-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 197, 61, .5); }
+  70%  { box-shadow: 0 0 0 12px rgba(255, 197, 61, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 197, 61, 0); }
+}
+
+.what-spot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.what-spot .dot {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #fff;
+  color: var(--ink);
+  font: 700 13px var(--font-body);
+  box-shadow: 0 4px 12px rgba(20, 20, 20, .25);
+  animation: spot-pulse 2.6s ease-out infinite;
+  transition: scale .2s var(--ease);
+}
+.what-spot.extra .dot {
+  background: #fff;
+  border-color: var(--accent-dark);
+  color: var(--accent-dark);
+  font-size: 16px;
+  animation: none;
+}
+.what-spot:hover .dot, .what-spot.hl .dot { scale: 1.25; animation: none; }
+/* активний хотспот піднімаємо над рештою, щоб його тултип був поверх сусідніх «+» */
+.what-spot:hover, .what-spot.open, .what-spot.hl { z-index: 20; }
+
+/* тултип */
+.what-spot .tip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%) translateY(4px);
+  background: var(--ink);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 9px 13px;
+  font: 500 13px/1.4 var(--font-body);
+  white-space: nowrap;
+  max-width: 260px;
+  white-space: normal;
+  width: max-content;
+  text-align: left;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s var(--ease), transform .18s var(--ease);
+  z-index: 3;
+}
+.what-spot .tip em { font-style: normal; color: var(--accent); font-weight: 700; }
+.what-spot .tip.left { left: auto; right: 50%; transform: translateX(0) translateY(4px); }
+.what-spot:hover .tip, .what-spot.open .tip, .what-spot.hl .tip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.what-spot:hover .tip.left, .what-spot.open .tip.left, .what-spot.hl .tip.left {
+  transform: translateX(0) translateY(0);
+}
+
+/* ---- чек-лист ---- */
+.what-side {
+  position: sticky;
+  top: 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+}
+.what-side-title { font: 700 18px var(--font-display); letter-spacing: -.5px; }
+
+.what-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.what-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 12px;
+  margin: 0 -12px;
+  border-radius: var(--radius-md);
+  font: 500 15px/1.5 var(--font-body);
+  color: var(--ink-soft);
+  cursor: default;
+  transition: background-color .15s var(--ease), color .15s var(--ease);
+}
+.what-item.hl { background: var(--badge-bg); color: var(--ink); }
+.what-item .n {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-top: -2px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid var(--border-strong);
+  color: var(--ink);
+  font: 700 13px var(--font-body);
+  transition: background-color .15s var(--ease), border-color .15s var(--ease), color .15s var(--ease);
+}
+/* жовтий — лише як сигнал взаємодії (наведення на точку/рядок), не постійний шум */
+.what-item.hl .n { background: var(--accent); border-color: transparent; color: var(--ink); }
+.what-item.extra .n { background: #fff; border: 1.5px solid var(--accent-dark); color: var(--accent-dark); font-size: 15px; }
+.what-item em { font-style: normal; font-weight: 700; color: var(--gold-text); }
+
+.what-extras-title {
+  list-style: none;
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font: 600 12px var(--font-body);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+
+.what-side .btn { margin-top: 8px; }
+
+@media (max-width: 1023px) {
+  .what-grid { grid-template-columns: 1fr; }
+  .what-side { position: static; }
+}
+
+/* ===== Миття вікон — поштучний лічильник ===== */
+.window-card { display: flex; flex-direction: column; gap: 6px; cursor: pointer; }
+.mini-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+.mini-counter button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-strong);
+  background: #fff;
+  font: 600 16px var(--font-body);
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: border-color .15s var(--ease), transform .12s var(--ease);
+}
+.mini-counter button:hover { border-color: var(--ink); }
+.mini-counter button:active { transform: scale(.9); }
+.mini-counter [data-wval] {
+  min-width: 18px;
+  text-align: center;
+  font: 700 16px var(--font-body);
+}
+
+/* ===== Anchor-ціна й вигода (маркетинг) ===== */
+.total-price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+.total-price .old-price {
+  font: 600 18px var(--font-display);
+  color: #8f8a7f;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+/* ===== Фінальний блок кнопок (Telegram + запасна заявка) ===== */
+.submit-final { display: flex; flex-direction: column; gap: 12px; }
+/* нижня заявка — легкий текст-лінк, щоб не було 4 однакових кнопок */
+.submit-alt {
+  margin: 6px 0 0;
+  text-align: center;
+  font: 500 13.5px var(--font-body);
+  color: var(--muted-light);
+}
+.link-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.link-btn:hover { color: var(--accent-dark); }
+.lead-error-light { text-align: center; color: var(--danger); }
+.lead-success.light {
+  background: var(--badge-bg);
+  border: 1px solid #F0E3B8;
+  color: var(--gold-text);
+}
+</style>
+<!--CSS:END-->
 <style>
 /* локальні стилі гайда — усе решта тягнеться з дизайн-системи */
 .ds { max-width: 1080px; margin: 0 auto; padding: 56px 32px 100px; }
