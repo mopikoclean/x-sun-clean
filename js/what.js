@@ -157,26 +157,33 @@ function renderRoom(animate) {
     img.decoding = 'async';
     stage.appendChild(img);
 
+    // На вузьких екранах (<768px) точки надто близькі одна до одної, щоб бути
+    // надійними тач-цілями, тож робимо їх декоративними (не інтерактивними) —
+    // весь той самий контент лишається доступним у текстовому чек-листі поруч.
+    const interactive = window.matchMedia('(min-width: 768px)').matches;
     room.spots.forEach((s, idx) => {
-      const b = document.createElement('button');
-      b.type = 'button';
+      const b = document.createElement(interactive ? 'button' : 'span');
+      if (interactive) b.type = 'button';
       b.className = 'what-spot' + (s.extra ? ' extra' : '');
       b.dataset.spot = idx;
       b.style.left = s.x + '%';
       b.style.top = s.y + '%';
-      b.setAttribute('aria-label', s.text + (s.extra ? ' (' + WHAT_T.optAria + ' ' + s.extra + ')' : ''));
       b.innerHTML =
         '<span class="dot">' + (s.extra ? '+' : idx + 1) + '</span>' +
         '<span class="tip' + (s.x > 55 ? ' left' : '') + '">' + s.text +
         (s.extra ? ' <em>' + s.extra + ' · ' + WHAT_T.opt + '</em>' : '') + '</span>';
-      b.addEventListener('mouseenter', () => linkHover(idx, true));
-      b.addEventListener('mouseleave', () => linkHover(idx, false));
-      b.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const wasOpen = b.classList.contains('open');
-        closeTooltips();
-        if (!wasOpen) { b.classList.add('open'); openSpot = b; }
-      });
+      if (interactive) {
+        b.addEventListener('mouseenter', () => linkHover(idx, true));
+        b.addEventListener('mouseleave', () => linkHover(idx, false));
+        b.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const wasOpen = b.classList.contains('open');
+          closeTooltips();
+          if (!wasOpen) { b.classList.add('open'); openSpot = b; }
+        });
+      } else {
+        b.setAttribute('aria-hidden', 'true');
+      }
       stage.appendChild(b);
     });
 
