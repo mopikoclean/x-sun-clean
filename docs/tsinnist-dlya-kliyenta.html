@@ -74,6 +74,18 @@
   .foot p{margin:0;color:var(--muted);font-size:15px;line-height:1.6}
   .sig{margin-top:34px;font-size:14px;color:var(--muted)}
   @media(max-width:560px){.wrap{padding:44px 18px 64px}.close{padding:30px 22px}}
+
+  /* Друк / PDF: A4, фони друкуються, картки не рвуться між сторінками */
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @media print{
+    @page{size:A4;margin:13mm 11mm}
+    .wrap{max-width:100%;padding:0}
+    .eyebrow{margin-top:0}
+    .item,.step,.foot,.score,.flow li{break-inside:avoid}
+    h1,h2,h3,h4,.cat-head,.flow-intro{break-after:avoid}
+    .cat{margin-top:34px}
+    .close{margin-top:34px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
 </style>
 
 <div class="wrap">
