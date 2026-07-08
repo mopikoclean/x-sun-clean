@@ -394,7 +394,7 @@ function buildOrderLines() {
   }
   if (extrasList) d.push('• ' + T.extras + ': ' + extrasList);
   if (state.date) d.push('• ' + T.date + ': ' + dmy(state.date) + (state.time !== 'any' ? ', ' + TIMES[state.time].toLowerCase() : ''));
-  d.push('• ' + T.duration + ': ' + durationLabel());
+  // тривалість НЕ додаємо в повідомлення (лишається лише у сводці на сторінці)
   if (state.promoCode) d.push('• ' + T.promo + ': ' + state.promoCode + ' (−' + Math.round(state.promoDisc * 100) + '%)');
   d.push('• ' + T.price + ': ' + fmt(total) + ' zł');
 

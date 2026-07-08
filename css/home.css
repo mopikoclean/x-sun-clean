@@ -787,6 +787,7 @@ html { scroll-behavior: smooth; }
   .step-line { display: none; }
   /* Переваги у стовпчик: однаковий лівий відступ у всіх (прибираємо padding-left:0
      на першому), розділювач знизу замість вертикального border-right. */
+  .trust-grid { padding-top: 30px; padding-bottom: 30px; }
   .trust-item { padding: 22px 0; border-right: none; }
   .trust-item:not(:last-child) { border-bottom: 1px solid var(--border); }
   /* Послуги: заголовок і картки по одній лівій лінії (32px, як решта головної).
