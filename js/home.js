@@ -18,8 +18,9 @@ const basePrice = (r, b) => 184.90 + (r - 1) * 45 + (b - 1) * 40;
 // далі — на сторінку замовлення, щоб не вводити їх заново
 function syncCalcOrderLinks() {
   const q = '?rooms=' + calc.rooms + '&baths=' + calc.baths;
-  // абсолютний шлях — щоб працювало і з /pl/ (польська форма замовлення поки спільна, UA)
-  document.querySelectorAll('.js-calc-order').forEach((a) => { a.href = '/zamovlennya.html' + q; });
+  // шлях форми замовлення відповідно до мови сторінки
+  const orderUrl = PLANG === 'pl' ? '/pl/zamovlennya.html' : '/zamovlennya.html';
+  document.querySelectorAll('.js-calc-order').forEach((a) => { a.href = orderUrl + q; });
 }
 syncCalcOrderLinks();
 

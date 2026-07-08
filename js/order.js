@@ -8,49 +8,84 @@ const MESSAGES = {
   uk: {
     greeting: 'Вітаю! 👋 Планую замовити у вас прибирання. Ось деталі:',
     closing: 'Підкажіть, будь ласка, чи вільна ця дата? Дякую!',
-    flat: 'Квартира',
-    house: 'Приватний будинок',
-    renovation: 'Після ремонту',
-    type: 'Тип',
-    rooms: 'Кімнат',
-    baths: 'санвузлів',
-    area: 'Площа',
-    period: 'Періодичність',
-    extras: 'Додатково',
-    date: 'Бажана дата',
-    time: 'Зручний час',
-    price: 'Орієнтовна вартість',
-    promo: 'Промокод',
-    name: "Ім'я",
-    phone: 'Телефон',
-    email: 'Email',
-    comment: 'Коментар',
-    kitchen: 'Кухня',
-    kitchenFull: 'Окрема кухня',
-    kitchenStudio: 'Кухня-студія',
-    duration: 'Орієнтовна тривалість',
+    flat: 'Квартира', house: 'Приватний будинок', renovation: 'Після ремонту',
+    type: 'Тип', area: 'Площа', period: 'Періодичність', extras: 'Додатково',
+    date: 'Бажана дата', time: 'Зручний час', price: 'Орієнтовна вартість',
+    promo: 'Промокод', name: "Ім'я", phone: 'Телефон', email: 'Email', comment: 'Коментар',
+    kitchen: 'Кухня', duration: 'Орієнтовна тривалість',
+    kitchenStudioShort: 'студія', kitchenFullShort: 'окрема',
+    sqm: 'м²', areaWord: 'площа', onceShort: 'разове', roomsShort: 'кімн.',
+    durHour: 'год', durMin: '30 хв', approx: '≈',
+    roomsForms: ['кімната', 'кімнати', 'кімнат'],
+    bathsForms: ['санвузол', 'санвузли', 'санвузлів'],
+    discount: 'Знижка',
+    contactName: 'Мене звати', contactNum: 'мій номер', contactNumOnly: 'Мій номер:',
+    cbLabel: 'Надіслати заявку', unitWindow: 'вікно',
+    promoApplied: 'Промокод {code} застосовано: −{n}%',
+    promoNotFound: 'Промокод не знайдено',
+    leadUnavailable: 'Форма тимчасово недоступна — зателефонуйте нам: {phone}',
+    leadSending: 'Надсилаємо…',
+    leadFailed: 'Не вдалося надіслати. Спробуйте ще раз або зателефонуйте: {phone}',
+    periods: {
+      once: { label: 'Разове', badge: 'без знижки' },
+      month: { label: 'Раз на місяць', badge: '−10% · популярно' },
+      two: { label: 'Раз на два тижні', badge: '−15%' },
+      week: { label: 'Раз на тиждень', badge: '−20%' },
+    },
+    times: { any: 'Будь-який час', morning: 'Ранок (8–12)', day: 'День (12–16)', evening: 'Вечір (16–20)' },
+    extrasLabels: { oven: 'Духовка', fridge: 'Холодильник', micro: 'Мікрохвильовка', windows: 'Миття вікон', balcony: 'Балкон', iron: 'Прасування', dishes: 'Миття посуду', cabinets: 'Прибрати в шафі' },
+  },
+  pl: {
+    greeting: 'Witam! 👋 Chcę zamówić u Państwa sprzątanie. Oto szczegóły:',
+    closing: 'Proszę o info, czy ten termin jest wolny? Dziękuję!',
+    flat: 'Mieszkanie', house: 'Dom prywatny', renovation: 'Po remoncie',
+    type: 'Typ', area: 'Powierzchnia', period: 'Częstotliwość', extras: 'Dodatkowo',
+    date: 'Preferowana data', time: 'Dogodny czas', price: 'Cena orientacyjna',
+    promo: 'Kod promocyjny', name: 'Imię', phone: 'Telefon', email: 'Email', comment: 'Komentarz',
+    kitchen: 'Kuchnia', duration: 'Orientacyjny czas',
+    kitchenStudioShort: 'w aneksie', kitchenFullShort: 'osobna',
+    sqm: 'm²', areaWord: 'powierzchnia', onceShort: 'jednorazowo', roomsShort: 'pok.',
+    durHour: 'godz.', durMin: '30 min', approx: '≈',
+    roomsForms: ['pokój', 'pokoje', 'pokoi'],
+    bathsForms: ['łazienka', 'łazienki', 'łazienek'],
+    discount: 'Rabat',
+    contactName: 'Mam na imię', contactNum: 'mój numer', contactNumOnly: 'Mój numer:',
+    cbLabel: 'Wyślij zgłoszenie', unitWindow: 'okno',
+    promoApplied: 'Kod {code} zastosowany: −{n}%',
+    promoNotFound: 'Nie znaleziono kodu',
+    leadUnavailable: 'Formularz chwilowo niedostępny — zadzwoń: {phone}',
+    leadSending: 'Wysyłanie…',
+    leadFailed: 'Nie udało się wysłać. Spróbuj ponownie lub zadzwoń: {phone}',
+    periods: {
+      once: { label: 'Jednorazowo', badge: 'bez rabatu' },
+      month: { label: 'Raz w miesiącu', badge: '−10% · popularne' },
+      two: { label: 'Co dwa tygodnie', badge: '−15%' },
+      week: { label: 'Co tydzień', badge: '−20%' },
+    },
+    times: { any: 'Dowolna pora', morning: 'Rano (8–12)', day: 'Dzień (12–16)', evening: 'Wieczór (16–20)' },
+    extrasLabels: { oven: 'Piekarnik', fridge: 'Lodówka', micro: 'Mikrofalówka', windows: 'Mycie okien', balcony: 'Balkon', iron: 'Prasowanie', dishes: 'Zmywanie naczyń', cabinets: 'Porządek w szafie' },
   },
 };
 const PAGE_LANG = (document.documentElement.lang || 'uk').slice(0, 2);
 const T = MESSAGES[PAGE_LANG] || MESSAGES.uk;
 
 const PERIODS = [
-  { id: 'once', label: 'Разове', disc: 0, badge: 'без знижки' },
-  { id: 'month', label: 'Раз на місяць', disc: 0.10, badge: '−10% · популярно' },
-  { id: 'two', label: 'Раз на два тижні', disc: 0.15, badge: '−15%' },
-  { id: 'week', label: 'Раз на тиждень', disc: 0.20, badge: '−20%' },
-];
+  { id: 'once', disc: 0 },
+  { id: 'month', disc: 0.10 },
+  { id: 'two', disc: 0.15 },
+  { id: 'week', disc: 0.20 },
+].map((p) => ({ ...p, label: T.periods[p.id].label, badge: T.periods[p.id].badge }));
 
 const EXTRAS = [
-  { id: 'oven', label: 'Духовка', price: 40 },
-  { id: 'fridge', label: 'Холодильник', price: 40 },
-  { id: 'micro', label: 'Мікрохвильовка', price: 18 },
-  { id: 'windows', label: 'Миття вікон', price: 40, perUnit: true, unit: 'вікно' },
-  { id: 'balcony', label: 'Балкон', price: 30 },
-  { id: 'iron', label: 'Прасування', price: 45 },
-  { id: 'dishes', label: 'Миття посуду', price: 25 },
-  { id: 'cabinets', label: 'Прибрати в шафі', price: 30 },
-];
+  { id: 'oven', price: 40 },
+  { id: 'fridge', price: 40 },
+  { id: 'micro', price: 18 },
+  { id: 'windows', price: 40, perUnit: true },
+  { id: 'balcony', price: 30 },
+  { id: 'iron', price: 45 },
+  { id: 'dishes', price: 25 },
+  { id: 'cabinets', price: 30 },
+].map((x) => ({ ...x, label: T.extrasLabels[x.id], ...(x.perUnit ? { unit: T.unitWindow } : {}) }));
 
 // Іконки опцій — лінійний стиль сайту (основні лінії currentColor, одна золота деталь).
 // currentColor → іконка стає золотою разом із карткою у стані .on.
@@ -80,12 +115,7 @@ const ICONS = {
     '<circle class="acc-fill" cx="14" cy="16" r="1.1"/><circle class="acc-fill" cx="18" cy="16" r="1.1"/>'),
 };
 
-const TIMES = {
-  any: 'Будь-який час',
-  morning: 'Ранок (8–12)',
-  day: 'День (12–16)',
-  evening: 'Вечір (16–20)',
-};
+const TIMES = T.times;
 
 const RENO_RATE = 6; // zł за м² після ремонту
 
@@ -141,10 +171,10 @@ function durationLabel() {
   const h = durationHours();
   const whole = Math.floor(h);
   const parts = [];
-  if (whole > 0) parts.push(whole + ' год');
-  if (h - whole >= 0.5) parts.push('30 хв');
-  if (!parts.length) parts.push('30 хв');
-  return '≈ ' + parts.join(' ');
+  if (whole > 0) parts.push(whole + ' ' + T.durHour);
+  if (h - whole >= 0.5) parts.push(T.durMin);
+  if (!parts.length) parts.push(T.durMin);
+  return T.approx + ' ' + parts.join(' ');
 }
 
 function periodDisc() {
@@ -153,9 +183,7 @@ function periodDisc() {
 }
 
 function bathsWord(n) {
-  if (n === 1) return 'санвузол';
-  if (n >= 2 && n <= 4) return 'санвузли';
-  return 'санвузлів';
+  return plural(n, T.bathsForms[0], T.bathsForms[1], T.bathsForms[2]);
 }
 
 // ---- побудова карток періодичності та опцій ----
@@ -276,12 +304,12 @@ $('promoBtn').addEventListener('click', () => {
   if (disc) {
     state.promoCode = code;
     state.promoDisc = disc;
-    $('promoOk').textContent = 'Промокод ' + code + ' застосовано: −' + Math.round(disc * 100) + '%';
+    $('promoOk').textContent = T.promoApplied.replace('{code}', code).replace('{n}', Math.round(disc * 100));
     $('promoOk').hidden = false;
   } else {
     state.promoCode = '';
     state.promoDisc = 0;
-    $('promoErr').textContent = 'Промокод не знайдено';
+    $('promoErr').textContent = T.promoNotFound;
     $('promoErr').hidden = false;
   }
   render();
@@ -320,7 +348,7 @@ document.querySelectorAll('.js-order-tg').forEach((btn) => {
 
 // заявка «ми передзвонимо» — для тих, хто без месенджерів.
 // Кнопок дві (у сводці й унизу форми) — спільний обробник.
-const CB_LABEL = 'Надіслати заявку';
+const CB_LABEL = T.cbLabel;
 document.querySelectorAll('.js-callback').forEach((btn) => {
   const errEl = $(btn.dataset.err);
   btn.addEventListener('click', () => {
@@ -328,13 +356,13 @@ document.querySelectorAll('.js-callback').forEach((btn) => {
     if (markInvalid(true)) return;
 
     if (!CONFIG.leadEndpoint) {
-      errEl.textContent = 'Форма тимчасово недоступна — зателефонуйте нам: ' + CONFIG.phone;
+      errEl.textContent = T.leadUnavailable.replace('{phone}', CONFIG.phone);
       errEl.hidden = false;
       return;
     }
 
     document.querySelectorAll('.js-callback').forEach((b) => { b.disabled = true; });
-    btn.textContent = 'Надсилаємо…';
+    btn.textContent = T.leadSending;
 
     fetch(CONFIG.leadEndpoint, {
       method: 'POST',
@@ -356,7 +384,7 @@ document.querySelectorAll('.js-callback').forEach((btn) => {
       })
       .catch(() => {
         document.querySelectorAll('.js-callback').forEach((b) => { b.disabled = false; b.textContent = CB_LABEL; });
-        errEl.textContent = 'Не вдалося надіслати. Спробуйте ще раз або зателефонуйте: ' + CONFIG.phone;
+        errEl.textContent = T.leadFailed.replace('{phone}', CONFIG.phone);
         errEl.hidden = false;
       });
   });
@@ -385,11 +413,11 @@ function buildOrderLines() {
 
   const d = [];
   if (isReno()) {
-    d.push('• ' + T.renovation + ', площа ' + state.area + ' м²');
+    d.push('• ' + T.renovation + ', ' + T.areaWord + ' ' + state.area + ' ' + T.sqm);
   } else {
-    d.push('• ' + T[state.type] + ': ' + state.rooms + ' ' + plural(state.rooms, 'кімната', 'кімнати', 'кімнат') +
-      ', ' + state.baths + ' ' + plural(state.baths, 'санвузол', 'санвузли', 'санвузлів'));
-    d.push('• ' + T.kitchen + ': ' + (state.kitchen === 'studio' ? 'студія' : 'окрема'));
+    d.push('• ' + T[state.type] + ': ' + state.rooms + ' ' + plural(state.rooms, T.roomsForms[0], T.roomsForms[1], T.roomsForms[2]) +
+      ', ' + state.baths + ' ' + plural(state.baths, T.bathsForms[0], T.bathsForms[1], T.bathsForms[2]));
+    d.push('• ' + T.kitchen + ': ' + (state.kitchen === 'studio' ? T.kitchenStudioShort : T.kitchenFullShort));
     d.push('• ' + T.period + ': ' + per.label.toLowerCase() + (disc ? ' (−' + disc * 100 + '%)' : ''));
   }
   if (extrasList) d.push('• ' + T.extras + ': ' + extrasList);
@@ -401,9 +429,9 @@ function buildOrderLines() {
   const lines = [T.greeting, '', ...d];
   if (state.comment) lines.push('• ' + T.comment + ': ' + state.comment);
   lines.push('');
-  if (state.name && state.phone) lines.push('Мене звати ' + state.name + ', мій номер ' + fullPhone() + '.');
-  else if (state.name) lines.push('Мене звати ' + state.name + '.');
-  else if (state.phone) lines.push('Мій номер: ' + fullPhone() + '.');
+  if (state.name && state.phone) lines.push(T.contactName + ' ' + state.name + ', ' + T.contactNum + ' ' + fullPhone() + '.');
+  else if (state.name) lines.push(T.contactName + ' ' + state.name + '.');
+  else if (state.phone) lines.push(T.contactNumOnly + ' ' + fullPhone() + '.');
   lines.push(T.closing);
   return lines;
 }
@@ -455,19 +483,19 @@ function render() {
 
   // підсумок
   $('summaryText').textContent = isReno()
-    ? T.renovation + ' · ' + state.area + ' м² · разове'
-    : T[state.type] + ' · ' + state.rooms + ' кімн. · ' + state.baths + ' ' + bathsWord(state.baths) + ' · ' + per.label.toLowerCase();
+    ? T.renovation + ' · ' + state.area + ' ' + T.sqm + ' · ' + T.onceShort
+    : T[state.type] + ' · ' + state.rooms + ' ' + T.roomsShort + ' · ' + state.baths + ' ' + bathsWord(state.baths) + ' · ' + per.label.toLowerCase();
   $('basePrice').textContent = fmt(base) + ' zł';
 
   $('extrasRow').hidden = extrasSum === 0;
   $('extrasSum').textContent = '+' + extrasSum.toFixed(0) + ' zł';
 
   $('discountRow').hidden = disc === 0;
-  $('discountLabel').textContent = 'Знижка −' + disc * 100 + '%';
+  $('discountLabel').textContent = T.discount + ' −' + disc * 100 + '%';
   $('discountVal').textContent = '−' + fmt(discountVal) + ' zł';
 
   $('promoRow').hidden = state.promoDisc === 0;
-  $('promoLabel').textContent = 'Промокод ' + state.promoCode;
+  $('promoLabel').textContent = T.promo + ' ' + state.promoCode;
   $('promoVal').textContent = '−' + fmt(promoVal) + ' zł';
 
   $('totalVal').textContent = fmt(total) + ' zł';
