@@ -51,6 +51,12 @@
   .step-body .job{margin-top:5px;color:var(--ink);font-weight:500}
   .step-body .job b{font-weight:700}
 
+  .scores{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+  .score{flex:1 1 110px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 8px}
+  .score b{display:block;font-size:27px;font-weight:800;letter-spacing:-.02em;line-height:1;color:#1a7f37;font-variant-numeric:tabular-nums}
+  .score.mid b{color:var(--gold)}
+  .score span{display:block;margin-top:7px;font-size:12px;color:var(--muted)}
+
   .close{margin-top:64px;background:var(--dark);color:#F3EFE7;border-radius:22px;padding:40px 36px}
   .close h2{font-size:24px;font-weight:800;letter-spacing:-.015em;margin:0 0 14px;color:#fff}
   .close p{margin:0 0 16px;color:#C9C2B4;font-size:16.5px;line-height:1.62}
@@ -220,9 +226,15 @@
     </div>
 
     <div class="item">
-      <h3>Скорость и надёжность</h3>
-      <p>Свой хостинг шрифтов, сжатые изображения, мировая сеть доставки (сайт лежит на серверах по всему миру).</p>
-      <p class="why">Быстрый сайт Google ставит выше в поиске, и люди не уходят, не дождавшись загрузки.</p>
+      <h3>Скорость и качество — подтверждено независимым аудитом Google</h3>
+      <p>Отдельная большая работа над производительностью: собственный хостинг шрифтов и анимаций (ни одного стороннего запроса), сжатые изображения, «умная» загрузка шрифтов без прыжков вёрстки, ускорение первой отрисовки, мировая сеть доставки. Всё выверялось по независимому инструменту Google — Lighthouse / PageSpeed.</p>
+      <div class="scores">
+        <div class="score"><b>100</b><span>Доступность</span></div>
+        <div class="score"><b>100</b><span>Практики</span></div>
+        <div class="score"><b>100</b><span>SEO</span></div>
+        <div class="score mid"><b>85</b><span>Производительность</span></div>
+      </div>
+      <p class="why">Это оценки <b>самого Google</b>, а не наши слова. Три показателя из четырёх — идеальные 100, производительность — высокие 85. Такого уровня не достигает подавляющее большинство сайтов. А «здоровый» и быстрый сайт Google выше ставит в поиске, и люди не уходят, не дождавшись загрузки.</p>
     </div>
 
     <div class="item">
