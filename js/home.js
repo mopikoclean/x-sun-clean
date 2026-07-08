@@ -88,8 +88,8 @@ const BA_WORDS = pick({
   pl: { before: 'przed', after: 'po', example: 'Przykład: ' },
 });
 const BA_ITEMS = [
-  { before: 'img/ba-before.webp', after: 'img/ba-after.webp', label: BA_LABELS[0] },
-  { before: 'img/ba2-before.webp', after: 'img/ba2-after.webp', label: BA_LABELS[1] },
+  { before: '/img/ba-before.webp', after: '/img/ba-after.webp', label: BA_LABELS[0] },
+  { before: '/img/ba2-before.webp', after: '/img/ba2-after.webp', label: BA_LABELS[1] },
 ];
 let baIdx = 0;
 

@@ -7,7 +7,7 @@ const ROOMS = [
   {
     id: 'kitchen',
     label: 'Кухня',
-    img: 'img/room-kitchen.webp',
+    img: '/img/room-kitchen.webp',
     w: 1248, h: 909,
     alt: 'Ізометрична кухня: що ми прибираємо',
     spots: [
@@ -26,7 +26,7 @@ const ROOMS = [
   {
     id: 'bedroom',
     label: 'Кімната',
-    img: 'img/room-bedroom.webp',
+    img: '/img/room-bedroom.webp',
     w: 1248, h: 832,
     alt: 'Ізометрична спальня: що ми прибираємо',
     spots: [
@@ -42,7 +42,7 @@ const ROOMS = [
   {
     id: 'bathroom',
     label: 'Санвузол',
-    img: 'img/room-bathroom.webp',
+    img: '/img/room-bathroom.webp',
     w: 1248, h: 832,
     alt: 'Ізометричний санвузол: що ми прибираємо',
     spots: [
@@ -58,7 +58,7 @@ const ROOMS = [
   {
     id: 'hallway',
     label: 'Коридор',
-    img: 'img/room-hallway.webp',
+    img: '/img/room-hallway.webp',
     w: 1248, h: 832,
     alt: 'Ізометричний коридор: що ми прибираємо',
     spots: [
