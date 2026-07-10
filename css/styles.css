@@ -123,6 +123,26 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
 .btn-block { width: 100%; }
 .btn.disabled { opacity: .4; cursor: not-allowed; }
 
+/* Кругла іконка-кнопка (месенджери в hero) — вторинна за головною CTA */
+.btn-icon {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-strong);
+  color: var(--ink);
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color .2s var(--ease), background-color .2s var(--ease);
+}
+.btn-icon:hover { border-color: var(--ink); }
+.btn-icon svg { width: 22px; height: 22px; }
+
 /* колір тексту кнопки фіксований і не змінюється при ховері
    (перебиває загальне правило a:hover — інакше жовтий текст ставав
    ще жовтішим на жовтому фоні й зникав) */

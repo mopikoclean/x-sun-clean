@@ -7,6 +7,9 @@
   document.querySelectorAll('[data-tg]').forEach((a) => {
     a.href = 'https://t.me/' + window.XSUN.telegram;
   });
+  document.querySelectorAll('[data-wa]').forEach((a) => {
+    a.href = 'https://wa.me/' + window.XSUN.whatsapp;
+  });
   document.querySelectorAll('[data-email]').forEach((a) => {
     if (!a.textContent.trim()) a.textContent = window.XSUN.email;
     a.href = 'mailto:' + window.XSUN.email;

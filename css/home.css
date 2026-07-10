@@ -823,8 +823,11 @@ html { scroll-behavior: smooth; }
 
 @media (max-width: 640px) {
   /* згруповані CTA — на всю ширину й однакові (замість різної ширини по контенту) */
-  .hero-ctas, .biz-ctas, .foot-btns { flex-direction: column; align-items: stretch; }
-  .hero-ctas .btn, .biz-ctas .btn, .foot-btns .btn { width: 100%; }
+  .biz-ctas, .foot-btns { flex-direction: column; align-items: stretch; }
+  .biz-ctas .btn, .foot-btns .btn { width: 100%; }
+  /* hero: головна кнопка на всю ширину, месенджер-іконки в ряд під нею */
+  .hero-ctas { justify-content: center; }
+  .hero-ctas .btn { flex: 1 1 100%; }
   /* фільтр періодичності — однакові пігулки на всю ширину (gap дає місце бейджу) */
   .pills { gap: 14px; }
   .pills .pill { flex: 1 1 100%; text-align: center; }
