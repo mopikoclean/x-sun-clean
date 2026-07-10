@@ -1,9 +1,9 @@
 /* Контакти — замініть на реальні перед публікацією */
 window.XSUN = {
-  phone: '+48 XXX XXX XXX',
-  telegram: 'andkovalov',
-  whatsapp: '48000000000',
-  email: 'info@xsunclean.pl',
+  phone: '+48 452 255 364',
+  telegram: 'x_sun_clean',
+  whatsapp: '48452255364',
+  email: 'xsunclen@gmail.com',
   /* Промокоди: код (великими літерами) → частка знижки на підсумок.
      Приберіть або замініть перед публікацією. */
   promoCodes: {
