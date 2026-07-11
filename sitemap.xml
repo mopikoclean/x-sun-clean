@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://x-sun-clean.vercel.app/</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://x-sun-clean.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://x-sun-clean.vercel.app/pl/"/>
+  </url>
+  <url>
+    <loc>https://x-sun-clean.vercel.app/pl/</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://x-sun-clean.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://x-sun-clean.vercel.app/pl/"/>
+  </url>
+  <url>
+    <loc>https://x-sun-clean.vercel.app/zamovlennya.html</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://x-sun-clean.vercel.app/zamovlennya.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://x-sun-clean.vercel.app/pl/zamovlennya.html"/>
+  </url>
+  <url>
+    <loc>https://x-sun-clean.vercel.app/pl/zamovlennya.html</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://x-sun-clean.vercel.app/zamovlennya.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://x-sun-clean.vercel.app/pl/zamovlennya.html"/>
+  </url>
+  <url>
+    <loc>https://x-sun-clean.vercel.app/shcho-prybyraiemo.html</loc>
+  </url>
+</urlset>
