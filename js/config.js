@@ -10,8 +10,8 @@ window.XSUN = {
     START15: 0.15,
   },
   /* Ендпоінт для заявок «ми передзвонимо» (кнопка на сторінці замовлення).
-     Найпростіше: створіть форму на formspree.io та вставте її URL, напр.
-     'https://formspree.io/f/abcdwxyz' — заявки приходитимуть на пошту менеджера.
-     Поки порожньо — кнопка покаже помилку з проханням зателефонувати. */
-  leadEndpoint: '',
+     /api/lead — serverless-функція Vercel (api/lead.js), яка шле заявку
+     менеджеру в Telegram. Потребує env-змінних TELEGRAM_BOT_TOKEN і
+     TELEGRAM_CHAT_ID у налаштуваннях проєкту Vercel. */
+  leadEndpoint: '/api/lead',
 };

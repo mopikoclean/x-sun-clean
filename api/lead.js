@@ -1,0 +1,58 @@
+/* Заявка «Надіслати заявку» (для тих, хто без месенджерів) → Telegram.
+   Vercel serverless function: приймає JSON з форми замовлення (js/order.js)
+   і надсилає повідомлення менеджеру через Telegram Bot API.
+   Секрети зберігаються в env-змінних проєкту Vercel (НЕ в коді):
+     TELEGRAM_BOT_TOKEN — токен бота від @BotFather
+     TELEGRAM_CHAT_ID   — chat_id одержувача; можна кілька через кому
+                          (напр. "123,456" — розробник + менеджер клієнта) */
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ ok: false, error: 'method' });
+  }
+
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!token || !chatId) {
+    return res.status(500).json({ ok: false, error: 'not configured' });
+  }
+
+  // обрізаємо все до розумних меж — захист від сміттєвих payload'ів
+  const b = req.body || {};
+  const s = (v, max) => String(v == null ? '' : v).slice(0, max).trim();
+
+  const name = s(b.name, 100);
+  const phone = s(b.phone, 40);
+  if (!name || !phone) {
+    return res.status(400).json({ ok: false, error: 'name and phone required' });
+  }
+
+  const date = s(b.date, 40);
+  const time = s(b.time, 60);
+  const promo = s(b.promo, 40);
+  const comment = s(b.comment, 600);
+  const order = s(b.order, 2000);
+
+  const lines = ['🧹 Нова заявка з сайту — передзвонити', ''];
+  lines.push('👤 ' + name);
+  lines.push('📞 ' + phone);
+  if (date || time) lines.push('📅 ' + [date, time].filter(Boolean).join(' · '));
+  if (promo) lines.push('🎟 Промокод: ' + promo);
+  if (comment) lines.push('💬 ' + comment);
+  if (order) lines.push('', '— Деталі замовлення —', order);
+
+  // кілька одержувачів через кому; заявка успішна, якщо дійшла хоч одному
+  const ids = chatId.split(',').map((x) => x.trim()).filter(Boolean);
+  const results = await Promise.all(ids.map((id) =>
+    fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: id, text: lines.join('\n') }),
+    }).then((r) => r.ok).catch(() => false)
+  ));
+
+  if (!results.some(Boolean)) {
+    return res.status(502).json({ ok: false, error: 'telegram' });
+  }
+  return res.status(200).json({ ok: true });
+}
