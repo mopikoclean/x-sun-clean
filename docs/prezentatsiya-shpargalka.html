@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="uk">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Шпаргалка до дзвінка — презентація сайту x-sun clean</title>
+<style>
+  :root{
+    --bg:#FCFBF8; --ink:#171512; --muted:#6B6459; --line:#ECE7DB;
+    --accent:#FFC53D; --gold:#8A6D1B; --card:#FFFFFF; --dark:#161412;
+    --say:#F3F7F4; --say-edge:#2E7D4F;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:400 16.5px/1.6 "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:780px;margin:0 auto;padding:52px 22px 90px}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .eyebrow .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
+  h1{font-size:clamp(28px,5vw,42px);line-height:1.08;letter-spacing:-.02em;font-weight:800;margin:16px 0 0;text-wrap:balance}
+  .lead{font-size:17px;color:#3a352e;margin:16px 0 0;max-width:60ch}
+
+  .howto{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .howto b{font-weight:700}
+  .howto ul{margin:8px 0 0;padding-left:20px}
+  .howto li{margin:4px 0}
+
+  .part{margin-top:52px}
+  .part-head{display:flex;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
+  .part-num{font-weight:800;font-size:14px;color:var(--accent)}
+  .part-head h2{font-size:21px;font-weight:800;margin:0;letter-spacing:-.01em}
+  .part-sub{margin:10px 0 0;color:var(--muted);font-size:15px}
+
+  .sec{padding:20px 0 22px;border-bottom:1px solid var(--line)}
+  .sec h3{font-size:17px;font-weight:800;margin:0 0 10px;display:flex;gap:10px;align-items:baseline}
+  .sec h3 .n{color:var(--gold);font-size:13.5px;font-weight:800;font-variant-numeric:tabular-nums;flex:none}
+  .do{font-size:14px;color:var(--muted);margin:0 0 8px}
+  .do b{color:var(--ink);font-weight:700;letter-spacing:.06em;font-size:11.5px;text-transform:uppercase}
+  .say{background:var(--say);border-left:3px solid var(--say-edge);border-radius:0 10px 10px 0;
+    padding:11px 14px;margin:8px 0 0;font-size:15.5px;line-height:1.55}
+  .say::before{content:"Скажи: ";font-weight:700;color:var(--say-edge);font-size:11.5px;
+    text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:3px}
+  .tip{margin:9px 0 0;font-size:13.5px;color:var(--gold);font-weight:600}
+
+  .wow{background:var(--dark);color:#F3EFE7;border-radius:16px;padding:22px 22px;margin:22px 0 0}
+  .wow h3{color:#fff;margin:0 0 8px;font-size:17px}
+  .wow p{margin:6px 0;color:#CFC8BA;font-size:15px}
+  .wow b{color:var(--accent)}
+
+  .fin{margin-top:52px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+  .fin h2{font-size:19px;font-weight:800;margin:0 0 10px}
+  .fin ul{margin:8px 0 0;padding-left:20px}
+  .fin li{margin:5px 0}
+  .fin .ask{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);font-size:15px}
+  .fin .ask b{color:var(--gold)}
+
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @media print{
+    @page{size:A4;margin:12mm 11mm}
+    .wrap{max-width:100%;padding:0}
+    .sec,.wow,.howto,.fin{break-inside:avoid}
+    h2,h3{break-after:avoid}
+  }
+</style>
+
+<div class="wrap">
+  <span class="eyebrow"><span class="dot"></span>x-sun clean · дзвінок із клієнтом</span>
+  <h1>Шпаргалка: як показати сайт за&nbsp;20&nbsp;хвилин</h1>
+  <p class="lead">Сценарій дзвінка. Ти шариш екран і ведеш його по сайту зверху вниз. Зелені блоки — що сказати своїми словами (на «ти»). Головне правило: <b>не «дивись, як гарно», а «дивись, як це приносить тобі замовлення»</b>.</p>
+
+  <div class="howto">
+    <b>Перед дзвінком (2 хв):</b>
+    <ul>
+      <li>Відкрий у вкладках: головну, сторінку замовлення, і цю шпаргалку на другому екрані/телефоні.</li>
+      <li>Тримай під рукою телефон із Telegram — буде вау-момент із живою заявкою.</li>
+      <li>Скроль повільно. Після кожної частини — пауза: «Питання є?»</li>
+    </ul>
+  </div>
+
+  <!-- ЧАСТИНА 1 -->
+  <section class="part">
+    <div class="part-head"><span class="part-num">ЧАСТИНА 1</span><h2>Головна сторінка — маршрут клієнта</h2></div>
+    <p class="part-sub">Фрейминг на старті: «Кожна секція тут — не прикраса, а крок, який веде людину до замовлення. Пройдімось так, як її бачить твій клієнт».</p>
+
+    <div class="sec">
+      <h3><span class="n">1.1</span>Перший екран</h3>
+      <p class="do"><b>Покажи:</b> заголовок, підзаголовок, калькулятор праворуч, телефон у шапці, іконки месенджерів.</p>
+      <div class="say">Людина за три секунди розуміє: хто ми, що робимо, у якому місті — і одразу бачить ціну. Жодного «зателефонуйте, щоб дізнатися вартість» — це головна причина, чому люди тікають із сайтів конкурентів.</div>
+      <p class="tip">💡 Покрути калькулятор наживо: додай кімнату — ціна змінюється миттєво.</p>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">1.2</span>Смуга переваг</h3>
+      <p class="do"><b>Покажи:</b> фіксована ціна · власні засоби · оплата після · фактура VAT.</p>
+      <div class="say">Це чотири головні страхи клієнта, зняті одним рядком: не обдурять із ціною, не треба нічого готувати, платиш після роботи, а фактура VAT відкриває тобі бізнес-клієнтів — офіси й салони, це найжирніші замовлення.</div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">1.3</span>Послуги</h3>
+      <p class="do"><b>Покажи:</b> картки: звичайне, генеральне, після ремонту, вікна…</p>
+      <div class="say">Людина шукає конкретну послугу — і одразу знаходить свою. Кожна картка веде на замовлення.</div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">1.4</span>Інтерактивна квартира ⭐</h3>
+      <p class="do"><b>Покажи:</b> повмикай точки на кухні, перемкни кімнати (спальня, санвузол, коридор).</p>
+      <div class="say">Це фішка, якої немає в конкурентів. Клієнт наводить на кімнату й бачить, що саме ми там робимо. Це чек-лист очікувань: пообіцяли відполірувати дзеркала — він цього чекає і бачить результат. Довіра ще до першого замовлення.</div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">1.5</span>Ціни з маркетингом</h3>
+      <p class="do"><b>Покажи:</b> перемикач разове / місяць / два тижні / тиждень, ярлик «популярно», ціни, що перераховуються.</p>
+      <div class="say">Дивись: разова двушка — 230, а раз на два тижні — вже 195. Ми м'яко підштовхуємо до регулярного прибирання. Клієнт відчуває, що економить, а ти отримуєш постійного клієнта замість разового. Це найцінніше в цьому бізнесі.</div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">1.6</span>До / Після</h3>
+      <p class="do"><b>Покажи:</b> потягай слайдер.</p>
+      <div class="say">Люди обожнюють «було — стало». Ніщо не продає прибирання краще за видимий результат. Сюди поставимо твої реальні фото з перших замовлень.</div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">1.7</span>Як це працює + Зона покриття</h3>
+      <p class="do"><b>Покажи:</b> три кроки; карту з колом і теги районів.</p>
+      <div class="say">Три кроки знімають страх «а що далі, як це відбувається». А карта знімає страх «а до мене приїдуть?» — видно, що працюємо по всій Познані.</div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">1.8</span>Для бізнесу</h3>
+      <p class="do"><b>Покажи:</b> темну секцію офіси/салони.</p>
+      <div class="say">Окрема секція для B2B: офіси, салони, кабінети. Це найбільші й найстабільніші чеки — тому в них своя секція і свій заклик написати особисто.</div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">1.9</span>Відгуки + FAQ</h3>
+      <p class="do"><b>Покажи:</b> відгуки; розкрий 1–2 питання в FAQ.</p>
+      <div class="say">Відгуки — соціальний доказ (зараз демо, замінимо на твої реальні). А FAQ економить час менеджеру: людина сама закриває свої сумніви й пише вже «теплою». Побутове питання — вже відповіли.</div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">1.10</span>Дрібниці, які працюють</h3>
+      <p class="do"><b>Покажи:</b> плаваючу кнопку зв'язку внизу; cookie-банер (у режимі інкогніто).</p>
+      <div class="say">Кнопка зв'язку їде за людиною по всій сторінці — контакт завжди на відстані одного кліку. А банер cookie — це не формальність, це вимога закону ЄС, до цього ще дійдемо.</div>
+    </div>
+  </section>
+
+  <!-- ЧАСТИНА 2 -->
+  <section class="part">
+    <div class="part-head"><span class="part-num">ЧАСТИНА 2</span><h2>Сторінка замовлення — серце сайту</h2></div>
+    <p class="part-sub">Фрейминг: «А тепер найголовніше — як відвідувач перетворюється на заявку в твоєму телефоні».</p>
+
+    <div class="sec">
+      <h3><span class="n">2.1</span>Пам'ять вибору</h3>
+      <p class="do"><b>Покажи:</b> на головній постав 3 кімнати, 2 санвузли → натисни «Замовити» → на сторінці замовлення все вже підставлено.</p>
+      <div class="say">Бачиш — нічого не треба вводити заново. Кожен зайвий клік — це втрачені клієнти, тому шлях від цікавості до заявки максимально короткий.</div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">2.2</span>Конструктор замовлення</h3>
+      <p class="do"><b>Покажи:</b> перемкни квартира → будинок → після ремонту (форма підлаштовується); кухня чи кухня-студія; знижки за періодичність; опції з іконками (духовка, холодильник, вікна — з кількістю!); промокод START15.</p>
+      <div class="say">Сценарій підлаштовується під людину: у будинку більше кімнат, після ремонту рахуємо за метраж. Кожна опція одразу перераховує ціну — без дзвінків і листування. І дивись: для вікон можна вибрати кількість. А промокоди — готовий інструмент для акцій: надрукував флаєри з кодом — і роздавай.</div>
+      <p class="tip">💡 Під кожну опцію намальована окрема іконка в стилі сайту — це ручна робота дизайнера.</p>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">2.3</span>Мінімум полів = більше заявок</h3>
+      <p class="do"><b>Покажи:</b> блок «Деталі»: ім'я, телефон, дата, час. Усе.</p>
+      <div class="say">Ми свідомо не питаємо адресу, під'їзд і поверх — це відлякує. Задача №1 — отримати заявку. Адресу уточниш у розмові, коли людина вже твоя. У конкурентів анкети на 10 полів — і на кожному полі частина людей відвалюється.</div>
+    </div>
+
+    <div class="wow">
+      <h3>⭐ Вау-момент: жива заявка</h3>
+      <p><b>Зроби наживо:</b> заповни форму й натисни «Замовити». Поклади телефон поруч — заявка впаде тобі в Telegram за секунду. Покажи йому екран телефона.</p>
+      <p><b>Скажи:</b> «Ось так це працюватиме в тебе: людина натиснула на сайті — а в тебе в кишені вже повна заявка: хто, що, коли, за скільки. Без пошти, без CRM, без абонплати. Дзвониш і підтверджуєш».</p>
+      <p>І додай: якщо людина пише через Telegram чи WhatsApp — заявка теж автоматично дублюється тобі, навіть якщо вона передумала надсилати повідомлення. Жодна заявка не губиться.</p>
+    </div>
+
+    <div class="sec" style="margin-top:22px">
+      <h3><span class="n">2.4</span>Мобільна версія</h3>
+      <p class="do"><b>Покажи:</b> звузь вікно браузера або відкрий сайт із телефона.</p>
+      <div class="say">Більше половини людей прийдуть із телефона. На мобільному головна кнопка — «Замовити в Telegram», бо з телефона це найшвидший шлях. На комп'ютері — навпаки, форма. Ми продумали це окремо для кожного пристрою.</div>
+    </div>
+  </section>
+
+  <!-- ЧАСТИНА 3 -->
+  <section class="part">
+    <div class="part-head"><span class="part-num">ЧАСТИНА 3</span><h2>Невидима частина — за що насправді платять</h2></div>
+    <p class="part-sub">Фрейминг: «Усе, що ти бачив, — це половина роботи. Друга половина невидима, але саме вона приводить клієнтів і захищає тебе».</p>
+
+    <div class="sec">
+      <h3><span class="n">3.1</span>Дві мови = два ринки (SEO)</h3>
+      <p class="do"><b>Покажи:</b> перемкни UA → PL у шапці.</p>
+      <div class="say">Польська версія — це не «перекладач на кнопці», а окремі сторінки зі спеціальною розміткою для Google. Поляк шукає «sprzątanie Poznań» — бачить польську. Українець шукає українською — бачить українську. Це подвоює твій ринок, і цей потік із пошуку — безкоштовний.</div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">3.2</span>Оцінки Google</h3>
+      <p class="do"><b>Покажи:</b> скриншот PageSpeed зі 100/100/100 (є в документі цінності).</p>
+      <div class="say">Це незалежний аудит самого Google: доступність — 100, практики — 100, SEO — 100, швидкість — висока. Такого рівня не має переважна більшість сайтів. Google це бачить і ставить сайт вище в пошуку.</div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">3.3</span>Закон і захист (GDPR / RODO)</h3>
+      <p class="do"><b>Покажи:</b> банер cookie, сторінку політики конфіденційності.</p>
+      <div class="say">Ти працюєш у ЄС, а тут закон про персональні дані — штрафи до 20 мільйонів євро. На сайті все за правилами: нічого не відстежується без згоди, шрифти на нашому сервері, а не в Google, політика написана. Лишилось тільки вставити твої реквізити й показати юристу.</div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">3.4</span>Адаптив і тестування</h3>
+      <p class="do"><b>Покажи:</b> потягай вікно браузера від широкого до вузького на головній.</p>
+      <div class="say">Кожна секція окремо перебудована під монітор, ноутбук, планшет і телефон — десятки розмірів екранів. Плюс десятки годин відлову багів: щоб у кожного відвідувача все працювало, а не «вроді готово». Цю роботу не видно — але саме вона найдорожча за часом.</div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="n">3.5</span>Зроблено, щоб рости</h3>
+      <p class="do"><b>Без показу, просто скажи.</b></p>
+      <div class="say">Під капотом — єдина дизайн-система: змінити колір чи шрифт по всьому сайту — хвилини. Будь-яка правка потрапляє на живий сайт автоматично за хвилину. Тобто розвивати сайт далі — швидко й дешево.</div>
+    </div>
+  </section>
+
+  <!-- ФІНАЛ -->
+  <div class="fin">
+    <h2>Фінал дзвінка (2 хвилини)</h2>
+    <ul>
+      <li><b>Підсумуй:</b> «Це не сайт-візитка. Це інструмент, який сам рахує ціну, сам приймає заявки й сам приводить людей із Google — двома мовами, 24/7. Один-два додаткові замовлення на місяць — і він себе окупає».</li>
+      <li><b>Назви ролі:</b> дизайнер, розробник, SEO-спеціаліст, перекладач, юрист із GDPR, тестувальник — усе це в одному проєкті.</li>
+    </ul>
+    <p class="ask"><b>Що потрібно від нього</b> (щоб запуститись): реальні відгуки клієнтів · реквізити фірми для політики (NIP/REGON) · рішення про домен · фото «до/після» з перших замовлень. Заверши конкретикою: «З тебе — ці чотири речі, з мене — запуск».</p>
+  </div>
+
+  <p style="margin-top:30px;font-size:13.5px;color:var(--muted)">Шпаргалка для внутрішнього користування · сайт: x-sun-clean.vercel.app · повний документ цінності — окремо (tsinnist-dlya-kliyenta)</p>
+</div>
+
+</html>
