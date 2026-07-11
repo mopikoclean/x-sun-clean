@@ -11,6 +11,18 @@ export default async function handler(req, res) {
     return res.status(405).json({ ok: false, error: 'method' });
   }
 
+  // Захист від використання ендпоінта з чужих сайтів: браузер шле Origin для
+  // POST. Origin має збігатися з хостом, на який прийшов запит, — тож перевірка
+  // сама адаптується до будь-якого домену (vercel.app, майбутній власний домен).
+  const origin = req.headers.origin || '';
+  if (origin) {
+    let originHost = '';
+    try { originHost = new URL(origin).host; } catch { /* битий Origin → відмова */ }
+    if (originHost !== req.headers.host) {
+      return res.status(403).json({ ok: false, error: 'origin' });
+    }
+  }
+
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chatId) {

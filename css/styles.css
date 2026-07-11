@@ -599,13 +599,14 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
   background: rgba(255, 255, 255, .14);
 }
 
+/* зелений = успіх (жовтий читався як попередження/помилка) */
 .lead-success {
-  background: rgba(255, 197, 61, .12);
-  border: 1px solid rgba(255, 197, 61, .4);
+  background: rgba(52, 168, 105, .14);
+  border: 1px solid rgba(52, 168, 105, .45);
   border-radius: var(--radius-md);
   padding: 14px 16px;
   font: 500 14px/1.5 var(--font-body);
-  color: var(--accent);
+  color: #7FD8A4;
   text-align: center;
 }
 .lead-error { text-align: center; color: var(--danger-light); }
@@ -1104,7 +1105,7 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
 .link-btn:hover { color: var(--accent-dark); }
 .lead-error-light { text-align: center; color: var(--danger); }
 .lead-success.light {
-  background: var(--badge-bg);
-  border: 1px solid #F0E3B8;
-  color: var(--gold-text);
+  background: #EAF6EE;
+  border: 1px solid #C4E5CE;
+  color: #1A7F37;
 }
