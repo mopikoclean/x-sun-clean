@@ -340,7 +340,7 @@ function markInvalid(needPhone) {
   return nameBad || dateBad || phoneBad || consentBad;
 }
 
-document.querySelectorAll('.js-order-tg').forEach((btn) => {
+document.querySelectorAll('.js-order-tg, .js-order-wa').forEach((btn) => {
   btn.addEventListener('click', (e) => {
     if (e.currentTarget.dataset.ready !== 'true') {
       e.preventDefault();
@@ -349,9 +349,9 @@ document.querySelectorAll('.js-order-tg').forEach((btn) => {
   });
 });
 
-// заявка «ми передзвонимо» — для тих, хто без месенджерів.
-// Кнопок дві (у сводці й унизу форми) — спільний обробник.
-const CB_LABEL = T.cbLabel;
+// замовлення через форму (без месенджерів). Кнопок дві (сводка й низ форми) —
+// спільний обробник. Після успіху ВСІ кнопки замовлення зникають
+// (контейнери .js-order-actions), лишається зелене підтвердження (.js-lead-ok).
 document.querySelectorAll('.js-callback').forEach((btn) => {
   const errEl = $(btn.dataset.err);
   btn.addEventListener('click', () => {
@@ -364,7 +364,11 @@ document.querySelectorAll('.js-callback').forEach((btn) => {
       return;
     }
 
-    document.querySelectorAll('.js-callback').forEach((b) => { b.disabled = true; });
+    // запам'ятовуємо власний підпис кожної кнопки (вони різні: з ціною і без)
+    document.querySelectorAll('.js-callback').forEach((b) => {
+      b.dataset.restore = b.innerHTML;
+      b.disabled = true;
+    });
     btn.textContent = T.leadSending;
 
     fetch(CONFIG.leadEndpoint, {
@@ -382,11 +386,12 @@ document.querySelectorAll('.js-callback').forEach((btn) => {
     })
       .then((r) => { if (!r.ok) throw new Error(r.status); })
       .then(() => {
-        document.querySelectorAll('.js-callback').forEach((b) => { b.hidden = true; });
+        // успіх: усі кнопки замовлення зникають — повторна відправка неможлива
+        document.querySelectorAll('.js-order-actions').forEach((el) => { el.hidden = true; });
         document.querySelectorAll('.js-lead-ok').forEach((o) => { o.hidden = false; });
       })
       .catch(() => {
-        document.querySelectorAll('.js-callback').forEach((b) => { b.disabled = false; b.textContent = CB_LABEL; });
+        document.querySelectorAll('.js-callback').forEach((b) => { b.disabled = false; b.innerHTML = b.dataset.restore; });
         errEl.textContent = T.leadFailed.replace('{phone}', CONFIG.phone);
         errEl.hidden = false;
       });
@@ -519,6 +524,13 @@ function render() {
     btn.dataset.ready = String(canSend);
     btn.href = href;
   });
+  const waHref = canSend ? 'https://wa.me/' + CONFIG.whatsapp + '?text=' + msg : '#';
+  document.querySelectorAll('.js-order-wa').forEach((btn) => {
+    btn.dataset.ready = String(canSend);
+    btn.href = waHref;
+  });
+  // актуальна ціна на головній кнопці замовлення (десктоп/планшет)
+  document.querySelectorAll('.js-btn-total').forEach((el) => { el.textContent = fmt(total) + ' zł'; });
 }
 
 render();

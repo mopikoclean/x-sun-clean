@@ -599,16 +599,43 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
   background: rgba(255, 255, 255, .14);
 }
 
-/* зелений = успіх (жовтий читався як попередження/помилка) */
+/* зелений = успіх (жовтий читався як попередження/помилка), з галочкою */
 .lead-success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   background: rgba(52, 168, 105, .14);
   border: 1px solid rgba(52, 168, 105, .45);
   border-radius: var(--radius-md);
   padding: 14px 16px;
   font: 500 14px/1.5 var(--font-body);
   color: #7FD8A4;
-  text-align: center;
+  text-align: left;
 }
+.lead-success svg { flex: none; }
+.lead-success[hidden] { display: none; }
+
+/* ---- CTA замовлення: десктоп/планшет — форма головна (ціна на кнопці),
+   мобайл — Telegram головний. Перемикання варіантів через ord-wide/ord-narrow. */
+.order-actions { display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 768px) { .ord-narrow { display: none !important; } }
+@media (max-width: 767px) { .ord-wide { display: none !important; } }
+
+.msgr-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font: 500 13px var(--font-body);
+  color: rgba(255, 255, 255, .55);
+}
+.msgr-row .btn-icon { width: 42px; height: 42px; }
+.msgr-row .btn-icon svg { width: 19px; height: 19px; }
+.msgr-row.light { color: var(--muted-light); }
+/* іконки на темній картці сводки */
+.summary-card .btn-icon { border-color: rgba(255, 255, 255, .3); color: #fff; }
+.summary-card .btn-icon:hover { border-color: #fff; }
 .lead-error { text-align: center; color: var(--danger-light); }
 
 .summary-note {
