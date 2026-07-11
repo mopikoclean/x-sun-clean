@@ -142,6 +142,9 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
 }
 .btn-icon:hover { border-color: var(--ink); }
 .btn-icon svg { width: 22px; height: 22px; }
+/* оптичне центрування «літачка» Telegram: гліф у viewBox зміщений
+   вправо-вгору (bbox-центр 10.28×9.67 замість 10×10) — компенсуємо */
+.btn-icon.js-order-tg svg, .btn-icon[data-tg] svg { transform: translate(-0.6px, 0.6px); }
 
 /* колір тексту кнопки фіксований і не змінюється при ховері
    (перебиває загальне правило a:hover — інакше жовтий текст ставав

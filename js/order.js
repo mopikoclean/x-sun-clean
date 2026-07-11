@@ -349,7 +349,7 @@ function leadPayload() {
     time: TIMES[state.time],
     promo: state.promoCode,
     comment: state.comment,
-    order: buildOrderLines().join('\n'),
+    order: orderFacts(false).join('\n'), // боту — лише сухі факти, без привітання й підпису
   };
 }
 
@@ -432,7 +432,11 @@ const dmy = (iso) => (iso ? iso.split('-').reverse().join('.') : '');
 
 // текст замовлення (мовою сторінки) — людяне повідомлення для месенджера/заявки.
 // Пише його клієнт від першої особи: привітання, деталі списком, контакти, ввічливе питання.
-function buildOrderLines() {
+// Сухі факти замовлення (маркований список).
+// full=true — для повідомлення в месенджері (з датою і промокодом);
+// full=false — для заявки боту (дата/промо/коментар ідуть окремими полями,
+// тож у фактах їх не дублюємо).
+function orderFacts(full) {
   const base = basePrice();
   const disc = periodDisc();
   const per = PERIODS.find((p) => p.id === state.period);
@@ -452,12 +456,16 @@ function buildOrderLines() {
     d.push('• ' + T.period + ': ' + per.label.toLowerCase() + (disc ? ' (−' + disc * 100 + '%)' : ''));
   }
   if (extrasList) d.push('• ' + T.extras + ': ' + extrasList);
-  if (state.date) d.push('• ' + T.date + ': ' + dmy(state.date) + (state.time !== 'any' ? ', ' + TIMES[state.time].toLowerCase() : ''));
+  if (full && state.date) d.push('• ' + T.date + ': ' + dmy(state.date) + (state.time !== 'any' ? ', ' + TIMES[state.time].toLowerCase() : ''));
   // тривалість НЕ додаємо в повідомлення (лишається лише у сводці на сторінці)
-  if (state.promoCode) d.push('• ' + T.promo + ': ' + state.promoCode + ' (−' + Math.round(state.promoDisc * 100) + '%)');
+  if (full && state.promoCode) d.push('• ' + T.promo + ': ' + state.promoCode + ' (−' + Math.round(state.promoDisc * 100) + '%)');
   d.push('• ' + T.price + ': ' + fmt(total) + ' zł');
+  return d;
+}
 
-  const lines = [T.greeting, '', ...d];
+// Людське повідомлення для месенджера: привітання + факти + підпис.
+function buildOrderLines() {
+  const lines = [T.greeting, '', ...orderFacts(true)];
   if (state.comment) lines.push('• ' + T.comment + ': ' + state.comment);
   lines.push('');
   if (state.name && state.phone) lines.push(T.contactName + ' ' + state.name + ', ' + T.contactNum + ' ' + fullPhone() + '.');
