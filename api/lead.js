@@ -35,7 +35,11 @@ export default async function handler(req, res) {
 
   const name = s(b.name, 100);
   const phone = s(b.phone, 40);
-  if (!name || !phone) {
+  const source = s(b.source, 20);
+  // 'telegram'/'whatsapp' — автозаявка при переході в месенджер (телефон там
+  // необов'язковий: клієнт і так на зв'язку в месенджері)
+  const isMessenger = source === 'telegram' || source === 'whatsapp';
+  if (!name || (!isMessenger && !phone)) {
     return res.status(400).json({ ok: false, error: 'name and phone required' });
   }
 
@@ -45,9 +49,14 @@ export default async function handler(req, res) {
   const comment = s(b.comment, 600);
   const order = s(b.order, 2000);
 
-  const lines = ['🧹 Нова заявка з сайту — передзвонити', ''];
+  const head = source === 'telegram'
+    ? '📨 Замовлення з сайту — клієнт відкрив Telegram (може написати вам сам, це дубль для підстраховки)'
+    : source === 'whatsapp'
+      ? '📨 Замовлення з сайту — клієнт відкрив WhatsApp (може написати вам сам, це дубль для підстраховки)'
+      : '🧹 Нова заявка з сайту — передзвонити';
+  const lines = [head, ''];
   lines.push('👤 ' + name);
-  lines.push('📞 ' + phone);
+  if (phone) lines.push('📞 ' + phone);
   if (date || time) lines.push('📅 ' + [date, time].filter(Boolean).join(' · '));
   if (promo) lines.push('🎟 Промокод: ' + promo);
   if (comment) lines.push('💬 ' + comment);

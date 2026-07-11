@@ -633,6 +633,13 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
 .msgr-row .btn-icon { width: 42px; height: 42px; }
 .msgr-row .btn-icon svg { width: 19px; height: 19px; }
 .msgr-row.light { color: var(--muted-light); }
+/* перекреслена «стара» ціна на кнопці замовлення (якірна ціна = видима вигода) */
+.js-btn-old {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  opacity: .5;
+  font-weight: 600;
+}
 /* іконки на темній картці сводки */
 .summary-card .btn-icon { border-color: rgba(255, 255, 255, .3); color: #fff; }
 .summary-card .btn-icon:hover { border-color: #fff; }

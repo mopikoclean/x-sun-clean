@@ -340,12 +340,43 @@ function markInvalid(needPhone) {
   return nameBad || dateBad || phoneBad || consentBad;
 }
 
+// дані заявки — спільні для форми та авто-відправки при переході в месенджер
+function leadPayload() {
+  return {
+    name: state.name,
+    phone: state.phone.trim() ? fullPhone() : '',
+    date: state.date,
+    time: TIMES[state.time],
+    promo: state.promoCode,
+    comment: state.comment,
+    order: buildOrderLines().join('\n'),
+  };
+}
+
+// Клік по месенджер-кнопці: якщо все заповнено — відкриваємо месенджер і
+// ПАРАЛЕЛЬНО шлемо заявку боту (підстраховка: менеджер отримає замовлення,
+// навіть якщо клієнт так і не натисне «надіслати» в самому месенджері).
+let lastAutoLead = '';
 document.querySelectorAll('.js-order-tg, .js-order-wa').forEach((btn) => {
   btn.addEventListener('click', (e) => {
     if (e.currentTarget.dataset.ready !== 'true') {
       e.preventDefault();
       markInvalid(false);
+      return;
     }
+    if (!CONFIG.leadEndpoint) return;
+    const payload = JSON.stringify({
+      ...leadPayload(),
+      source: e.currentTarget.classList.contains('js-order-wa') ? 'whatsapp' : 'telegram',
+    });
+    if (payload === lastAutoLead) return; // повторний клік з тими ж даними — не дублюємо
+    lastAutoLead = payload;
+    fetch(CONFIG.leadEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: payload,
+      keepalive: true, // запит доживе, навіть коли вкладка піде в месенджер
+    }).catch(() => {});
   });
 });
 
@@ -374,15 +405,7 @@ document.querySelectorAll('.js-callback').forEach((btn) => {
     fetch(CONFIG.leadEndpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        name: state.name,
-        phone: fullPhone(),
-        date: state.date,
-        time: TIMES[state.time],
-        promo: state.promoCode,
-        comment: state.comment,
-        order: buildOrderLines().join('\n'),
-      }),
+      body: JSON.stringify({ ...leadPayload(), source: 'form' }),
     })
       .then((r) => { if (!r.ok) throw new Error(r.status); })
       .then(() => {
@@ -529,8 +552,13 @@ function render() {
     btn.dataset.ready = String(canSend);
     btn.href = waHref;
   });
-  // актуальна ціна на головній кнопці замовлення (десктоп/планшет)
+  // актуальна ціна на кнопці замовлення внизу форми (десктоп/планшет);
+  // поруч — перекреслена «стара» ціна, коли є вигода від знижок
   document.querySelectorAll('.js-btn-total').forEach((el) => { el.textContent = fmt(total) + ' zł'; });
+  document.querySelectorAll('.js-btn-old').forEach((el) => {
+    el.hidden = savings < 1;
+    el.textContent = fmt(fullPrice) + ' zł';
+  });
 }
 
 render();
