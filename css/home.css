@@ -741,7 +741,8 @@ html { scroll-behavior: smooth; }
   box-shadow: var(--shadow-lift);
   animation: fabin .28s cubic-bezier(.34, 1.4, .64, 1) both;
 }
-.fab-item.tel { background: var(--ink); color: #fff; font: 600 14.5px var(--font-body); animation-delay: .05s; }
+.fab-item.tel { background: var(--ink); color: #fff; font: 600 14.5px var(--font-body); animation-delay: .1s; }
+.fab-item.wa { background: #fff; color: var(--ink); border: 1px solid var(--border); font: 600 14.5px var(--font-body); animation-delay: .05s; }
 .fab-item.tg { background: var(--accent); color: var(--ink); font: 700 14.5px var(--font-body); }
 
 /* пульсація закритої кнопки — жовте кільце розходиться і згасає.
