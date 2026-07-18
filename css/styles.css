@@ -657,6 +657,33 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
   text-align: center;
 }
 
+/* ---- мобільна плаваюча панель «Оформити» (сторінка замовлення) ----
+   Видима лише коли сводки немає на екрані; ціну оновлює order.js
+   через спільні класи .js-btn-total / .js-btn-old. */
+.order-bar { display: none; }
+@media (max-width: 767px) {
+  .order-bar {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 70; /* над навігацією (60), під cookie-банером (100) */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 11px 20px calc(11px + env(safe-area-inset-bottom));
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -10px 30px -18px rgba(20, 20, 20, .35);
+    transform: translateY(105%);
+    transition: transform .35s var(--ease);
+  }
+  .order-bar.show { transform: translateY(0); }
+  .order-bar-label { display: block; font: 600 10.5px var(--font-body); color: var(--muted); text-transform: uppercase; letter-spacing: .8px; }
+  .order-bar-sum { font: 700 20px var(--font-display); letter-spacing: -.5px; white-space: nowrap; }
+  .order-bar .js-btn-old { font: 600 13px var(--font-body); color: var(--muted-light); margin-right: 3px; }
+  .order-bar-btn { flex: none; padding-left: 28px; padding-right: 28px; }
+}
+
 /* ===== Адаптивність ===== */
 @media (max-width: 1023px) {
   .nav-links { display: none; }

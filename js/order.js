@@ -657,3 +657,19 @@ function render() {
 }
 
 render();
+
+// ---- мобільна плаваюча панель «Оформити» ----
+// З'являється, коли сводки не видно (на мобайлі вона внизу сторінки),
+// і веде до неї — там усі способи замовлення. Ціну в панелі оновлює render()
+// через спільні класи .js-btn-total / .js-btn-old.
+(function orderBarInit() {
+  const bar = $('orderBar');
+  if (!bar || !('IntersectionObserver' in window)) return;
+  const summary = document.querySelector('.summary-card');
+  $('orderBarBtn').addEventListener('click', () => {
+    summary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  new IntersectionObserver(([entry]) => {
+    bar.classList.toggle('show', !entry.isIntersecting);
+  }, { threshold: 0.15 }).observe(summary);
+})();

@@ -26,7 +26,7 @@
 <meta name="twitter:image" content="https://x-sun-clean.vercel.app/img/og-pl.png">
 <link rel="icon" type="image/svg+xml" href="/img/logo.svg">
 <link rel="stylesheet" href="/css/fonts.css?v=46">
-<link rel="stylesheet" href="/css/styles.css?v=47">
+<link rel="stylesheet" href="/css/styles.css?v=48">
 </head>
 <body>
 
@@ -230,6 +230,15 @@
 
 </main>
 
+<!-- mobilny pływający pasek: aktualna cena + przejście do podsumowania -->
+<div class="order-bar" id="orderBar">
+  <div class="order-bar-price">
+    <span class="order-bar-label">Razem</span>
+    <span class="order-bar-sum"><span class="js-btn-old" hidden></span> <span class="js-btn-total"></span></span>
+  </div>
+  <button type="button" class="btn btn-primary order-bar-btn magnet" id="orderBarBtn">Zamów</button>
+</div>
+
 <footer class="footer standalone">
   <div class="foot-grid pad-x">
     <div class="foot-brand">
@@ -256,7 +265,7 @@
 
 <script defer src="/js/config.js?v=46"></script>
 <script defer src="/js/nav.js?v=46"></script>
-<script defer src="/js/order.js?v=48"></script>
+<script defer src="/js/order.js?v=49"></script>
 <script defer src="/js/fx.js?v=46"></script>
 <script defer src="/js/notice.js?v=46"></script>
 </body>
