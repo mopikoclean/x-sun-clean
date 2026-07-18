@@ -102,7 +102,7 @@ const EXTRAS = [
   { id: 'dishes', price: 25, top: true },
   { id: 'kitchenCab', price: 70 },
   { id: 'cabinets', price: 30, top: true },
-  { id: 'windows', price: 40, perUnit: true, top: true },
+  { id: 'windows', price: 50, perUnit: true, top: true },
   { id: 'balcony', price: 30, flatOnly: true, top: true },
   { id: 'balconyL', price: 60, flatOnly: true },
   { id: 'iron', price: 50, top: true },
