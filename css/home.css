@@ -581,7 +581,11 @@ html { scroll-behavior: smooth; }
 .biz-kicker { font: 600 13px var(--font-body); color: var(--accent); letter-spacing: 2px; text-transform: uppercase; }
 .biz-title { margin: 0; font: 700 clamp(30px, 3.8vw, 50px)/1.08 var(--font-display); letter-spacing: -1.5px; color: #fff; }
 .biz-text { margin: 0; max-width: 480px; font: 400 16.5px/1.65 var(--font-body); color: rgba(255, 255, 255, .65); }
-.biz-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+.biz-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.biz-ctas .btn-primary { display: inline-flex; align-items: center; gap: 9px; }
+/* месенджер-кнопки на темному фоні — як у сводці замовлення */
+.biz-ctas .btn-icon { border-color: rgba(255, 255, 255, .3); color: #fff; }
+.biz-ctas .btn-icon:hover { border-color: #fff; }
 
 .biz-rows { display: flex; flex-direction: column; gap: 14px; }
 .biz-row {
