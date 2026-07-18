@@ -498,6 +498,9 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
 .extra-label { font: 600 14px var(--font-body); display: block; }
 .extra-price { font: 700 14px var(--font-display); display: block; margin-top: 4px; }
 
+/* кнопка «Дивитись усі опції» під сіткою */
+.ex-more { margin-top: 12px; }
+
 /* ---- деталі ---- */
 .details-grid {
   display: grid;

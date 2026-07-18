@@ -21,6 +21,7 @@ const MESSAGES = {
     discount: 'Знижка',
     contactName: 'Мене звати', contactNum: 'мій номер', contactNumOnly: 'Мій номер:',
     cbLabel: 'Надіслати заявку', unitWindow: 'вікно',
+    extrasMore: 'Дивитись усі опції (+{n})', extrasLess: 'Згорнути',
     promoApplied: 'Промокод {code} застосовано: −{n}%',
     promoNotFound: 'Промокод не знайдено',
     leadUnavailable: 'Форма тимчасово недоступна — зателефонуйте нам: {phone}',
@@ -34,7 +35,13 @@ const MESSAGES = {
     },
     save: 'економія', popular: 'популярно',
     times: { any: 'Будь-який час', morning: 'Ранок (8–12)', day: 'День (12–16)', evening: 'Вечір (16–20)' },
-    extrasLabels: { oven: 'Духовка', fridge: 'Холодильник', micro: 'Мікрохвильовка', windows: 'Миття вікон', balcony: 'Балкон', iron: 'Прасування', dishes: 'Миття посуду', cabinets: 'Прибрати в шафі' },
+    extrasLabels: {
+      oven: 'Духовка', fridge: 'Холодильник', micro: 'Мікрохвильовка', hood: 'Витяжка',
+      dishes: 'Миття посуду', kitchenCab: 'Кухонні шафки', cabinets: 'Прибрати в шафі',
+      windows: 'Миття вікон', balcony: 'Балкон', balconyL: 'Балкон Г-подібний',
+      iron: 'Прасування', bedLinen: 'Змінити постіль', petTray: 'Лоток улюбленця', vacuum: 'Наш пилосос',
+      stairs: 'Сходи', porch: 'Ґанок', terrace: 'Тераса',
+    },
   },
   pl: {
     greeting: 'Witam! 👋 Chcę zamówić u Państwa sprzątanie. Oto szczegóły:',
@@ -52,6 +59,7 @@ const MESSAGES = {
     discount: 'Rabat',
     contactName: 'Mam na imię', contactNum: 'mój numer', contactNumOnly: 'Mój numer:',
     cbLabel: 'Wyślij zgłoszenie', unitWindow: 'okno',
+    extrasMore: 'Zobacz wszystkie opcje (+{n})', extrasLess: 'Zwiń',
     promoApplied: 'Kod {code} zastosowany: −{n}%',
     promoNotFound: 'Nie znaleziono kodu',
     leadUnavailable: 'Formularz chwilowo niedostępny — zadzwoń: {phone}',
@@ -65,7 +73,13 @@ const MESSAGES = {
     },
     save: 'oszczędność', popular: 'popularne',
     times: { any: 'Dowolna pora', morning: 'Rano (8–12)', day: 'Dzień (12–16)', evening: 'Wieczór (16–20)' },
-    extrasLabels: { oven: 'Piekarnik', fridge: 'Lodówka', micro: 'Mikrofalówka', windows: 'Mycie okien', balcony: 'Balkon', iron: 'Prasowanie', dishes: 'Zmywanie naczyń', cabinets: 'Porządek w szafie' },
+    extrasLabels: {
+      oven: 'Piekarnik', fridge: 'Lodówka', micro: 'Mikrofalówka', hood: 'Okap',
+      dishes: 'Zmywanie naczyń', kitchenCab: 'Szafki kuchenne', cabinets: 'Porządek w szafie',
+      windows: 'Mycie okien', balcony: 'Balkon', balconyL: 'Balkon w kształcie L',
+      iron: 'Prasowanie', bedLinen: 'Zmiana pościeli', petTray: 'Kuweta pupila', vacuum: 'Nasz odkurzacz',
+      stairs: 'Schody', porch: 'Ganek', terrace: 'Taras',
+    },
   },
 };
 const PAGE_LANG = (document.documentElement.lang || 'uk').slice(0, 2);
@@ -78,15 +92,26 @@ const PERIODS = [
   { id: 'week', disc: 0.20 },
 ].map((p) => ({ ...p, label: T.periods[p.id].label }));
 
+/* Порядок = групи: кухня → шафи → вікна/балкони → побут → подвір'я (для будинку).
+   top — вісім найпопулярніших: показуються одразу, решта — за «Дивитись усі опції». */
 const EXTRAS = [
-  { id: 'oven', price: 40 },
-  { id: 'fridge', price: 40 },
-  { id: 'micro', price: 18 },
-  { id: 'windows', price: 40, perUnit: true },
-  { id: 'balcony', price: 30 },
-  { id: 'iron', price: 45 },
-  { id: 'dishes', price: 25 },
-  { id: 'cabinets', price: 30 },
+  { id: 'oven', price: 40, top: true },
+  { id: 'fridge', price: 50, top: true },
+  { id: 'micro', price: 18, top: true },
+  { id: 'hood', price: 45 },
+  { id: 'dishes', price: 25, top: true },
+  { id: 'kitchenCab', price: 70 },
+  { id: 'cabinets', price: 30, top: true },
+  { id: 'windows', price: 40, perUnit: true, top: true },
+  { id: 'balcony', price: 30, flatOnly: true, top: true },
+  { id: 'balconyL', price: 60, flatOnly: true },
+  { id: 'iron', price: 50, top: true },
+  { id: 'bedLinen', price: 30 },
+  { id: 'petTray', price: 15 },
+  { id: 'vacuum', price: 30 },
+  { id: 'stairs', price: 30, houseOnly: true },
+  { id: 'porch', price: 30, houseOnly: true },
+  { id: 'terrace', price: 50, houseOnly: true },
 ].map((x) => ({ ...x, label: T.extrasLabels[x.id], ...(x.perUnit ? { unit: T.unitWindow } : {}) }));
 
 // Іконки опцій — лінійний стиль сайту (основні лінії currentColor, одна золота деталь).
@@ -115,6 +140,30 @@ const ICONS = {
     '<circle class="acc" cx="25" cy="8" r="2"/><circle class="acc-fill" cx="21" cy="4.5" r="1"/>'),
   cabinets: ICO('<rect x="6" y="4" width="20" height="24" rx="2"/><line x1="16" y1="4" x2="16" y2="28"/>' +
     '<circle class="acc-fill" cx="14" cy="16" r="1.1"/><circle class="acc-fill" cx="18" cy="16" r="1.1"/>'),
+  hood: ICO('<rect x="12" y="4" width="8" height="7"/><path d="M5 17 L12 11 L20 11 L27 17 Z"/>' +
+    '<path class="acc" d="M12 21.5 C13.2 22.5 11 24 12 25.2"/><path class="acc" d="M19 21.5 C20.2 22.5 18 24 19 25.2"/>'),
+  kitchenCab: ICO('<rect x="5" y="4" width="22" height="9" rx="1.5"/><line x1="16" y1="4" x2="16" y2="13"/>' +
+    '<rect x="5" y="19" width="22" height="9" rx="1.5"/><line x1="16" y1="19" x2="16" y2="28"/>' +
+    '<circle class="acc-fill" cx="13.5" cy="8.5" r="1.1"/><circle class="acc-fill" cx="18.5" cy="8.5" r="1.1"/>' +
+    '<circle class="acc-fill" cx="13.5" cy="23.5" r="1.1"/><circle class="acc-fill" cx="18.5" cy="23.5" r="1.1"/>'),
+  balconyL: ICO('<path d="M4 26 L18 26 L28 20.5"/><path d="M4 14 L18 14 L28 9"/>' +
+    '<line x1="7" y1="14" x2="7" y2="26"/><line x1="12" y1="14" x2="12" y2="26"/><line x1="17" y1="14" x2="17" y2="26"/>' +
+    '<line x1="22" y1="11.8" x2="22" y2="23.6"/><line x1="26" y1="9.9" x2="26" y2="21.6"/>' +
+    '<path class="acc" d="M9.5 13.5 C7 11.5 8 8 9.5 7.5 C11 8 12 11.5 9.5 13.5 Z"/>'),
+  bedLinen: ICO('<line x1="5" y1="9" x2="5" y2="27"/><path d="M5 21 H28 V27"/>' +
+    '<path d="M5 16 C13 16 15 21 28 21"/><rect class="acc" x="8" y="12" width="8" height="4.5" rx="2.2"/>'),
+  petTray: ICO('<path d="M5 14 H27 L25 25 H7 Z"/>' +
+    '<circle class="acc-fill" cx="14" cy="18" r="1"/><circle class="acc-fill" cx="16.5" cy="17.3" r="1"/>' +
+    '<circle class="acc-fill" cx="19" cy="18" r="1"/><circle class="acc" cx="16.5" cy="21" r="1.6"/>'),
+  vacuum: ICO('<circle cx="11" cy="21" r="6"/><circle class="acc" cx="11" cy="21" r="2"/>' +
+    '<path d="M16.5 18 C22 15 24 12 25 7.5"/><line x1="22.5" y1="6" x2="27.5" y2="8"/>'),
+  stairs: ICO('<path d="M4 27 H10 V21 H16 V15 H22 V9 H28"/>' +
+    '<path class="acc" d="M9 8.5 L9 14.5 M6 11.5 L12 11.5"/>'),
+  porch: ICO('<rect x="11" y="5" width="10" height="14" rx="1"/><path d="M8 5 H24"/>' +
+    '<path d="M8 23 H24"/><path d="M5 27 H27"/><circle class="acc-fill" cx="18.5" cy="12.5" r="1.1"/>'),
+  terrace: ICO('<path d="M16 5 C10 5 6 9 5.5 13.5 H26.5 C26 9 22 5 16 5 Z"/>' +
+    '<line x1="16" y1="13.5" x2="16" y2="26"/><line x1="4" y1="26" x2="28" y2="26"/>' +
+    '<circle class="acc-fill" cx="16" cy="4" r="1.2"/>'),
 };
 
 const TIMES = T.times;
@@ -129,6 +178,7 @@ const state = {
   kitchen: 'full',
   period: 'once',
   extrasQty: {},
+  extrasOpen: false,
   name: '',
   dial: '+48',
   phone: '',
@@ -156,9 +206,30 @@ const phoneOk = () => state.phone.replace(/\D/g, '').length >= 7;
 const fullPhone = () => state.dial + ' ' + state.phone.trim();
 const isReno = () => state.type === 'renovation';
 
+/* Вікна після ремонту (фарба, плівки, наліпки) — +20% до ціни за вікно.
+   Стосується лише типу «після ремонту», не квартир/будинків. */
+const extraPrice = (x) => (x.id === 'windows' && isReno() ? Math.round(x.price * 1.2) : x.price);
+
+/* Опції за типом житла: у будинку немає балконів, у квартирі — сходів,
+   ґанку й тераси. «Після ремонту» показує все (обʼєкт невідомий).
+   Прихована опція не входить у суму, але вибір не губиться при перемиканні. */
+const extraVisible = (x) => {
+  if (state.type === 'house') return !x.flatOnly;
+  if (state.type === 'flat') return !x.houseOnly;
+  return true;
+};
+const extrasTotal = () =>
+  EXTRAS.reduce((sum, x) => sum + (extraVisible(x) ? (state.extrasQty[x.id] || 0) * extraPrice(x) : 0), 0);
+
+/* Модель «база + кімнати»: базова ставка (виїзд, кухня, коридор) +
+   кожна кімната й санвузол окремо. 1+1 = 185, 2+1 = 225, 3+1 = 265. */
+const BASE_RATE = 95;
+const ROOM_RATE = 40;
+const BATH_RATE = 50;
+
 function basePrice() {
   if (isReno()) return state.area * RENO_RATE;
-  let raw = 184.90 + (state.rooms - 1) * 45 + (state.baths - 1) * 40;
+  let raw = BASE_RATE + state.rooms * ROOM_RATE + state.baths * BATH_RATE;
   if (state.kitchen === 'studio') raw -= 10;
   return state.type === 'house' ? raw * 1.2 : raw;
 }
@@ -247,6 +318,13 @@ EXTRAS.forEach((x) => {
     exGrid.appendChild(btn);
   }
 });
+
+// «Дивитись усі опції» — згорнутий список показує лише топ-8 (+ вибрані)
+const exMoreBtn = document.createElement('button');
+exMoreBtn.type = 'button';
+exMoreBtn.className = 'btn btn-ghost btn-block ex-more';
+exMoreBtn.addEventListener('click', () => { state.extrasOpen = !state.extrasOpen; render(); });
+exGrid.after(exMoreBtn);
 
 // ---- обробники ----
 document.querySelectorAll('.seg').forEach((btn) => {
@@ -440,9 +518,9 @@ function orderFacts(full) {
   const base = basePrice();
   const disc = periodDisc();
   const per = PERIODS.find((p) => p.id === state.period);
-  const extrasSum = EXTRAS.reduce((sum, x) => sum + (state.extrasQty[x.id] || 0) * x.price, 0);
+  const extrasSum = extrasTotal();
   const total = (base - base * disc + extrasSum) * (1 - state.promoDisc);
-  const extrasList = EXTRAS.filter((x) => state.extrasQty[x.id] > 0)
+  const extrasList = EXTRAS.filter((x) => extraVisible(x) && state.extrasQty[x.id] > 0)
     .map((x) => x.label.toLowerCase() + (x.perUnit && state.extrasQty[x.id] > 1 ? ' ×' + state.extrasQty[x.id] : ''))
     .join(', ');
 
@@ -480,7 +558,7 @@ function render() {
   const base = basePrice();
   const disc = periodDisc();
   const per = PERIODS.find((p) => p.id === state.period);
-  const extrasSum = EXTRAS.reduce((sum, x) => sum + (state.extrasQty[x.id] || 0) * x.price, 0);
+  const extrasSum = extrasTotal();
   const discountVal = base * disc;
   const subtotal = base - discountVal + extrasSum;
   const promoVal = subtotal * state.promoDisc;
@@ -513,15 +591,24 @@ function render() {
     else { save.hidden = true; }
   });
 
-  // опції
+  // опції (видимість — за типом житла; згорнуто — лише топ-8 і вибрані;
+  // ціна вікна після ремонту +20%)
+  let collapsedCount = 0;
   exGrid.querySelectorAll('.extra-card').forEach((el) => {
+    const x = EXTRAS.find((e) => e.id === el.dataset.extra);
     const q = state.extrasQty[el.dataset.extra] || 0;
+    const collapsed = !state.extrasOpen && !x.top && q === 0;
+    if (extraVisible(x) && collapsed) collapsedCount += 1;
+    el.hidden = !extraVisible(x) || collapsed;
     el.classList.toggle('on', q > 0);
+    if (x.perUnit) el.querySelector('.extra-price').textContent = extraPrice(x) + ' zł / ' + x.unit;
     const wv = el.querySelector('[data-wval]');
     if (wv) wv.textContent = q;
     const mc = el.querySelector('.mini-counter');
     if (mc) mc.hidden = q === 0;
   });
+  exMoreBtn.hidden = !state.extrasOpen && collapsedCount === 0;
+  exMoreBtn.textContent = state.extrasOpen ? T.extrasLess : T.extrasMore.replace('{n}', collapsedCount);
 
   // підсумок
   $('summaryText').textContent = isReno()
