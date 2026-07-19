@@ -12,8 +12,20 @@
   if (!banner) return;
 
   function enableAnalytics() {
-    /* Тут підключайте аналітичні скрипти (напр. Google Analytics) —
-       вони мають завантажуватися ВИКЛЮЧНО після згоди користувача. */
+    /* Google Tag Manager — вантажимо ЛИШЕ після згоди (GDPR/RODO).
+       Контейнер: GTM-5DQ5J2GW. Одноразово (guard від подвійного запуску). */
+    if (window.__gtmLoaded) return;
+    window.__gtmLoaded = true;
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5DQ5J2GW');
   }
 
   const decided = localStorage.getItem(KEY);
