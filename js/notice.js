@@ -74,9 +74,9 @@
       cat('xsMar', T.mar, false, false) +
     '</div>' +
     '<div class="xs-note-actions" id="xsActions">' +
-      '<button type="button" class="btn btn-primary magnet" id="xsAll">' + T.acceptAll + '</button>' +
-      '<button type="button" class="btn btn-ghost magnet" id="xsOnly">' + T.onlyNec + '</button>' +
       '<button type="button" class="xs-settings-link" id="xsSet">' + T.settings + '</button>' +
+      '<button type="button" class="btn btn-ghost magnet" id="xsOnly">' + T.onlyNec + '</button>' +
+      '<button type="button" class="btn btn-primary magnet" id="xsAll">' + T.acceptAll + '</button>' +
     '</div>' +
     '<div class="xs-note-actions" id="xsSaveRow" hidden>' +
       '<button type="button" class="btn btn-primary btn-block magnet" id="xsSave">' + T.save + '</button>' +
@@ -90,6 +90,7 @@
     $('xsPanel').hidden = false;
     $('xsActions').hidden = true;
     $('xsSaveRow').hidden = false;
+    banner.classList.add('is-open');
   }
 
   $('xsAll').addEventListener('click', () => save({ analytics: true, marketing: true }));

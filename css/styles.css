@@ -882,6 +882,7 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
 /* ===== Банер згоди (GDPR) =====
    Класи навмисно без слова "cookie" — інакше adblock-фільтри ховають банер. */
 /* Делікатна картка в кутку — скрол не блокуємо, фон не затемнюємо */
+/* нижній бар (не квадрат): текст ліворуч, дії праворуч */
 .xs-note {
   position: fixed;
   left: 0;
@@ -889,38 +890,46 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
   margin: 0 auto;
   bottom: 20px;
   width: calc(100% - 40px);
-  max-width: 380px;
+  max-width: 940px;
   z-index: 100;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 18px;
   box-shadow: var(--shadow-modal);
-  padding: 20px 22px;
+  padding: 16px 20px;
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  flex-direction: row;
+  align-items: center;
+  gap: 22px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
   animation: xs-note-up .35s var(--ease) both;
 }
 @keyframes xs-note-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
-.xs-note-text strong { display: block; font: 700 15px var(--font-display); letter-spacing: -.3px; margin-bottom: 6px; }
-.xs-note-text p { margin: 0; font: 400 13px/1.55 var(--font-body); color: var(--muted); }
+.xs-note-text { flex: 1 1 auto; min-width: 0; }
+.xs-note-text strong { display: block; font: 700 15px var(--font-display); letter-spacing: -.3px; margin-bottom: 3px; }
+.xs-note-text p { margin: 0; font: 400 13px/1.5 var(--font-body); color: var(--muted); }
 .xs-note-text a { color: var(--accent-dark); text-decoration: underline; }
 
-.xs-note { max-height: calc(100vh - 40px); overflow-y: auto; }
-.xs-note-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.xs-note-actions .btn { flex: 1 1 auto; }
+.xs-note-actions { display: flex; align-items: center; gap: 10px; flex: none; }
+.xs-note-actions .btn { white-space: nowrap; }
 .xs-settings-link {
-  flex: 1 1 100%;
   border: none;
   background: none;
   font: 600 13px var(--font-body);
   color: var(--muted);
   text-decoration: underline;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px 6px;
+  white-space: nowrap;
 }
 .xs-settings-link:hover { color: var(--ink); }
+
+/* розгорнутий стан (Налаштування) — бар стає компактною колонкою з панеллю */
+.xs-note.is-open { flex-direction: column; align-items: stretch; gap: 16px; max-width: 440px; }
+.xs-note.is-open #xsSaveRow { display: flex; }
+.xs-note.is-open #xsSaveRow .btn { flex: 1 1 auto; }
 
 /* панель категорій (Налаштування) */
 .xs-note-panel { display: flex; flex-direction: column; gap: 15px; padding-top: 16px; border-top: 1px solid var(--border); }
@@ -944,8 +953,11 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
 .xs-switch.is-locked { opacity: .5; }
 .xs-switch.is-locked input { cursor: default; }
 
-@media (max-width: 640px) {
-  .xs-note { bottom: 12px; width: calc(100% - 24px); }
+@media (max-width: 720px) {
+  .xs-note { flex-direction: column; align-items: stretch; bottom: 12px; width: calc(100% - 24px); gap: 14px; }
+  .xs-note-actions { flex-wrap: wrap; }
+  .xs-note-actions .btn { flex: 1 1 auto; }
+  .xs-settings-link { flex: 1 1 100%; order: 3; }
 }
 
 /* ===== Сторінка «Політика конфіденційності» ===== */
