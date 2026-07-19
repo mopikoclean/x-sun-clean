@@ -911,3 +911,25 @@ html { scroll-behavior: smooth; }
 
 /* ===== CTA у секції зони — окремий рядок під хмарою районів (відступ дає .zone-side gap) ===== */
 .zone-cta { align-self: flex-start; }
+
+/* ===== SEO-блок (приглушений текст під локальний пошук, унизу головної) ===== */
+.seo { padding: 64px 0; border-top: 1px solid var(--border); }
+.seo-title {
+  margin: 0 0 22px;
+  font: 700 12px/1.6 var(--font-body);
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+.seo-body { column-count: 2; column-gap: 56px; }
+.seo-body p {
+  margin: 0 0 14px;
+  font: 400 13.5px/1.75 var(--font-body);
+  color: var(--muted-light);
+  break-inside: avoid;
+}
+.seo-body strong { font-weight: 600; color: var(--muted); }
+@media (max-width: 767px) {
+  .seo { padding: 44px 0; }
+  .seo-body { column-count: 1; }
+}
