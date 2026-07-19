@@ -264,9 +264,13 @@ input::placeholder, textarea::placeholder { color: var(--muted-light); opacity: 
   font: 600 13.5px var(--font-body);
   text-align: left;
   color: var(--ink);
-  background: var(--bg);
+  background: transparent;
+  text-decoration: none;
   cursor: pointer;
+  transition: background-color .15s var(--ease);
 }
+/* ховер = підсвітка рядка (без підкреслення й жовтого тексту) */
+.lang-item:not(.soon):hover { background: var(--surface-warm); color: var(--ink); }
 .lang-item .check { color: var(--accent-dark); }
 
 .lang-item.soon {
