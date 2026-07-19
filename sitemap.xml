@@ -2,26 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://x-sun-clean.vercel.app/</loc>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://x-sun-clean.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://x-sun-clean.vercel.app/pl/"/>
+    <loc>https://mopiko.pl/</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/pl/"/>
   </url>
   <url>
-    <loc>https://x-sun-clean.vercel.app/pl/</loc>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://x-sun-clean.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://x-sun-clean.vercel.app/pl/"/>
+    <loc>https://mopiko.pl/pl/</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/pl/"/>
   </url>
   <url>
-    <loc>https://x-sun-clean.vercel.app/zamovlennya.html</loc>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://x-sun-clean.vercel.app/zamovlennya.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://x-sun-clean.vercel.app/pl/zamovlennya.html"/>
+    <loc>https://mopiko.pl/zamovlennya.html</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/zamovlennya.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/pl/zamovlennya.html"/>
   </url>
   <url>
-    <loc>https://x-sun-clean.vercel.app/pl/zamovlennya.html</loc>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://x-sun-clean.vercel.app/zamovlennya.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://x-sun-clean.vercel.app/pl/zamovlennya.html"/>
+    <loc>https://mopiko.pl/pl/zamovlennya.html</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/zamovlennya.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/pl/zamovlennya.html"/>
   </url>
   <url>
-    <loc>https://x-sun-clean.vercel.app/shcho-prybyraiemo.html</loc>
+    <loc>https://mopiko.pl/shcho-prybyraiemo.html</loc>
   </url>
 </urlset>
