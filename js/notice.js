@@ -14,7 +14,7 @@
     uk: {
       title: 'Ми поважаємо вашу приватність',
       intro: 'Ми використовуємо cookie для роботи сайту, аналітики та реклами. Необхідні завжди активні — аналітику й маркетинг вмикаємо лише з вашої згоди.',
-      privacy: 'Політика конфіденційності', privacyHref: '/privacy.html',
+      privacy: 'Політика конфіденційності', privacyHref: '/ua/privacy.html',
       acceptAll: 'Прийняти всі', onlyNec: 'Тільки необхідні', settings: 'Налаштування',
       save: 'Зберегти вибір',
       nec: ['Необхідні', 'Потрібні для роботи сайту. Завжди активні.'],
@@ -25,7 +25,7 @@
     pl: {
       title: 'Szanujemy Twoją prywatność',
       intro: 'Używamy plików cookie do działania strony, analityki i reklamy. Niezbędne są zawsze aktywne — analitykę i marketing włączamy tylko za Twoją zgodą.',
-      privacy: 'Polityka prywatności', privacyHref: '/privacy.html',
+      privacy: 'Polityka prywatności', privacyHref: '/polityka-prywatnosci.html',
       acceptAll: 'Zaakceptuj wszystkie', onlyNec: 'Tylko niezbędne', settings: 'Ustawienia',
       save: 'Zapisz wybór',
       nec: ['Niezbędne', 'Potrzebne do działania strony. Zawsze aktywne.'],

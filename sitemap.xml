@@ -3,25 +3,38 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mopiko.pl/</loc>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/pl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/ua/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mopiko.pl/"/>
   </url>
   <url>
-    <loc>https://mopiko.pl/pl/</loc>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/pl/"/>
+    <loc>https://mopiko.pl/ua/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/ua/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mopiko.pl/"/>
   </url>
   <url>
-    <loc>https://mopiko.pl/zamovlennya.html</loc>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/zamovlennya.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/pl/zamovlennya.html"/>
+    <loc>https://mopiko.pl/zamowienie.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/zamowienie.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/ua/zamovlennya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mopiko.pl/zamowienie.html"/>
   </url>
   <url>
-    <loc>https://mopiko.pl/pl/zamovlennya.html</loc>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/zamovlennya.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/pl/zamovlennya.html"/>
+    <loc>https://mopiko.pl/ua/zamovlennya.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/zamowienie.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/ua/zamovlennya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mopiko.pl/zamowienie.html"/>
   </url>
   <url>
-    <loc>https://mopiko.pl/shcho-prybyraiemo.html</loc>
+    <loc>https://mopiko.pl/co-sprzatamy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/co-sprzatamy.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/ua/shcho-prybyraiemo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mopiko.pl/co-sprzatamy.html"/>
+  </url>
+  <url>
+    <loc>https://mopiko.pl/ua/shcho-prybyraiemo.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://mopiko.pl/co-sprzatamy.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://mopiko.pl/ua/shcho-prybyraiemo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mopiko.pl/co-sprzatamy.html"/>
   </url>
 </urlset>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Co obejmuje sprzątanie — Mopiko clean · Poznań</title>
+<meta name="description" content="Interaktywna mapa sprzątania: najedź na pomieszczenie i zobacz, co dokładnie czyścimy w kuchni, pokoju, łazience i przedpokoju. Prace podstawowe i opcje dodatkowe.">
+<link rel="canonical" href="https://mopiko.pl/co-sprzatamy.html">
+<link rel="alternate" hreflang="pl" href="https://mopiko.pl/co-sprzatamy.html">
+<link rel="alternate" hreflang="uk" href="https://mopiko.pl/ua/shcho-prybyraiemo.html">
+<link rel="alternate" hreflang="x-default" href="https://mopiko.pl/co-sprzatamy.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mopiko clean">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="Co obejmuje sprzątanie — Mopiko clean · Poznań">
+<meta property="og:description" content="Interaktywna mapa sprzątania: najedź na pomieszczenie i zobacz, co dokładnie czyścimy w kuchni, pokoju, łazience i przedpokoju.">
+<meta property="og:url" content="https://mopiko.pl/co-sprzatamy.html">
+<meta property="og:image" content="https://mopiko.pl/img/og-pl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mopiko.pl/img/og-pl.png">
+<link rel="icon" type="image/svg+xml" href="/img/logo.svg">
+<link rel="stylesheet" href="/css/fonts.css?v=50">
+<link rel="stylesheet" href="/css/styles.css?v=53">
+<script src="/js/consent-init.js?v=52"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner pad-x">
+    <a href="/" class="brand">
+      <svg class="brand-logo" width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 18.5793V23.802H7.19635C8.76041 23.802 10.4448 23.7811 11.6872 24.7312C12.6091 25.4361 12.9053 26.3333 12.9053 26.3333H19.0947C20.5376 23.8536 23.8692 23.8341 26.7382 23.8341H32V18.6434H22.4198L29.2016 12.0429L25.4156 8.3581L18.6996 14.8945V5.66663H13.3333V14.8945L6.61728 8.3581L2.83128 12.0429L9.54733 18.5793H0Z" fill="#FFC300"></path></svg>
+      <span class="brand-name">Mopiko clean</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#poslugy">Usługi</a>
+      <a href="co-sprzatamy.html">Co sprzątamy</a>
+      <a href="/#tsiny">Cennik</a>
+      <a href="/#zona">Gdzie pracujemy</a>
+      <a href="/#biznes">Dla firm</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <div class="lang-wrap">
+        <button type="button" id="langBtn" class="lang-btn magnet" aria-haspopup="true" aria-expanded="false">
+          PL <span class="caret" id="langCaret"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>
+        </button>
+        <div class="lang-menu" id="langMenu" hidden>
+          <button type="button" class="lang-item" data-lang-close>Polski <span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8A100" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span></button>
+          <a href="/ua/shcho-prybyraiemo.html" class="lang-item">Українська</a>
+        </div>
+      </div>
+      <a href="#" data-tel class="btn btn-secondary btn-sm magnet"></a>
+    </div>
+  </div>
+</nav>
+
+<main class="what-page pad-x">
+  <header class="what-head">
+    <h1 class="page-title">Co obejmuje sprzątanie</h1>
+  </header>
+
+  <div class="what-tabs type-toggle" id="whatTabs"></div>
+
+  <div class="what-grid">
+    <div class="what-stage" id="whatStage"></div>
+    <aside class="what-side">
+      <span class="what-side-title">W cenie podstawowej</span>
+      <ul class="what-list" id="whatList"></ul>
+      <a href="/zamowienie.html" class="btn btn-primary btn-block magnet">Zamów sprzątanie <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+    </aside>
+  </div>
+</main>
+
+<footer class="footer standalone">
+  <div class="foot-grid pad-x">
+    <div class="foot-brand">
+      <svg class="brand-logo" width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 18.5793V23.802H7.19635C8.76041 23.802 10.4448 23.7811 11.6872 24.7312C12.6091 25.4361 12.9053 26.3333 12.9053 26.3333H19.0947C20.5376 23.8536 23.8692 23.8341 26.7382 23.8341H32V18.6434H22.4198L29.2016 12.0429L25.4156 8.3581L18.6996 14.8945V5.66663H13.3333V14.8945L6.61728 8.3581L2.83128 12.0429L9.54733 18.5793H0Z" fill="#FFC300"></path></svg>
+      <span class="name">Mopiko clean</span>
+    </div>
+    <a href="/polityka-prywatnosci.html" class="foot-link">Polityka prywatności</a>
+    <span class="foot-copy">© 2026 Mopiko clean</span>
+    <a class="foot-credit" href="https://kovalov.cz" target="_blank" rel="noopener">Projekt i realizacja — Kovalov</a>
+  </div>
+</footer>
+
+<!-- ================= COOKIE (GDPR) ================= -->
+<div class="xs-note" id="xsNote" role="dialog" aria-live="polite" aria-label="Informacja o prywatności" hidden></div>
+
+<script defer src="/js/config.js?v=50"></script>
+<script defer src="/js/nav.js?v=50"></script>
+<script defer src="/js/what.js?v=50"></script>
+<script defer src="/js/fx.js?v=50"></script>
+<script defer src="/js/notice.js?v=54"></script>
+</body>
+</html>

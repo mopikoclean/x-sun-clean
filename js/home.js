@@ -20,8 +20,8 @@ const basePrice = (r, b) => 95 + r * 40 + b * 50;
 // далі — на сторінку замовлення, щоб не вводити їх заново
 function syncCalcOrderLinks() {
   const q = '?rooms=' + calc.rooms + '&baths=' + calc.baths;
-  // шлях форми замовлення відповідно до мови сторінки
-  const orderUrl = PLANG === 'pl' ? '/pl/zamovlennya.html' : '/zamovlennya.html';
+  // шлях форми замовлення відповідно до мови сторінки (PL — корінь, UK — /ua/)
+  const orderUrl = PLANG === 'pl' ? '/zamowienie.html' : '/ua/zamovlennya.html';
   document.querySelectorAll('.js-calc-order').forEach((a) => { a.href = orderUrl + q; });
 }
 syncCalcOrderLinks();
