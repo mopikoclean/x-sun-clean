@@ -1,4 +1,4 @@
-/* ===== X-sun clean — головна сторінка ===== */
+/* ===== Mopiko clean — головна сторінка ===== */
 
 const $ = (id) => document.getElementById(id);
 const fmt = (n) => String(Math.round(n));
@@ -189,7 +189,7 @@ $('fabBtn').addEventListener('click', () => {
   fabItems.hidden = !open;
 });
 document.querySelectorAll('[data-tel-fab]').forEach((a) => {
-  a.href = 'tel:' + window.XSUN.phone.replace(/[^+\d]/g, '');
+  a.href = 'tel:' + window.MOPIKO.phone.replace(/[^+\d]/g, '');
 });
 
 /* ---- анімації (GSAP + ScrollTrigger) ---- */

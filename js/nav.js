@@ -1,18 +1,18 @@
 /* Навігація: телефон і перемикач мови (спільне для всіх сторінок) */
 (function () {
   document.querySelectorAll('[data-tel]').forEach((a) => {
-    if (!a.textContent.trim()) a.textContent = window.XSUN.phone;
-    a.href = 'tel:' + window.XSUN.phone.replace(/[^+\d]/g, '');
+    if (!a.textContent.trim()) a.textContent = window.MOPIKO.phone;
+    a.href = 'tel:' + window.MOPIKO.phone.replace(/[^+\d]/g, '');
   });
   document.querySelectorAll('[data-tg]').forEach((a) => {
-    a.href = 'https://t.me/' + window.XSUN.telegram;
+    a.href = 'https://t.me/' + window.MOPIKO.telegram;
   });
   document.querySelectorAll('[data-wa]').forEach((a) => {
-    a.href = 'https://wa.me/' + window.XSUN.whatsapp;
+    a.href = 'https://wa.me/' + window.MOPIKO.whatsapp;
   });
   document.querySelectorAll('[data-email]').forEach((a) => {
-    if (!a.textContent.trim()) a.textContent = window.XSUN.email;
-    a.href = 'mailto:' + window.XSUN.email;
+    if (!a.textContent.trim()) a.textContent = window.MOPIKO.email;
+    a.href = 'mailto:' + window.MOPIKO.email;
   });
 
   const langBtn = document.getElementById('langBtn');

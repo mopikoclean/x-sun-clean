@@ -1,5 +1,5 @@
 /* Контакти — замініть на реальні перед публікацією */
-window.XSUN = {
+window.MOPIKO = {
   phone: '+48 452 255 364',
   telegram: 'x_sun_clean',
   whatsapp: '48452255364',
