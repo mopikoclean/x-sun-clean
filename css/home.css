@@ -912,6 +912,19 @@ html { scroll-behavior: smooth; }
 /* ===== CTA у секції зони — окремий рядок під хмарою районів (відступ дає .zone-side gap) ===== */
 .zone-cta { align-self: flex-start; }
 
+/* посилання на повну сторінку «Що прибираємо» (перелінковка + SEO) */
+.what-more {
+  display: inline-block;
+  margin-top: 14px;
+  align-self: center;
+  font: 600 13.5px var(--font-body);
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .2s var(--ease);
+}
+.what-more:hover { color: var(--ink); }
+
 /* ===== SEO-блок (приглушений текст під локальний пошук, унизу головної) ===== */
 .seo { padding: 64px 0; border-top: 1px solid var(--border); }
 .seo-title {

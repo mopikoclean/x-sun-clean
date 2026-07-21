@@ -181,6 +181,23 @@ FAQS.forEach((f, i) => {
   faqList.appendChild(item);
 });
 
+/* ---- FAQPage (schema.org) — з тих самих даних FAQ, для rich-результатів Google ---- */
+(function injectFaqSchema() {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.textContent = JSON.stringify(data);
+  document.head.appendChild(s);
+})();
+
 /* ---- плаваюча кнопка ---- */
 const fab = $('fab');
 const fabItems = $('fabItems');

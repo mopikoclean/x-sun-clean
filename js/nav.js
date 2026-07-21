@@ -15,6 +15,32 @@
     a.href = 'mailto:' + window.MOPIKO.email;
   });
 
+  // LocalBusiness (schema.org) — для локального пошуку Google. Телефон з config,
+  // мова опису — з <html lang>. Адресу додати, коли зʼявляться реквізити.
+  (function injectLocalBusiness() {
+    const lang = (document.documentElement.lang || 'pl').slice(0, 2);
+    const data = {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: 'Mopiko clean',
+      description: lang === 'uk'
+        ? 'Клінінгова компанія у Познані: прибирання квартир, будинків та офісів. Фіксована ціна, власні засоби, оплата після прибирання.'
+        : 'Firma sprzątająca w Poznaniu: sprzątanie mieszkań, domów i biur. Stała cena, własne środki, płatność po sprzątaniu.',
+      url: 'https://mopiko.pl/',
+      image: 'https://mopiko.pl/img/og-pl.png',
+      telephone: window.MOPIKO.phone.replace(/[^+\d]/g, ''),
+      priceRange: '185-1000 zł',
+      address: { '@type': 'PostalAddress', addressLocality: 'Poznań', addressCountry: 'PL' },
+      areaServed: { '@type': 'City', name: 'Poznań' },
+      availableLanguage: ['pl', 'uk'],
+      sameAs: ['https://t.me/' + window.MOPIKO.telegram, 'https://wa.me/' + window.MOPIKO.whatsapp],
+    };
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(data);
+    document.head.appendChild(s);
+  })();
+
   const langBtn = document.getElementById('langBtn');
   const langMenu = document.getElementById('langMenu');
   const langCaret = document.getElementById('langCaret');
