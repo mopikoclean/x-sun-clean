@@ -830,9 +830,9 @@ html { scroll-behavior: smooth; }
   /* згруповані CTA — на всю ширину й однакові (замість різної ширини по контенту) */
   .biz-ctas, .foot-btns { flex-direction: column; align-items: stretch; }
   .biz-ctas .btn, .foot-btns .btn { width: 100%; }
-  /* hero: головна кнопка на всю ширину, месенджер-іконки в ряд під нею */
-  .hero-ctas { justify-content: center; }
-  .hero-ctas .btn { flex: 1 1 100%; }
+  /* hero: на мобільному ховаємо CTA-зв'язку — калькулятор одразу нижче,
+     а знизу є плаваюча панель замовлення й кнопка чату */
+  .hero-ctas { display: none; }
   /* фільтр періодичності — однакові пігулки на всю ширину (gap дає місце бейджу) */
   .pills { gap: 14px; }
   .pills .pill { flex: 1 1 100%; text-align: center; }
