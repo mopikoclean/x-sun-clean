@@ -1,7 +1,7 @@
 /* Контакти — замініть на реальні перед публікацією */
 window.MOPIKO = {
   phone: '+48 452 255 364',
-  telegram: 'x_sun_clean',
+  telegram: 'mopiko_pl',
   whatsapp: '48452255364',
   email: 'xsunclen@gmail.com',
   /* Промокоди: код (великими літерами) → частка знижки на підсумок.
