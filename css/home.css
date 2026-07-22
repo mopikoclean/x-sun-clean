@@ -586,6 +586,9 @@ html { scroll-behavior: smooth; }
 /* месенджер-кнопки на темному фоні — як у сводці замовлення */
 .biz-ctas .btn-icon { border-color: rgba(255, 255, 255, .3); color: #fff; }
 .biz-ctas .btn-icon:hover { border-color: #fff; }
+/* підпис у месенджер-кнопках: на десктопі приховано (лишаються круглі іконки),
+   на мобільному показуємо — див. медіазапит ≤640px */
+.biz-ctas .mgr-label { display: none; }
 
 .biz-rows { display: flex; flex-direction: column; gap: 14px; }
 .biz-row {
@@ -830,8 +833,17 @@ html { scroll-behavior: smooth; }
   /* згруповані CTA — на всю ширину й однакові (замість різної ширини по контенту) */
   .foot-btns { flex-direction: column; align-items: stretch; }
   .foot-btns .btn { width: 100%; }
-  /* biz-ctas: «Zadzwoń» на всю ширину, месенджер-іконки в ряд під нею */
+  /* biz-ctas: «Zadzwoń» на всю ширину, під нею — дві кнопки з підписом (іконка + назва) */
   .biz-ctas .btn { flex: 1 1 100%; }
+  .biz-ctas .btn-icon {
+    flex: 1 1 0;
+    width: auto;
+    height: 54px;
+    border-radius: 999px;
+    gap: 10px;
+    padding: 0 14px;
+  }
+  .biz-ctas .btn-icon .mgr-label { display: inline; font-weight: 600; font-size: 15px; }
   /* hero: на мобільному ховаємо CTA-зв'язку — калькулятор одразу нижче,
      а знизу є плаваюча панель замовлення й кнопка чату */
   .hero-ctas { display: none; }
